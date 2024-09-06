@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://7xucjjga5p5t"]
+[gd_scene load_steps=10 format=3 uid="uid://7xucjjga5p5t"]
 
 [ext_resource type="Texture2D" uid="uid://8jl5xsmjy2y1" path="res://Assets/TilemapPrototype1Sheet.png" id="1_dujr3"]
 [ext_resource type="Script" path="res://Scripts/TileMap/UserInteractableTileMapLayer.gd" id="1_smv4y"]
 [ext_resource type="Script" path="res://Scripts/TileMap/InputComponent.gd" id="2_qj0pv"]
+[ext_resource type="Texture2D" uid="uid://uaifcna0yqus" path="res://Assets/SFTileSheet.png" id="2_vuot0"]
 [ext_resource type="Script" path="res://Scripts/TileMap/TilePlacementComponent.gd" id="3_ga87j"]
 [ext_resource type="Script" path="res://Scripts/TileMap/PathingComponent.gd" id="5_entbu"]
 
@@ -19,8 +20,14 @@ texture = ExtResource("1_dujr3")
 8:0/0 = 0
 9:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_507dg"]
+texture = ExtResource("2_vuot0")
+0:0/0 = 0
+1:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_4f3w8"]
 sources/0 = SubResource("TileSetAtlasSource_tai73")
+sources/1 = SubResource("TileSetAtlasSource_507dg")
 
 [node name="UserInteractableTileMapLayer" type="TileMapLayer"]
 position = Vector2(580, 320)
@@ -30,17 +37,9 @@ script = ExtResource("1_smv4y")
 
 [node name="InputComponent" type="Node2D" parent="."]
 script = ExtResource("2_qj0pv")
-sizeX = 12
-sizeY = 12
-
-[node name="TextureButton" type="TextureButton" parent="InputComponent"]
-offset_left = -48.25
-offset_top = -47.75
-offset_right = -32.25
-offset_bottom = -31.75
 
 [node name="TilePlacementComponent" type="Node2D" parent="."]
 script = ExtResource("3_ga87j")
 
-[node name="PathingComponent" type="Node2D" parent="."]
+[node name="PathingComponent" type="Node" parent="."]
 script = ExtResource("5_entbu")

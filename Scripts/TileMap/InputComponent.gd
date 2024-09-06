@@ -1,18 +1,6 @@
 class_name InputComponent
 extends Node2D
 
-signal userClickTile(coord: Vector2i)
-
-var tileMapLayer: TileMapLayer
-# use this for getting the button at the grid coordinate
-# { Vector2i Grid Coordinate : Texture Button }
-var tileButtonsDict: Dictionary
-
-# size dimensions of the user-interactable area
-# for now, this needs to be set manually to set the are the user can click on
-@export var sizeX: int = 8
-@export var sizeY: int = 8
-
 ## InputComponent is to be a child of a TileMapLayer
 ##
 ## Instead of trying to handle inputs ourselves, use input components Godot already provides: buttons
@@ -22,10 +10,27 @@ var tileButtonsDict: Dictionary
 ##
 ## The buttons generated are to be used as UI indicators, such as highlighting or hovering over tiles
 ## This DOES NOT handle tile placement
-## TODO : add hover and select textures
+## TODO : add hover and select textures?
+
+signal userClickTile(coord: Vector2i)
+
+var tileMapLayer: TileMapLayer
+# use this for getting the button at the grid coordinate
+# { Vector2i Grid Coordinate : Texture Button }
+var tileButtonsDict: Dictionary
+
+# size dimensions of the user-interactable area
+var sizeX: int
+var sizeY: int
 
 func _ready() -> void:
 	tileMapLayer = get_parent()
+	
+	generateTilemapButtons()
+	
+func setup(newGridSizeX: int, newGridSizeY: int) -> void:
+	sizeX = newGridSizeX
+	sizeY = newGridSizeY
 	
 	generateTilemapButtons()
 	
