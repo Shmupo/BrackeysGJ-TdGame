@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://u0da0rqffi33"]
+[gd_scene load_steps=6 format=4 uid="uid://u0da0rqffi33"]
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Texture2D" uid="uid://8jl5xsmjy2y1" path="res://Assets/TilemapPrototype1Sheet.png" id="2_e1nrq"]
+[ext_resource type="Script" path="res://Scripts/Entity/EntityManager.gd" id="3_hw5di"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
@@ -29,3 +30,8 @@ tile_set = SubResource("TileSet_bmptf")
 
 [node name="UserInteractableTileMapLayer" parent="." instance=ExtResource("1_oi0qw")]
 scale = Vector2(3, 3)
+
+[node name="EntityManager" type="Node2D" parent="UserInteractableTileMapLayer"]
+position = Vector2(-193.333, -106.667)
+scale = Vector2(0.333333, 0.333333)
+script = ExtResource("3_hw5di")

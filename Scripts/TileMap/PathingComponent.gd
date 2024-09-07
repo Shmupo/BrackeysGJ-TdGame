@@ -24,7 +24,6 @@ var path: PackedVector2Array
 # placing and removing paths will update the aStarGrid
 @onready var tilePlacementComponent: TilePlacementComponent = $"../TilePlacementComponent"
 
-
 func _ready() -> void:
 	# set cell size of aStarGrid - this should not change so only need to set once
 	aStarGrid.cell_size = Vector2(tileMapLayer.rendering_quadrant_size, tileMapLayer.rendering_quadrant_size)
