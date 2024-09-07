@@ -12,13 +12,21 @@ extends Node
 ## The aStarGrid is initialized as a completely solid grid that is the same size as the rect defined in inputComponent
 ## A solid tile in the aStarGrid means it cannot be traversed
 
+# Godot's engine-provided search algorithm optimized for tileMapLayer
 var aStarGrid: AStarGrid2D = AStarGrid2D.new()
 
+# start of path
 var startCoord: Vector2i
+# end of path
 var endCoord: Vector2i
-var path: PackedVector2Array
 
-@onready var tileMapLayer: TileMapLayer = $".."
+# array of global grid coordinates represent each grid square on the path
+var path: Array[Vector2]
+
+# used to offest onto the center of the grid square
+var halfTileSize: Vector2
+
+@onready var tileMapLayer: UserInteractableTilemapLayer = $".."
 # retrieve grid sizing
 @onready var inputComponent: InputComponent = $"../InputComponent"
 # placing and removing paths will update the aStarGrid
@@ -26,7 +34,9 @@ var path: PackedVector2Array
 
 func _ready() -> void:
 	# set cell size of aStarGrid - this should not change so only need to set once
-	aStarGrid.cell_size = Vector2(tileMapLayer.rendering_quadrant_size, tileMapLayer.rendering_quadrant_size)
+	var cellSize: Vector2 = Vector2(tileMapLayer.rendering_quadrant_size, tileMapLayer.rendering_quadrant_size)
+	aStarGrid.cell_size = cellSize
+	halfTileSize = (cellSize / 2) * tileMapLayer.scale
 	
 	tilePlacementComponent.pathPlaced.connect(placePath)
 	tilePlacementComponent.pathRemoved.connect(removePath)
@@ -63,6 +73,7 @@ func initAStarGrid() -> void:
 
 
 # sets coordinate as not solid
+# updates the path every time this is called
 func placePath(coord: Vector2i) -> void:
 	aStarGrid.set_point_solid(coord, false)
 	#print(coord, " is now not solid")
@@ -70,6 +81,7 @@ func placePath(coord: Vector2i) -> void:
 
 
 # sets coordinate as solid
+# updates the path every time this is called
 func removePath(coord: Vector2i) -> void:
 	aStarGrid.set_point_solid(coord, true)
 	updatePath()
@@ -79,10 +91,19 @@ func removePath(coord: Vector2i) -> void:
 # will set path to null if no path found
 func updatePath() -> void:
 	if startCoord != null && endCoord != null:
-		path = aStarGrid.get_point_path(startCoord, endCoord)
+		# get_point_path only returns local coordinates
+		var localPath: PackedVector2Array = aStarGrid.get_point_path(startCoord, endCoord)
+		
+		# convert local coordinates to global coordinates
+		# also need to add tile size offset because the coordinates currently are positions at the top left corner of the grid square
+		if !localPath.is_empty():
+			path.clear()
+			for localCoord in localPath:
+				path.append(tileMapLayer.to_global(localCoord) + halfTileSize)
+		
 	else:
 		print("Error, cannot generate path between ", startCoord, " and ", endCoord)
 
 
-func getPath() -> PackedVector2Array:
+func getPath() -> Array[Vector2]:
 	return path

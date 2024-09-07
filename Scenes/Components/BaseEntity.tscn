@@ -1,7 +1,14 @@
-[gd_scene format=3 uid="uid://b614n4fq4gxqq"]
+[gd_scene load_steps=4 format=3 uid="uid://b614n4fq4gxqq"]
+
+[ext_resource type="Texture2D" uid="uid://3yb2bxlvhskv" path="res://Assets/BoidArrow.png" id="1_0j26r"]
+[ext_resource type="Script" path="res://Scripts/Entity/EntityBaseClass.gd" id="1_h0iyo"]
+[ext_resource type="Script" path="res://Scripts/Entity/MovementComponent.gd" id="3_vtlre"]
 
 [node name="BaseEntity" type="Node2D"]
+script = ExtResource("1_h0iyo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="EntitySprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0j26r")
 
 [node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("3_vtlre")

@@ -16,8 +16,9 @@ extends TileMapLayer
 @export var gridSizeX: int = 12
 @export var gridSizeY: int = 12
 
-var startTile: Vector2i = Vector2i(-5, -5) # placeholder
-var endTile: Vector2i = Vector2i(5, 5) # placeholder
+# set position of start and end
+var startTile: Vector2i = Vector2i(3, 3) # placeholder
+var endTile: Vector2i = Vector2i(-3, -3) # placeholder
 
 @onready var inputComponent: InputComponent = $InputComponent
 @onready var tilePlacementComponent: TilePlacementComponent = $TilePlacementComponent

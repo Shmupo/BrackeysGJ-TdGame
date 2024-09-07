@@ -12,17 +12,27 @@ extends Node2D
 # set as parent
 @onready var userInteractableTileMapLayer: UserInteractableTilemapLayer = $".."
 
-# entities that are waiting to be sent onto the path
-var waitingEntities: Array[Entity] = []
-# entities that are currently moving down the path
-var activeEntities: Array[Entity] = []
+# TESTING
+@onready var spawnEntityButton: Button = $"../../Button"
+
+var startCoord: Vector2
+
+# keep count of alive entities
+# increment when spawn entity
+# decrement when deleting entity
+var entitiesCount: int = 0
+
+func _ready() -> void:
+	spawnEntityButton.button_up.connect(spawnAndSendOutEntity)
 
 # make sure the the path is valid and generated before calling this
 func getPath() -> PackedVector2Array:
 	return userInteractableTileMapLayer.pathingComponent.getPath()
 
-func createTestEntity() -> void:
-	pass
-
-func sendOutNextEntity() -> void:
-	pass
+func spawnAndSendOutEntity() -> void:
+	entitiesCount += 1
+	var testEntityInstance: Entity = load("res://Scenes/Components/BaseEntity.tscn").instantiate()
+	# NOTE - need to add to scene first to allow certain variables to initialize
+	add_child(testEntityInstance)
+	testEntityInstance.setup(getPath())
+	testEntityInstance.startMoving()
