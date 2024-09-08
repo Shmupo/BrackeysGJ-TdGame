@@ -8,7 +8,6 @@ extends Node2D
 ## The bounds that define what tile the user can click on is taken from the InputComponent
 
 # emits whenever user places or removes a path tile
-signal pathModified
 signal pathPlaced(coord: Vector2i)
 signal pathRemoved(coord: Vector2i)
 
@@ -54,7 +53,6 @@ func _input(event: InputEvent) -> void:
 func placePathOnMap(coord: Vector2i) -> void:
 	tileMapLayer.set_cell(coord, tileSourceId, pathAtlasCoord)
 	pathPlaced.emit(coord)
-	pathModified.emit()
 
 
 # removes path at coordinate
@@ -62,4 +60,3 @@ func removePath(coord: Vector2i) -> void:
 	# setting source_id to -1 will make this an empty cell
 	tileMapLayer.set_cell(coord, -1)
 	pathRemoved.emit(coord)
-	pathModified.emit()

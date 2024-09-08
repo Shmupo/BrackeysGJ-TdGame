@@ -55,7 +55,7 @@ func initAStarGrid() -> void:
 	var rectSize: Vector2i = Vector2i(tileMapLayer.gridSizeX, tileMapLayer.gridSizeY)
 	aStarGrid.region = Rect2i(rectPosition, rectSize)
 	aStarGrid.update()
-	
+
 	# error checking
 	# this will print an error if it is impossible to path between startCoord and endCoord
 	if aStarGrid.get_point_path(startCoord, endCoord) == null:
@@ -93,14 +93,15 @@ func updatePath() -> void:
 	if startCoord != null && endCoord != null:
 		# get_point_path only returns local coordinates
 		var localPath: PackedVector2Array = aStarGrid.get_point_path(startCoord, endCoord)
-		
+		path.clear()
+
 		# convert local coordinates to global coordinates
 		# also need to add tile size offset because the coordinates currently are positions at the top left corner of the grid square
-		if !localPath.is_empty():
-			path.clear()
+		if localPath.size() > 0:
 			for localCoord in localPath:
 				path.append(tileMapLayer.to_global(localCoord) + halfTileSize)
-		
+				
+		print(path)
 	else:
 		print("Error, cannot generate path between ", startCoord, " and ", endCoord)
 

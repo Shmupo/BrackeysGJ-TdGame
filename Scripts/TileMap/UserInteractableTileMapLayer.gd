@@ -29,27 +29,21 @@ func _ready() -> void:
 		print("WARNING: gridSizeX should be even to avoid potential bugs")
 	if gridSizeY % 2 != 0:
 		print("WARNING: gridSizeY should be even to avoid potential bugs")
-	
+
 	setStartAndEndTiles()
-	
-	tilePlacementComponent.pathModified.connect(onPathModified)
-	
+
 	# set initial values to proc generation
 	inputComponent.setup(gridSizeX, gridSizeY)
 	pathingComponent.setup(startTile, endTile)
-	
+
 func setStartAndEndTiles() -> void:
 	var tileSource: int = 1
 	var startTileAtlas: Vector2i = Vector2i(0, 0)
 	var endTileAtlas: Vector2i = Vector2i(1, 0)
-	
+
 	set_cell(startTile, tileSource, startTileAtlas)
 	set_cell(endTile, tileSource, endTileAtlas)
-	
+
 	# adds start and end tile to invalid tiles in tilePlacementComponent 
 	# so that the user cannot draw a path on top of these
 	tilePlacementComponent.invalidCoords.append_array([startTile, endTile])
-
-func onPathModified() -> void:
-	pathingComponent.updatePath()
-	print(pathingComponent.path)
