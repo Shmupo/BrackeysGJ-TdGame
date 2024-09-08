@@ -14,7 +14,7 @@ var path: Array[Vector2]
 # tracking index to path coordinate that this entity is moving TOWARDS
 var pathIdx: int = 0
 
-var moveSpeed: float = 100
+var moveSpeed: float = 250
 
 # get parent
 @onready var entity: Entity = $".."

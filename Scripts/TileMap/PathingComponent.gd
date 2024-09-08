@@ -26,9 +26,9 @@ var path: Array[Vector2]
 # used to offest onto the center of the grid square
 var halfTileSize: Vector2
 
+# parent
 @onready var tileMapLayer: UserInteractableTilemapLayer = $".."
-# retrieve grid sizing
-@onready var inputComponent: InputComponent = $"../InputComponent"
+
 # placing and removing paths will update the aStarGrid
 @onready var tilePlacementComponent: TilePlacementComponent = $"../TilePlacementComponent"
 
@@ -51,8 +51,8 @@ func setup(newStartCoord: Vector2i, newEndCoord: Vector2i) -> void:
 
 # need to call everytime a new path is made
 func initAStarGrid() -> void:
-	var rectPosition: Vector2i = Vector2i(-inputComponent.sizeX / 2, -inputComponent.sizeY / 2)
-	var rectSize: Vector2i = Vector2i(inputComponent.sizeX, inputComponent.sizeY)
+	var rectPosition: Vector2i = Vector2i(-tileMapLayer.gridSizeX / 2, -tileMapLayer.gridSizeY / 2)
+	var rectSize: Vector2i = Vector2i(tileMapLayer.gridSizeX, tileMapLayer.gridSizeY)
 	aStarGrid.region = Rect2i(rectPosition, rectSize)
 	aStarGrid.update()
 	

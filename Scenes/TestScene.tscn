@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://u0da0rqffi33"]
+[gd_scene load_steps=7 format=4 uid="uid://u0da0rqffi33"]
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Texture2D" uid="uid://8jl5xsmjy2y1" path="res://Assets/TilemapPrototype1Sheet.png" id="2_e1nrq"]
 [ext_resource type="Script" path="res://Scripts/Entity/EntityManager.gd" id="3_hw5di"]
+[ext_resource type="PackedScene" uid="uid://dhauw1e87j6c7" path="res://Scenes/Components/Tower/TestTower1.tscn" id="4_iym6a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
@@ -42,3 +43,7 @@ offset_top = 308.0
 offset_right = 1072.0
 offset_bottom = 339.0
 text = "Spawn Entity"
+
+[node name="TestTower1" parent="." instance=ExtResource("4_iym6a")]
+position = Vector2(557, 322)
+scale = Vector2(2, 2)
