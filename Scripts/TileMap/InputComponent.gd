@@ -74,7 +74,7 @@ func createButton() -> TileMapButton:
 	newButton.set_size(Vector2(cellSize, cellSize))
 	
 	return newButton
-	
+
 func onTileClicked(gridCoord: Vector2i):
 	userClickTile.emit(gridCoord)
 	# DEBUG - pring coordinate that was clicked
