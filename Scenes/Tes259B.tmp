@@ -48,27 +48,25 @@ text = "Spawn Entity"
 position = Vector2(557, 322)
 scale = Vector2(2, 2)
 
+[node name="SpeedButton" type="Button" parent="TestTower1"]
+offset_left = 159.0
+offset_top = 32.0
+offset_right = 285.0
+offset_bottom = 63.0
+text = "Upgrade Speed"
+
+[node name="DamageButton" type="Button" parent="TestTower1"]
+offset_left = 197.5
+offset_top = 54.5
+offset_right = 340.5
+offset_bottom = 85.5
+text = "Upgrade Damage
+"
+
 [node name="ResetUpgradesButton" type="Button" parent="TestTower1"]
-offset_left = 207.5
-offset_top = 90.0
-offset_right = 255.5
-offset_bottom = 121.0
-text = "reset"
+offset_right = 8.0
+offset_bottom = 8.0
 
-[node name="AddSpeed" type="Button" parent="TestTower1"]
-offset_left = 200.0
-offset_top = 53.5
-offset_right = 255.0
-offset_bottom = 84.5
-text = "speed"
-
-[node name="AddDamage" type="Button" parent="TestTower1"]
-offset_left = 186.5
-offset_top = 17.5
-offset_right = 256.5
-offset_bottom = 48.5
-text = "damage"
-
+[connection signal="pressed" from="TestTower1/SpeedButton" to="TestTower1" method="_on_speed_button_pressed"]
+[connection signal="pressed" from="TestTower1/DamageButton" to="TestTower1" method="_on_damage_button_pressed"]
 [connection signal="pressed" from="TestTower1/ResetUpgradesButton" to="TestTower1" method="_on_reset_upgrades_button_pressed"]
-[connection signal="pressed" from="TestTower1/AddSpeed" to="TestTower1" method="_on_add_speed_pressed"]
-[connection signal="pressed" from="TestTower1/AddDamage" to="TestTower1" method="_on_add_damage_pressed"]

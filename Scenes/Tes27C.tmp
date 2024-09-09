@@ -47,28 +47,4 @@ text = "Spawn Entity"
 [node name="TestTower1" parent="." instance=ExtResource("4_iym6a")]
 position = Vector2(557, 322)
 scale = Vector2(2, 2)
-
-[node name="ResetUpgradesButton" type="Button" parent="TestTower1"]
-offset_left = 207.5
-offset_top = 90.0
-offset_right = 255.5
-offset_bottom = 121.0
-text = "reset"
-
-[node name="AddSpeed" type="Button" parent="TestTower1"]
-offset_left = 200.0
-offset_top = 53.5
-offset_right = 255.0
-offset_bottom = 84.5
-text = "speed"
-
-[node name="AddDamage" type="Button" parent="TestTower1"]
-offset_left = 186.5
-offset_top = 17.5
-offset_right = 256.5
-offset_bottom = 48.5
-text = "damage"
-
-[connection signal="pressed" from="TestTower1/ResetUpgradesButton" to="TestTower1" method="_on_reset_upgrades_button_pressed"]
-[connection signal="pressed" from="TestTower1/AddSpeed" to="TestTower1" method="_on_add_speed_pressed"]
-[connection signal="pressed" from="TestTower1/AddDamage" to="TestTower1" method="_on_add_damage_pressed"]
+fireDelaySeconds = null

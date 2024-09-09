@@ -1,3 +1,4 @@
+class_name Tower
 extends Node
 
 @onready var targetingComponent: TargetingComponent = $TargetingComponent
@@ -8,6 +9,9 @@ extends Node
 # fires after this amount of time has passed
 @export var fireDelaySeconds: float = 0.5
 var firing: bool = false
+
+# array of projectile upgrades to be applied
+var upgrades: Array[BaseProjectileStrategy] = []
 
 func _ready() -> void:
 	targetingComponent.areaEntered.connect(onTargetAreaEntered)
@@ -34,3 +38,14 @@ func onTargetAreaEntered() -> void:
 func onFireTimerTimeout() -> void:
 	firing = false
 	fire()
+
+func _on_reset_upgrades_button_pressed():
+	upgrades = []
+
+
+func _on_add_speed_pressed():
+	upgrades.append(SpeedStrategy.new())
+
+
+func _on_add_damage_pressed():
+	upgrades.append(DamageStrategy.new())
