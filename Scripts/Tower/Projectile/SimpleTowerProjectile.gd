@@ -1,6 +1,8 @@
+class_name SimpleTowerProjectile
 extends Node2D
 
 var projectileSpeed: float = 500
+var projectileDamage: float = 1
 var target: Node2D
 var moving: bool = false
 
