@@ -13,7 +13,7 @@ extends Node2D
 @onready var userInteractableTileMapLayer: UserInteractableTilemapLayer = $".."
 
 # TESTING
-@onready var spawnEntityButton: Button = $"../../SpawnEntityButton"
+@onready var spawnEntityButton: Button = %SpawnEntityButton
 
 var startCoord: Vector2
 
