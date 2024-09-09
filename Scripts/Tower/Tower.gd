@@ -72,4 +72,3 @@ func _on_add_speed_pressed():
 
 func _on_add_damage_pressed():
 	upgrades.append(DamageStrategy.new())
-
