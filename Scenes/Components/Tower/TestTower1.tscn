@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhauw1e87j6c7"]
+[gd_scene load_steps=9 format=3 uid="uid://dhauw1e87j6c7"]
 
 [ext_resource type="Texture2D" uid="uid://1dxs4cepqs1w" path="res://Assets/Resources/TestTower1Body.tres" id="1_udgcx"]
 [ext_resource type="Script" path="res://Scripts/Tower/Tower.gd" id="1_w7taf"]
 [ext_resource type="Texture2D" uid="uid://bfh13yodu0ibs" path="res://Assets/Resources/TestTower1Turret.tres" id="2_p2wjh"]
 [ext_resource type="Script" path="res://Scripts/Tower/TargetingComponent.gd" id="3_8ihh2"]
 [ext_resource type="Script" path="res://Scripts/Tower/ShootingComponent.gd" id="5_4dxmy"]
+[ext_resource type="Script" path="res://Scripts/Tower/ModsComponent.gd" id="6_xh02y"]
+[ext_resource type="Script" path="res://Scripts/Tower/TowerMenuButton.gd" id="7_lcyod"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s7i8f"]
 radius = 50.0
@@ -33,3 +35,14 @@ monitorable = false
 shape = SubResource("CircleShape2D_s7i8f")
 
 [node name="FireTimer" type="Timer" parent="."]
+
+[node name="ModsComponent" type="Node" parent="."]
+script = ExtResource("6_xh02y")
+
+[node name="TowerMenuButton" type="Button" parent="."]
+offset_left = -11.0
+offset_top = -13.0
+offset_right = 33.0
+offset_bottom = 45.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("7_lcyod")

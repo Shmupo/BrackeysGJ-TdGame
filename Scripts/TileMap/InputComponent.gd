@@ -77,5 +77,5 @@ func createButton() -> TileMapButton:
 
 func onTileClicked(gridCoord: Vector2i):
 	userClickTile.emit(gridCoord)
-	# DEBUG - pring coordinate that was clicked
+	# DEBUG - print coordinate that was clicked
 	#print(gridCoord)

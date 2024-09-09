@@ -15,10 +15,8 @@ extends Node2D
 func setup(path: PackedVector2Array) -> void:
 	if path.size() > 0:
 		movementComponent.setup(path)
-		position = path[0]
-	else:
-		print("Error: trying to set a path with no values onto entity, calling queue free onto entity")
-		# delete this entity since no path will be followed
+		global_position = path[0]
+	else: # no path set, delete self
 		queue_free()
 
 # pass into movement component

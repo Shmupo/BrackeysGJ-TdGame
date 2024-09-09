@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dyd4rvrn12tp"]
+
+[node name="ModsInventoryMenu" type="MarginContainer"]
+offset_top = 507.0
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="MenuBackgroundColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.574011, 0.792985, 0.419779, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ModsInventoryMenu" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LeftVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/ModsInventoryMenu/LeftVBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="MainMenuButton" type="Button" parent="MarginContainer/ModsInventoryMenu/LeftVBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="MidVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ModsRichTextLabel" type="RichTextLabel" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Inventory"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.313726)
+
+[node name="ModsGridContainer" type="GridContainer" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RightVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="StartWaveButton" type="Button" parent="MarginContainer/ModsInventoryMenu/RightVBoxContainer"]
+layout_mode = 2
+text = "Start Wave"

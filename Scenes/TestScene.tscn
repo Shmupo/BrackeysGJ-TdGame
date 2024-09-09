@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://u0da0rqffi33"]
+[gd_scene load_steps=9 format=4 uid="uid://u0da0rqffi33"]
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Texture2D" uid="uid://8jl5xsmjy2y1" path="res://Assets/TilemapPrototype1Sheet.png" id="2_e1nrq"]
 [ext_resource type="Script" path="res://Scripts/Entity/EntityManager.gd" id="3_hw5di"]
 [ext_resource type="PackedScene" uid="uid://dhauw1e87j6c7" path="res://Scenes/Components/Tower/TestTower1.tscn" id="4_iym6a"]
+[ext_resource type="PackedScene" uid="uid://s08lq8bnqkx0" path="res://Scenes/Components/Tower/TowerMenu.tscn" id="4_koogo"]
+[ext_resource type="PackedScene" uid="uid://dyd4rvrn12tp" path="res://Scenes/Components/ModsInventoryMenu.tscn" id="6_qdaid"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
@@ -24,12 +26,13 @@ sources/0 = SubResource("TileSetAtlasSource_73egr")
 [node name="TestScene" type="Node2D"]
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="."]
-position = Vector2(580, 320)
+position = Vector2(580, 272)
 scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAAAAP//AAACAAAAAAD/////AAACAAAAAAD//wAAAAACAAAAAAAAAAAAAAACAAAAAAABAAAAAAACAAAAAAABAP//AAACAAAAAAABAP7/AAACAAAAAAAAAP7/AAACAAAAAAD///7/AAACAAAAAAD+//7/AAACAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD+/wEAAAACAAAAAAD//wEAAAACAAAAAAAAAAEAAAACAAAAAAABAAEAAAACAAAAAAACAAEAAAACAAAAAAACAAAAAAACAAAAAAACAP//AAACAAAAAAACAP7/AAACAAAAAAACAP3/AAACAAAAAAABAP3/AAACAAAAAAAAAP3/AAACAAAAAAD///3/AAACAAAAAAD+//3/AAACAAAAAAD9//3/AAACAAAAAAD9//7/AAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAD9/wEAAAACAAAAAAD9/wIAAAACAAAAAAD+/wIAAAACAAAAAAD//wIAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAACAAIAAAACAAAAAAADAAIAAAACAAAAAAADAAEAAAACAAAAAAADAAAAAAACAAAAAAADAP//AAACAAAAAAADAP7/AAACAAAAAAADAP3/AAACAAAAAAADAPz/AAACAAAAAAACAPz/AAACAAAAAAABAPz/AAACAAAAAAAAAPz/AAACAAAAAAD///z/AAACAAAAAAD+//z/AAACAAAAAAD9//z/AAACAAAAAAD8//z/AAACAAAAAAD8//3/AAACAAAAAAD8//7/AAACAAAAAAD8////AAACAAAAAAD8/wAAAAACAAAAAAD8/wEAAAACAAAAAAD8/wIAAAACAAAAAAD8/wMAAAACAAAAAAD9/wMAAAACAAAAAAD+/wMAAAACAAAAAAD//wMAAAACAAAAAAAAAAMAAAACAAAAAAABAAMAAAACAAAAAAACAAMAAAACAAAAAAADAAMAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_bmptf")
 
 [node name="UserInteractableTileMapLayer" parent="." instance=ExtResource("1_oi0qw")]
+position = Vector2(580, 272)
 scale = Vector2(3, 3)
 
 [node name="EntityManager" type="Node2D" parent="UserInteractableTileMapLayer"]
@@ -37,7 +40,7 @@ position = Vector2(-193.333, -106.667)
 scale = Vector2(0.333333, 0.333333)
 script = ExtResource("3_hw5di")
 
-[node name="Button" type="Button" parent="."]
+[node name="SpawnEntityButton" type="Button" parent="."]
 offset_left = 963.0
 offset_top = 308.0
 offset_right = 1072.0
@@ -45,5 +48,12 @@ offset_bottom = 339.0
 text = "Spawn Entity"
 
 [node name="TestTower1" parent="." instance=ExtResource("4_iym6a")]
-position = Vector2(557, 322)
+position = Vector2(557, 275)
 scale = Vector2(2, 2)
+
+[node name="TowerMenu" parent="." instance=ExtResource("4_koogo")]
+top_level = true
+position = Vector2(265, 309)
+scale = Vector2(0.999999, 0.999999)
+
+[node name="ModsInventoryMenu" parent="." instance=ExtResource("6_qdaid")]
