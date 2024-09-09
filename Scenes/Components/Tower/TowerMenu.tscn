@@ -1,0 +1,213 @@
+[gd_scene load_steps=2 format=3 uid="uid://s08lq8bnqkx0"]
+
+[ext_resource type="Script" path="res://Scripts/Tower/ModMenu/TowerMenu.gd" id="1_efdv1"]
+
+[node name="TowerModMenu" type="Node2D"]
+script = ExtResource("1_efdv1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = -81.0
+offset_top = -125.0
+offset_right = 79.0
+offset_bottom = 125.0
+
+[node name="MenuBackgroundColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.182567, 0.316886, 0.343739, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TowerNameRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[center][Selected Tower Name]"
+fit_content = true
+scroll_active = false
+
+[node name="ModSlotRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="SlotMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SlotBackground" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow/SlotMarginContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="SnapPoint1" type="Node2D" parent="MarginContainer/VBoxContainer/ModSlotRow/SlotMarginContainer/SlotBackground"]
+unique_name_in_owner = true
+position = Vector2(13, 13)
+
+[node name="SlotBackground2" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow/SlotMarginContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="ModNameMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ModSlotRow/ModNameMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 12
+text = "Empty Slot"
+fit_content = true
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="ModSlotRow2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="SlotMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SlotBackground" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow2/SlotMarginContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="SnapPoint2" type="Node2D" parent="MarginContainer/VBoxContainer/ModSlotRow2/SlotMarginContainer/SlotBackground"]
+unique_name_in_owner = true
+position = Vector2(13, 13)
+
+[node name="SlotBackground2" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow2/SlotMarginContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="ModNameMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow2"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ModSlotRow2/ModNameMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 12
+text = "Empty Slot"
+fit_content = true
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="ModSlotRow3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="SlotMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow3"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SlotBackground" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow3/SlotMarginContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="SnapPoint3" type="Node2D" parent="MarginContainer/VBoxContainer/ModSlotRow3/SlotMarginContainer/SlotBackground"]
+unique_name_in_owner = true
+position = Vector2(13, 13)
+
+[node name="SlotBackground2" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow3/SlotMarginContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="ModNameMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow3"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ModSlotRow3/ModNameMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 12
+text = "Empty Slot"
+fit_content = true
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StoreButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Store"
+
+[node name="MoveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Move"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"

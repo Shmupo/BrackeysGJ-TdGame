@@ -4,7 +4,11 @@ extends Node2D
 # testing placeholder
 var projectileInstancePath: String = "res://Scenes/Components/Tower/Projectile/TestProjectile1.tscn"
 
+
+var damage: float = 1
+
 @onready var tower: Tower = get_owner()
+
 
 # This will create a projectile that is linked to the target
 func fireProjectile(target: Node2D) -> void:

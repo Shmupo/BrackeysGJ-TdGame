@@ -13,6 +13,8 @@ extends Node
 signal areaEntered
 
 @onready var targetingArea: Area2D = $"../TargetingArea2D"
+@onready var targetingShape: CollisionShape2D = $"../TargetingArea2D/CollisionShape2D"
+var targetingRadius: float = 50 : set = setTargetRadius
 
 # array of entity hitboxes (Area2D) in the order they entered the targeting area
 var targetQueue: Array = []
@@ -38,3 +40,9 @@ func onAreaEntered(area: Area2D) -> void:
 func onAreaExited(area: Area2D) -> void:
 	targetQueue.erase(area)
 	#print(targetQueue)
+
+# change targeting radius shape
+# TEST - not tested yet
+func setTargetRadius(value: float) -> void:
+	targetingRadius = value
+	targetingShape.shape.radius = value
