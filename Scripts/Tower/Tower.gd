@@ -35,10 +35,10 @@ func _ready() -> void:
 func fire() -> void:
 	if not firing:
 		firing = true
-		var target: Node2D = targetingComponent.getTarget()
-		
-		if target != null:
-			shootingComponent.fireProjectile(target)
+		var targetArr: Array = targetingComponent.getTargetArr()
+
+		if !targetArr.is_empty():
+			shootingComponent.fireProjectile(targetArr)
 			fireTimer.start()
 		else:
 			fireTimer.stop()
