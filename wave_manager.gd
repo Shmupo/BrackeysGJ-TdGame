@@ -52,3 +52,7 @@ func on_wave_end() -> void:
 func end_waves() -> void:
 	print("end_waves")
 	_on_end_waves.emit()
+
+
+func _on_start_wave_button_pressed() -> void:
+	pass # Replace with function body.
