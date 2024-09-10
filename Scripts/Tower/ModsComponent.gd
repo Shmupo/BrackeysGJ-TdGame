@@ -10,3 +10,12 @@ var mods: Array
 
 func getMods() -> Array:
 	return mods
+
+func addMod(modItem: ModItem) -> void:
+	if modItem not in mods: # prevent duplicates
+		mods.append(modItem)
+		#print(mods)
+
+func removeMod(modItem: ModItem) -> void:
+	mods.remove_at(mods.find(modItem))
+	#print(mods)
