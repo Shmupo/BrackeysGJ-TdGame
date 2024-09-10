@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dyd4rvrn12tp"]
+[gd_scene load_steps=3 format=3 uid="uid://dyd4rvrn12tp"]
+
+[ext_resource type="Texture2D" uid="uid://eeir17aat1a5" path="res://Assets/Resources/lightBoxRounded.tres" id="2_1gw81"]
+[ext_resource type="Script" path="res://Scripts/ModMenus/ModSlot.gd" id="3_3tsw1"]
 
 [node name="ModsInventoryMenu" type="MarginContainer"]
 offset_top = 507.0
@@ -54,7 +57,22 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.313726)
 
 [node name="ModsGridContainer" type="GridContainer" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer"]
+clip_contents = true
+layout_direction = 2
 layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 16
+
+[node name="ModSlot" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot"]
+position = Vector2(25, 25)
 
 [node name="RightVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
 custom_minimum_size = Vector2(100, 0)

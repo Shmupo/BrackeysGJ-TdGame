@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://s08lq8bnqkx0"]
+[gd_scene load_steps=5 format=3 uid="uid://s08lq8bnqkx0"]
 
-[ext_resource type="Script" path="res://Scripts/Tower/ModMenu/TowerMenu.gd" id="1_efdv1"]
+[ext_resource type="Script" path="res://Scripts/ModMenus/TowerMenu.gd" id="1_efdv1"]
+[ext_resource type="Script" path="res://Scripts/ModMenus/ModSlotRow.gd" id="2_2k6m1"]
+[ext_resource type="Texture2D" uid="uid://b0qyj2indrb0y" path="res://Assets/Resources/shadowBoxRounded.tres" id="2_x84v2"]
+[ext_resource type="Script" path="res://Scripts/ModMenus/ModSlot.gd" id="3_twtpq"]
 
 [node name="TowerModMenu" type="Node2D"]
 script = ExtResource("1_efdv1")
@@ -39,6 +42,7 @@ scroll_active = false
 [node name="ModSlotRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+script = ExtResource("2_2k6m1")
 
 [node name="SlotMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow"]
 layout_mode = 2
@@ -47,25 +51,15 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SlotBackground" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow/SlotMarginContainer"]
-custom_minimum_size = Vector2(26, 26)
+[node name="ModSlot" type="TextureRect" parent="MarginContainer/VBoxContainer/ModSlotRow/SlotMarginContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-color = Color(0, 0, 0, 0.27451)
+texture = ExtResource("2_x84v2")
+stretch_mode = 5
+script = ExtResource("3_twtpq")
 
-[node name="SnapPoint1" type="Node2D" parent="MarginContainer/VBoxContainer/ModSlotRow/SlotMarginContainer/SlotBackground"]
-unique_name_in_owner = true
-position = Vector2(13, 13)
-
-[node name="SlotBackground2" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow/SlotMarginContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-color = Color(0, 0, 0, 0.27451)
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/VBoxContainer/ModSlotRow/SlotMarginContainer/ModSlot"]
+position = Vector2(25, 25)
 
 [node name="ModNameMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow"]
 clip_contents = true
@@ -88,6 +82,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ModSlotRow2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+script = ExtResource("2_2k6m1")
 
 [node name="SlotMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow2"]
 layout_mode = 2
@@ -96,25 +91,15 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SlotBackground" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow2/SlotMarginContainer"]
-custom_minimum_size = Vector2(26, 26)
+[node name="ModSlot" type="TextureRect" parent="MarginContainer/VBoxContainer/ModSlotRow2/SlotMarginContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-color = Color(0, 0, 0, 0.27451)
+texture = ExtResource("2_x84v2")
+stretch_mode = 5
+script = ExtResource("3_twtpq")
 
-[node name="SnapPoint2" type="Node2D" parent="MarginContainer/VBoxContainer/ModSlotRow2/SlotMarginContainer/SlotBackground"]
-unique_name_in_owner = true
-position = Vector2(13, 13)
-
-[node name="SlotBackground2" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow2/SlotMarginContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-color = Color(0, 0, 0, 0.27451)
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/VBoxContainer/ModSlotRow2/SlotMarginContainer/ModSlot"]
+position = Vector2(25, 25)
 
 [node name="ModNameMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow2"]
 clip_contents = true
@@ -137,6 +122,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ModSlotRow3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+script = ExtResource("2_2k6m1")
 
 [node name="SlotMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow3"]
 layout_mode = 2
@@ -145,25 +131,15 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SlotBackground" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow3/SlotMarginContainer"]
-custom_minimum_size = Vector2(26, 26)
+[node name="ModSlot" type="TextureRect" parent="MarginContainer/VBoxContainer/ModSlotRow3/SlotMarginContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-color = Color(0, 0, 0, 0.27451)
+texture = ExtResource("2_x84v2")
+stretch_mode = 5
+script = ExtResource("3_twtpq")
 
-[node name="SnapPoint3" type="Node2D" parent="MarginContainer/VBoxContainer/ModSlotRow3/SlotMarginContainer/SlotBackground"]
-unique_name_in_owner = true
-position = Vector2(13, 13)
-
-[node name="SlotBackground2" type="ColorRect" parent="MarginContainer/VBoxContainer/ModSlotRow3/SlotMarginContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-color = Color(0, 0, 0, 0.27451)
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/VBoxContainer/ModSlotRow3/SlotMarginContainer/ModSlot"]
+position = Vector2(25, 25)
 
 [node name="ModNameMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ModSlotRow3"]
 clip_contents = true

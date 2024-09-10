@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://u0da0rqffi33"]
+[gd_scene load_steps=10 format=4 uid="uid://u0da0rqffi33"]
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Texture2D" uid="uid://8jl5xsmjy2y1" path="res://Assets/TilemapPrototype1Sheet.png" id="2_e1nrq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhauw1e87j6c7" path="res://Scenes/Components/Tower/TestTower1.tscn" id="4_iym6a"]
 [ext_resource type="PackedScene" uid="uid://s08lq8bnqkx0" path="res://Scenes/Components/Tower/TowerMenu.tscn" id="4_koogo"]
 [ext_resource type="PackedScene" uid="uid://dyd4rvrn12tp" path="res://Scenes/Components/ModsInventoryMenu.tscn" id="6_qdaid"]
+[ext_resource type="PackedScene" uid="uid://dk1dmpis207ce" path="res://Scenes/Components/ModItem/TestModItem.tscn" id="7_ydf57"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
@@ -73,11 +74,17 @@ offset_bottom = 42.0
 text = "damage"
 
 [node name="TowerMenu" parent="." instance=ExtResource("4_koogo")]
-top_level = true
 position = Vector2(265, 309)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="ModsInventoryMenu" parent="." instance=ExtResource("6_qdaid")]
+
+[node name="TestModItem2" parent="ModsInventoryMenu" instance=ExtResource("7_ydf57")]
+position = Vector2(69, -171)
+
+[node name="TestTower2" parent="." instance=ExtResource("4_iym6a")]
+position = Vector2(653, 188)
+scale = Vector2(2, 2)
 
 [connection signal="pressed" from="TestTower1/ResetUpgradesButton" to="TestTower1" method="_on_reset_upgrades_button_pressed"]
 [connection signal="pressed" from="TestTower1/AddSpeed" to="TestTower1" method="_on_add_speed_pressed"]

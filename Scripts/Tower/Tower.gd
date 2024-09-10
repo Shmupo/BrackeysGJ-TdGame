@@ -20,7 +20,6 @@ extends Node2D
 @export var fireDelaySeconds: float = 0.5
 var firing: bool = false
 
-
 var towerName: String = "TestTower1"
 
 # array of projectile upgrades to be applied
@@ -57,10 +56,17 @@ func onFireTimerTimeout() -> void:
 	fire()
 
 
+func addMod(modItem: ModItem) -> void:
+	modsComponent.addMod(modItem)
 
-# TODO
+
+func removeMod(modItem: ModItem) -> void:
+	modsComponent.removeMod(modItem)
+
+
 func getMods() -> Array:
-	return []
+	return modsComponent.getMods()
+
 
 func _on_reset_upgrades_button_pressed():
 	upgrades = []
