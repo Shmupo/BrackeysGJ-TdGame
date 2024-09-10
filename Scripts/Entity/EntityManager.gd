@@ -23,7 +23,8 @@ var startCoord: Vector2
 var entitiesCount: int = 0
 
 func _ready() -> void:
-	spawnEntityButton.button_up.connect(spawnAndSendOutEntity)
+	if spawnEntityButton != null:
+		spawnEntityButton.button_up.connect(spawnAndSendOutEntity)
 
 # make sure the the path is valid and generated before calling this
 func getPath() -> PackedVector2Array:
