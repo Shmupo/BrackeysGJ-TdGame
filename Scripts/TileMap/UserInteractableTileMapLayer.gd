@@ -36,6 +36,9 @@ func _ready() -> void:
 	inputComponent.setup(gridSizeX, gridSizeY)
 	pathingComponent.setup(startTile, endTile)
 
+	add_to_group("UserInteractableTileMapLayer")
+	
+
 func setStartAndEndTiles() -> void:
 	var tileSource: int = 1
 	var startTileAtlas: Vector2i = Vector2i(0, 0)

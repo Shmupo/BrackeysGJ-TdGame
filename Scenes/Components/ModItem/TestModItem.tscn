@@ -17,6 +17,10 @@
 [node name="TestModItem" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_qglq7")
+projectileSpeedAdd = -200.0
+projectileCountAdd = 3
+projectileDamageAdd = 2.0
+targetRangeAdd = 100.0
 
 [node name="ItemSprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_uh37h")

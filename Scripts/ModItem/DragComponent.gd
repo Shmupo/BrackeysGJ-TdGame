@@ -36,6 +36,7 @@ func snapToSlotInRange() -> void:
 		if modItem.global_position.distance_to(slot.global_position) < snapDistance:
 			slot.placeModItemInSlot(modItem)
 			modSlot = slot
+			break
 
 
 func _process(delta: float) -> void:

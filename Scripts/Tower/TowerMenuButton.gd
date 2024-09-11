@@ -18,3 +18,9 @@ func onPressed() -> void:
 	else:
 		towerMenu.closeMenu() # clears the menu just in case another was selected
 		towerMenu.openMenu(tower)
+
+func disableTowerMenu() -> void:
+	button_up.disconnect(onPressed)
+	
+func enableTowerMenu() -> void:
+	button_up.connect(onPressed)
