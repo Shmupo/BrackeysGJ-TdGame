@@ -4,6 +4,7 @@ extends Node2D
 @onready var pathing_component: PathingComponent = $UserInteractableTileMapLayer/PathingComponent
 @onready var tile_map_layer: TileMapLayer = $UserInteractableTileMapLayer
 @onready var input_component: InputComponent = $UserInteractableTileMapLayer/InputComponent
+@onready var entity_manager: EntityManager = %EntityManager
 
 func do_nothing() -> void:
 	pass
@@ -25,3 +26,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func spawn_base_entity() -> void:
+	entity_manager.spawnEntity("BaseEntity")
+	
+func spawn_other_entity() -> void:
+	entity_manager.spawnEntity("OtherEntity")

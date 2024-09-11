@@ -2,7 +2,7 @@ class_name Entity
 extends Node2D
 
 # get parent
-@onready var entityManager: EntityManager = $".."
+@onready var entityManager: EntityManager = %EntityManager
 
 @onready var movementComponent: MovementComponent = $MovementComponent
 

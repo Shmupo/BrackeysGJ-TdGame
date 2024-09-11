@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://rtxly054llgj"]
+
+[ext_resource type="Script" path="res://Scripts/Entity/EntityBaseClass.gd" id="1_bivde"]
+[ext_resource type="Texture2D" uid="uid://fp6c0gypmh5s" path="res://Assets/Angry Face.png" id="2_vy2ik"]
+[ext_resource type="Script" path="res://Scripts/Entity/MovementComponent.gd" id="3_rn0ff"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k5x4m"]
+radius = 20.0
+
+[node name="OtherEntity" type="Node2D"]
+script = ExtResource("1_bivde")
+
+[node name="EntitySprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vy2ik")
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("3_rn0ff")
+
+[node name="HitBoxArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+shape = SubResource("CircleShape2D_k5x4m")

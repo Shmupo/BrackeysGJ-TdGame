@@ -5,6 +5,7 @@ signal _on_wave_end
 
 @export var num_entities: int = 10
 @export var spawn_timer_wait_time: float = 0.75
+@export var entity_name: String = "BaseEntity"
 
 @onready var EntityManager = %EntityManager
 @onready var spawn_timer: Timer = $SpawnTimer
@@ -20,7 +21,7 @@ func start_wave() -> void:
 	
 	
 func spawn_next() -> void:
-	EntityManager.spawnAndSendOutEntity()
+	EntityManager.spawnEntity(entity_name)
 	num_entities -= 1
 	if (num_entities < 0):
 		end_wave()
