@@ -10,6 +10,8 @@ extends Node2D
 # passed the value to the movement component automatically
 @export var moveSpeed: float = 10 : set = setMoveSpeed
 
+@export var health: float = 5
+
 # sets the path for the entity to follow
 # places entity at start of path
 func setup(path: PackedVector2Array) -> void:
@@ -25,3 +27,13 @@ func setMoveSpeed(value: float) -> void:
 
 func startMoving() -> void:
 	movementComponent.startMoving()
+
+# perhaps particles, death sound, score, whatever
+# always good to have as seperate function
+func die() -> void:
+	queue_free()
+
+func removeHealth(amount: float) -> void:	
+	health -= amount
+	if health <= 0:
+		die()
