@@ -14,8 +14,8 @@ extends Node2D
 
 # pre-load scenes for enemy types
 @onready var enemy_type: Dictionary = {
-	"BaseEntity": load("res://Scenes/Components/BaseEntity.tscn"),
-	"OtherEntity": load("res://Scenes/Components/OtherEntity.tscn")
+	"BaseEntity": load("res://Scenes/Components/Entities/BaseEntity.tscn"),
+	"OtherEntity": load("res://Scenes/Components/Entities/OtherEntity.tscn")
 }
 
 # set as parent
