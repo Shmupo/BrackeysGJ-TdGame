@@ -41,7 +41,7 @@ func getPath() -> PackedVector2Array:
 
 func spawnAndSendOutEntity() -> void:
 	entitiesCount += 1
-	var testEntityInstance: Entity = load("res://Scenes/Components/BaseEntity.tscn").instantiate()
+	var testEntityInstance: Entity = load("res://Scenes/Components/Entities/BaseEntity.tscn").instantiate()
 	# NOTE - need to add to scene first to allow certain variables to initialize
 	add_child(testEntityInstance)
 	testEntityInstance.setup(getPath())

@@ -11,7 +11,7 @@ extends Node2D
 	"speed": 10,
 	"health": 10,
 	"armor": 0
-}
+} : set = configure
 
 # exposed here so you don't have to access the movementComponent
 # passed the value to the movement component automatically
@@ -37,11 +37,11 @@ func setup(path: PackedVector2Array) -> void:
 ## Accepts a dictionary with key value pairs to configure the entity.
 ## Use this method to apply the configuration the entity will have on spawn.
 func configure(new_config: Dictionary) -> void:
-	config = new_config
-	
+	if config != new_config:
+		config = new_config
+		
 	if config.has("speed"):
 		moveSpeed = config["speed"]
-		setMoveSpeed(moveSpeed)
 	
 	# TODO: update other internal variables
 
