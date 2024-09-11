@@ -1,0 +1,194 @@
+[gd_scene load_steps=2 format=3 uid="uid://hesw7o41aud4"]
+
+[ext_resource type="Script" path="res://Scripts/UIMenus/TutorialUI.gd" id="1_1wodi"]
+
+[node name="TutorialUi" type="Node2D"]
+script = ExtResource("1_1wodi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 40.0
+offset_right = 343.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 1)
+
+[node name="ShowButton" type="Button" parent="."]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 148.0
+offset_bottom = 40.0
+text = "Show Tutorial"
+
+[node name="TabContainer" type="TabContainer" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_top = 40.0
+offset_right = 343.0
+offset_bottom = 649.0
+theme_override_constants/outline_size = 6
+current_tab = 0
+tabs_visible = false
+
+[node name="HowToPlay - Placing Path" type="MarginContainer" parent="TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/HowToPlay - Placing Path"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="TabContainer/HowToPlay - Placing Path/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "How to play"
+fit_content = true
+
+[node name="Message" type="RichTextLabel" parent="TabContainer/HowToPlay - Placing Path/VBoxContainer"]
+layout_mode = 2
+text = "Please read through this tutorial - this is not exactly your traditional TD game!
+
+You will need to defend your village from waves of enemies, however...
+
+It is up to you to place the path the enemies will follow.
+
+Click on the map to place path tiles.
+
+You only have a limited number of paths, so plan carefully, as you cannot change the path while a wave of enemies has begun.
+
+The path MUST have a connection between the village and the forest.
+
+Diagonal paths are NOT valid paths."
+fit_content = true
+
+[node name="PlacingTowers" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/PlacingTowers"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="TabContainer/PlacingTowers/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "Placing Towers"
+fit_content = true
+
+[node name="Message" type="RichTextLabel" parent="TabContainer/PlacingTowers/VBoxContainer"]
+layout_mode = 2
+text = "Use towers to stop the enemies from reaching your village!
+
+To move a tower, click on it to open up a menu, and click \"Move.\"
+
+Hover your mouse over a tower to see the range of the tower.
+
+Move the tower with your mouse and click again to drop it into place.
+
+Note that you cannot move towers while the wave has started."
+fit_content = true
+
+[node name="YourFirstWave" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/YourFirstWave"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="TabContainer/YourFirstWave/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "Upgrading Towers"
+fit_content = true
+
+[node name="Message" type="RichTextLabel" parent="TabContainer/YourFirstWave/VBoxContainer"]
+layout_mode = 2
+text = "When you click on a tower, you will open the Tower Menu.
+
+Each tower has slots where you can drag and drop items into, which will modify that one tower in some way.
+
+You will recieve more items as the waves progress."
+fit_content = true
+
+[node name="Getting Towers" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Getting Towers"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="TabContainer/Getting Towers/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "Getting Towers"
+fit_content = true
+
+[node name="Message" type="RichTextLabel" parent="TabContainer/Getting Towers/VBoxContainer"]
+layout_mode = 2
+text = "After some waves, the villagers will build a tower for you.
+
+
+Simply keep progressing through the waves, and eventually, you will see that a new tower will have been placed on the map."
+fit_content = true
+
+[node name="UpgradingTowers" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/UpgradingTowers"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="TabContainer/UpgradingTowers/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "Ready?"
+fit_content = true
+
+[node name="Message" type="RichTextLabel" parent="TabContainer/UpgradingTowers/VBoxContainer"]
+layout_mode = 2
+text = "You are currently in the build phase. When you are finished, press the \"Start Wave\" button on the bottom right.
+
+Make sure you have placed your towers and paths carefully - you cannot change these while the wave is active."
+fit_content = true
+
+[node name="PreviousButton" type="Button" parent="."]
+offset_left = 14.0
+offset_top = 589.0
+offset_right = 109.0
+offset_bottom = 634.0
+text = "Previous"
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 232.0
+offset_top = 589.0
+offset_right = 328.0
+offset_bottom = 633.0
+text = "Next"
+
+[node name="TabCount" type="RichTextLabel" parent="."]
+offset_left = 126.0
+offset_top = 599.0
+offset_right = 213.0
+offset_bottom = 631.0
+bbcode_enabled = true
+text = "[center]1/4"
