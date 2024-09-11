@@ -23,11 +23,6 @@ func _ready() -> void:
 	
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func spawn_base_entity() -> void:
 	entity_manager.spawnEntity("BaseEntity")
 	

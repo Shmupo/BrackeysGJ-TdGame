@@ -49,7 +49,7 @@ func spawnAndSendOutEntity() -> void:
 
 
 ## Spawn entity by name
-func spawnEntity(name: String) -> void:
+func spawnEntity(name: String, config: Dictionary = {}) -> void:
 	entitiesCount += 1
 	var etype = enemy_type[name]
 	if etype == null:
@@ -58,6 +58,7 @@ func spawnEntity(name: String) -> void:
 	var instance: Entity = etype.instantiate()
 	add_child(instance)
 	instance.setup(getPath())
+	instance.configure(config)
 	instance.startMoving()
 	
 	

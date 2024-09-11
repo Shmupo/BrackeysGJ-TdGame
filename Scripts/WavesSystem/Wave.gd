@@ -1,4 +1,6 @@
+class_name Wave
 extends Node
+
 
 signal _on_wave_start
 signal _on_wave_end

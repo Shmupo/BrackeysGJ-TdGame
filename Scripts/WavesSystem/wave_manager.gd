@@ -16,11 +16,6 @@ signal _on_end_waves
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	wave_timer.one_shot = true
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 
 

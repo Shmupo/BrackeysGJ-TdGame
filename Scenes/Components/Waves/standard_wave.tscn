@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://baej7fheqkfj2"]
 
-[ext_resource type="Script" path="res://Scripts/WavesSystem/standard_wave.gd" id="1_ua2bq"]
+[ext_resource type="Script" path="res://Scripts/WavesSystem/Wave.gd" id="1_ua2bq"]
 
 [node name="StandardWave" type="Node"]
 script = ExtResource("1_ua2bq")
