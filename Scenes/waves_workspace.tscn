@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=4 uid="uid://dkkfan08n0c3k"]
+[gd_scene load_steps=8 format=4 uid="uid://dkkfan08n0c3k"]
 
-[ext_resource type="Script" path="res://Scenes/waves_workspace.gd" id="1_8ffdw"]
+[ext_resource type="Script" path="res://Scripts/WavesSystem/waves_workspace.gd" id="1_8ffdw"]
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_ktkp4"]
 [ext_resource type="Script" path="res://Scripts/Entity/EntityManager.gd" id="2_7t5ef"]
 [ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="3_qfab8"]
+[ext_resource type="PackedScene" uid="uid://baej7fheqkfj2" path="res://Scenes/Components/Waves/standard_wave.tscn" id="5_pn8wm"]
+[ext_resource type="Script" path="res://Scripts/WavesSystem/active_waves_label.gd" id="6_gf2wq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_530y3"]
+font_size = 14
 
 [node name="WavesWorkspace" type="Node2D"]
 script = ExtResource("1_8ffdw")
@@ -17,9 +22,16 @@ startTile = Vector2i(-25, -11)
 endTile = Vector2i(-1, -11)
 
 [node name="EntityManager" type="Node2D" parent="UserInteractableTileMapLayer"]
+unique_name_in_owner = true
 script = ExtResource("2_7t5ef")
 
 [node name="WaveManager" parent="." instance=ExtResource("3_qfab8")]
+
+[node name="WaveSet" type="Node" parent="WaveManager"]
+
+[node name="StandardWave" parent="WaveManager/WaveSet" instance=ExtResource("5_pn8wm")]
+
+[node name="StandardWave2" parent="WaveManager/WaveSet" instance=ExtResource("5_pn8wm")]
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = 1.0
@@ -30,6 +42,26 @@ offset_bottom = 647.0
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Active Waves"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="ActiveWavesLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "None"
+label_settings = SubResource("LabelSettings_530y3")
+script = ExtResource("6_gf2wq")
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -38,13 +70,8 @@ size_flags_horizontal = 3
 layout_mode = 2
 text = "Label 1"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-text = "Label 2"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
@@ -61,4 +88,9 @@ text = "Begin Waves"
 layout_mode = 2
 text = "Next Wave"
 
+[connection signal="_on_end_waves" from="WaveManager" to="PanelContainer/HBoxContainer/VBoxContainer3/ActiveWavesLabel" method="_on_end_waves"]
+[connection signal="_on_start_waves" from="WaveManager" to="PanelContainer/HBoxContainer/VBoxContainer3/ActiveWavesLabel" method="_on_start_waves"]
+[connection signal="_on_wave_end" from="WaveManager" to="PanelContainer/HBoxContainer/VBoxContainer3/ActiveWavesLabel" method="_on_wave_end"]
+[connection signal="_on_wave_start" from="WaveManager" to="PanelContainer/HBoxContainer/VBoxContainer3/ActiveWavesLabel" method="_on_wave_start"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/SpawnEntityButton" to="UserInteractableTileMapLayer/EntityManager" method="spawnAndSendOutEntity"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/BeginWavesButton" to="WaveManager" method="begin_waves"]
