@@ -206,26 +206,6 @@ script = ExtResource("3_3tsw1")
 [node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot14"]
 position = Vector2(25, 25)
 
-[node name="ModSlot15" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2_1gw81")
-stretch_mode = 5
-script = ExtResource("3_3tsw1")
-
-[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot15"]
-position = Vector2(25, 25)
-
-[node name="ModSlot16" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2_1gw81")
-stretch_mode = 5
-script = ExtResource("3_3tsw1")
-
-[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot16"]
-position = Vector2(25, 25)
-
 [node name="RightVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
