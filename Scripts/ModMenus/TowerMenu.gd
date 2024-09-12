@@ -105,10 +105,12 @@ func onMovePressed() -> void:
 		tower.towerDragComponent.setDrag()
 		closeMenu()
 
-# allows user to store the tower?
-func onStorePressed() -> void:
-	pass
-
 # remove the selected tower
 func clear() -> void:
 	tower = null
+
+func disableMove() -> void:
+	moveButton.disabled = true
+	
+func enableMove() -> void:
+	moveButton.disabled = false

@@ -26,16 +26,8 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="LeftVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-
-[node name="SettingsButton" type="Button" parent="MarginContainer/ModsInventoryMenu/LeftVBoxContainer"]
-layout_mode = 2
-text = "Settings"
-
-[node name="MainMenuButton" type="Button" parent="MarginContainer/ModsInventoryMenu/LeftVBoxContainer"]
-layout_mode = 2
-text = "Main Menu"
 
 [node name="MidVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
 layout_mode = 2
@@ -209,9 +201,5 @@ script = ExtResource("3_3tsw1")
 position = Vector2(25, 25)
 
 [node name="RightVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-
-[node name="StartWaveButton" type="Button" parent="MarginContainer/ModsInventoryMenu/RightVBoxContainer"]
-layout_mode = 2
-text = "Start Wave"
