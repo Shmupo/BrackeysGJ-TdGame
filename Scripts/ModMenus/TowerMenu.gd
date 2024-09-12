@@ -16,7 +16,6 @@ extends Node2D
 
 @onready var towerNameLabel: RichTextLabel = %TowerNameRichTextLabel
 @onready var moveButton: Button = %MoveButton
-@onready var storeButton: Button = %StoreButton
 @onready var closeButton: Button = %CloseButton
 @onready var modSlots: Array[ModSlot] = [
 	$MarginContainer/VBoxContainer/ModSlotRow/SlotMarginContainer/ModSlot,
@@ -37,6 +36,7 @@ var displayOffset: Vector2 = Vector2(-150, 0)
 func _ready() -> void:
 	add_to_group("TowerMenu")
 	
+	moveButton.button_up.connect(onMovePressed)
 	closeButton.button_up.connect(closeMenu)
 	
 	for slot: ModSlot in modSlots:
@@ -101,7 +101,9 @@ func removeTowerMod(modItem: ModItem) -> void:
 
 # allows user to move the tower
 func onMovePressed() -> void:
-	pass
+	if tower != null:
+		tower.towerDragComponent.setDrag()
+		closeMenu()
 
 # allows user to store the tower?
 func onStorePressed() -> void:

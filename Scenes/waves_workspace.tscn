@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://b8cgyql221o2"]
+[gd_scene load_steps=8 format=4 uid="uid://dv7eirq5roats"]
 
 [ext_resource type="Script" path="res://Scripts/WavesSystem/waves_workspace.gd" id="1_8ffdw"]
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_ktkp4"]
@@ -41,20 +41,20 @@ spawn_queue = Array[Dictionary]([{
 "config": {
 "example_property": 15,
 "health": 20,
-"speed": 15
+"speed": 50
 },
 "spawn_delay": 0.5,
 "type": "OtherEntity"
 }, {
 "config": {
-"speed": 20
+"speed": 100
 },
 "spawn_delay": 1.0,
 "type": "BaseEntity"
 }, {
 "": "",
 "config": {
-"speed": 10
+"speed": 50
 },
 "spawn_delay": 0.5,
 "type": "OtherEntity"

@@ -12,6 +12,7 @@ extends Node2D
 @onready var targetingComponent: TargetingComponent = $TargetingComponent
 @onready var shootingComponent: ShootingComponent = $ShootingComponent
 @onready var modsComponent: ModsComponent = $ModsComponent
+@onready var towerDragComponent: TowerDragComponent = $TowerDragComponent
 
 # if this timer is counting, do not fire
 @onready var fireTimer: Timer = $FireTimer
@@ -35,10 +36,10 @@ func _ready() -> void:
 func fire() -> void:
 	if not firing:
 		firing = true
-		var target: Node2D = targetingComponent.getTarget()
-		
-		if target != null:
-			shootingComponent.fireProjectile(target)
+		var targetArr: Array = targetingComponent.getTargetArr()
+
+		if !targetArr.is_empty():
+			shootingComponent.fireProjectile(targetArr)
 			fireTimer.start()
 		else:
 			fireTimer.stop()
