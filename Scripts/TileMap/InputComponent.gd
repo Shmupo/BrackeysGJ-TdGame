@@ -23,6 +23,10 @@ var tileButtonsDict: Dictionary
 var sizeX: int
 var sizeY: int
 
+# controls whether pressing tiles will emit a signal
+var allowInput: bool = true
+
+
 func _ready() -> void:
 	tileMapLayer = get_parent()
 	
@@ -33,6 +37,7 @@ func setup(newGridSizeX: int, newGridSizeY: int) -> void:
 	sizeY = newGridSizeY
 	
 	generateTilemapButtons()
+	
 	
 # generates the tile buttons for tile selection
 func generateTilemapButtons() -> void:
@@ -65,6 +70,7 @@ func generateTilemapButtons() -> void:
 		# adding to coord : button dictionary
 		tileButtonsDict[cellCoords[coordIdx]] = newButton
 
+
 # generate a TileMapButton instance with the correct tile size
 func createButton() -> TileMapButton:
 	var newButton: TileMapButton = TileMapButton.new()
@@ -75,7 +81,17 @@ func createButton() -> TileMapButton:
 	
 	return newButton
 
+
 func onTileClicked(gridCoord: Vector2i):
-	userClickTile.emit(gridCoord)
-	# DEBUG - print coordinate that was clicked
-	#print(gridCoord)
+	if allowInput:
+		userClickTile.emit(gridCoord)
+		# DEBUG - print coordinate that was clicked
+		#print(gridCoord)
+
+
+func disableInput() -> void:
+	allowInput = false
+	
+	
+func enableInput() -> void:
+	allowInput = true

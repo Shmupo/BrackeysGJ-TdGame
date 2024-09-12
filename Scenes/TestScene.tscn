@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://u0da0rqffi33"]
+[gd_scene load_steps=18 format=4 uid="uid://u0da0rqffi33"]
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Texture2D" uid="uid://8jl5xsmjy2y1" path="res://Assets/TilemapPrototype1Sheet.png" id="2_e1nrq"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://baej7fheqkfj2" path="res://Scenes/Components/Waves/standard_wave.tscn" id="9_yhh74"]
 [ext_resource type="Script" path="res://Scripts/TowerSpawner.gd" id="12_qrfwb"]
 [ext_resource type="Script" path="res://Scripts/ItemSpawner.gd" id="13_a0fh0"]
+[ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
+[ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
@@ -80,6 +82,7 @@ position = Vector2(265, 309)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="ModsInventoryMenu" parent="." instance=ExtResource("6_qdaid")]
+offset_right = 1152.0
 
 [node name="TestModItem2" parent="ModsInventoryMenu" instance=ExtResource("7_ydf57")]
 position = Vector2(69, -171)
@@ -88,6 +91,7 @@ position = Vector2(69, -171)
 visible = false
 
 [node name="WaveManager" parent="." instance=ExtResource("8_sb82m")]
+unique_name_in_owner = true
 
 [node name="WaveSet" type="Node" parent="WaveManager"]
 
@@ -114,6 +118,17 @@ offset_top = 338.0
 offset_right = 878.0
 offset_bottom = 369.0
 text = "AddItem"
+
+[node name="PhaseBar" parent="." instance=ExtResource("14_v56gd")]
+position = Vector2(357, -25)
+
+[node name="StartWaveButton" type="Button" parent="."]
+offset_left = 1026.0
+offset_top = 524.0
+offset_right = 1133.0
+offset_bottom = 555.0
+text = "Start Wave"
+script = ExtResource("15_p0fe1")
 
 [connection signal="pressed" from="UserInteractableTileMapLayer/VBoxContainer/StartWaveButton" to="WaveManager" method="begin_waves"]
 [connection signal="button_up" from="AddTowerButton" to="TowerSpawner" method="_on_add_tower_button_button_up"]
