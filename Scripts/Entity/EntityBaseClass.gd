@@ -8,13 +8,15 @@ extends Node2D
 
 # exposed here so you don't have to access the movementComponent
 # passed the value to the movement component automatically
-@export var moveSpeed: float = 10 : set = setMoveSpeed
+@export var moveSpeed: float = 10
 
 @export var health: float = 5
 
 # sets the path for the entity to follow
 # places entity at start of path
 func setup(path: PackedVector2Array) -> void:
+	setMoveSpeed(moveSpeed)
+	
 	if path.size() > 0:
 		movementComponent.setup(path)
 		global_position = path[0]
@@ -23,6 +25,9 @@ func setup(path: PackedVector2Array) -> void:
 
 # pass into movement component
 func setMoveSpeed(value: float) -> void:
+	if movementComponent == null:
+		return
+	
 	movementComponent.setMoveSpeed(value)
 
 func startMoving() -> void:

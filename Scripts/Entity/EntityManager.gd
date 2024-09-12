@@ -15,6 +15,8 @@ extends Node2D
 # TESTING
 @onready var spawnEntityButton: Button = $"../../SpawnEntityButton"
 
+@onready var knightEntity: PackedScene = preload("../../Scenes/Components/Entities/KnightEntity.tscn")
+
 var startCoord: Vector2
 
 # keep count of alive entities
@@ -31,7 +33,7 @@ func getPath() -> PackedVector2Array:
 
 func spawnAndSendOutEntity() -> void:
 	entitiesCount += 1
-	var testEntityInstance: Entity = load("res://Scenes/Components/BaseEntity.tscn").instantiate()
+	var testEntityInstance: Entity = knightEntity.instantiate()
 	# NOTE - need to add to scene first to allow certain variables to initialize
 	add_child(testEntityInstance)
 	testEntityInstance.setup(getPath())
