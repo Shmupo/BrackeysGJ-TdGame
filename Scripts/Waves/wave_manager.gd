@@ -11,7 +11,7 @@ signal _on_end_waves
 @onready var active_waves: Node = $ActiveWaves
 @onready var wave_timer: Timer = $WaveTimer
 
-
+var currentWave: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

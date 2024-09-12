@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://u0da0rqffi33"]
+[gd_scene load_steps=16 format=4 uid="uid://u0da0rqffi33"]
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Texture2D" uid="uid://8jl5xsmjy2y1" path="res://Assets/TilemapPrototype1Sheet.png" id="2_e1nrq"]
@@ -8,12 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://s08lq8bnqkx0" path="res://Scenes/Components/Tower/TowerMenu.tscn" id="4_koogo"]
 [ext_resource type="PackedScene" uid="uid://dyd4rvrn12tp" path="res://Scenes/Components/ModsInventoryMenu.tscn" id="6_qdaid"]
 [ext_resource type="PackedScene" uid="uid://dk1dmpis207ce" path="res://Scenes/Components/ModItem/TestModItem.tscn" id="7_ydf57"]
-
-[ext_resource type="PackedScene" uid="uid://hesw7o41aud4" path="res://Scenes/Components/TutorialUI.tscn" id="9_olebs"]
-
 [ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="8_sb82m"]
+[ext_resource type="PackedScene" uid="uid://hesw7o41aud4" path="res://Scenes/Components/TutorialUI.tscn" id="9_olebs"]
 [ext_resource type="PackedScene" uid="uid://baej7fheqkfj2" path="res://Scenes/Components/Waves/standard_wave.tscn" id="9_yhh74"]
-
+[ext_resource type="Script" path="res://Scripts/TowerSpawner.gd" id="12_qrfwb"]
+[ext_resource type="Script" path="res://Scripts/ItemSpawner.gd" id="13_a0fh0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
@@ -65,8 +64,14 @@ text = "Spawn Entity"
 layout_mode = 2
 text = "Begin Waves"
 
-[node name="TestTower1" parent="." instance=ExtResource("4_iym6a")]
-position = Vector2(557, 275)
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="TestTower1" parent="Towers" instance=ExtResource("4_iym6a")]
+position = Vector2(508, 296)
+scale = Vector2(2, 2)
+
+[node name="TestTower2" parent="Towers" instance=ExtResource("4_iym6a")]
+position = Vector2(653, 296)
 scale = Vector2(2, 2)
 
 [node name="TowerMenu" parent="." instance=ExtResource("4_koogo")]
@@ -79,12 +84,8 @@ scale = Vector2(0.999999, 0.999999)
 [node name="TestModItem2" parent="ModsInventoryMenu" instance=ExtResource("7_ydf57")]
 position = Vector2(69, -171)
 
-[node name="TestTower2" parent="." instance=ExtResource("4_iym6a")]
-position = Vector2(653, 188)
-scale = Vector2(2, 2)
-
-
 [node name="TutorialUi" parent="." instance=ExtResource("9_olebs")]
+visible = false
 
 [node name="WaveManager" parent="." instance=ExtResource("8_sb82m")]
 
@@ -94,8 +95,26 @@ scale = Vector2(2, 2)
 
 [node name="StandardWave2" parent="WaveManager/WaveSet" instance=ExtResource("9_yhh74")]
 
-[connection signal="pressed" from="UserInteractableTileMapLayer/VBoxContainer/StartWaveButton" to="WaveManager" method="begin_waves"]
-[connection signal="pressed" from="TestTower1/ResetUpgradesButton" to="TestTower1" method="_on_reset_upgrades_button_pressed"]
-[connection signal="pressed" from="TestTower1/AddSpeed" to="TestTower1" method="_on_add_speed_pressed"]
-[connection signal="pressed" from="TestTower1/AddDamage" to="TestTower1" method="_on_add_damage_pressed"]
+[node name="TowerSpawner" type="Node2D" parent="."]
+script = ExtResource("12_qrfwb")
 
+[node name="ItemSpawner" type="Node2D" parent="."]
+script = ExtResource("13_a0fh0")
+
+[node name="AddTowerButton" type="Button" parent="."]
+offset_left = 802.0
+offset_top = 303.0
+offset_right = 893.0
+offset_bottom = 334.0
+text = "Add Tower"
+
+[node name="AddItemButton" type="Button" parent="."]
+offset_left = 803.0
+offset_top = 338.0
+offset_right = 878.0
+offset_bottom = 369.0
+text = "AddItem"
+
+[connection signal="pressed" from="UserInteractableTileMapLayer/VBoxContainer/StartWaveButton" to="WaveManager" method="begin_waves"]
+[connection signal="button_up" from="AddTowerButton" to="TowerSpawner" method="_on_add_tower_button_button_up"]
+[connection signal="button_up" from="AddItemButton" to="ItemSpawner" method="_on_add_item_button_button_up"]

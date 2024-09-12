@@ -16,7 +16,6 @@ extends Node2D
 
 @onready var towerNameLabel: RichTextLabel = %TowerNameRichTextLabel
 @onready var moveButton: Button = %MoveButton
-@onready var storeButton: Button = %StoreButton
 @onready var closeButton: Button = %CloseButton
 @onready var modSlots: Array[ModSlot] = [
 	$MarginContainer/VBoxContainer/ModSlotRow/SlotMarginContainer/ModSlot,
