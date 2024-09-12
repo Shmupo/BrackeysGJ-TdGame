@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyd4rvrn12tp"]
+[gd_scene load_steps=4 format=3 uid="uid://dyd4rvrn12tp"]
 
+[ext_resource type="Script" path="res://Scripts/UIMenus/ModsInventoryMenu.gd" id="1_6jadv"]
 [ext_resource type="Texture2D" uid="uid://eeir17aat1a5" path="res://Assets/Resources/lightBoxRounded.tres" id="2_1gw81"]
 [ext_resource type="Script" path="res://Scripts/ModMenus/ModSlot.gd" id="3_3tsw1"]
 
@@ -7,6 +8,7 @@
 offset_top = 507.0
 offset_right = 1151.0
 offset_bottom = 648.0
+script = ExtResource("1_6jadv")
 
 [node name="MenuBackgroundColorRect" type="ColorRect" parent="."]
 layout_mode = 2

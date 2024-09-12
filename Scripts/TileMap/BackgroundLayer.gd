@@ -1,4 +1,4 @@
 extends Node
 
 func _ready() -> void:
-		add_to_group("BackgroundLayer")
+	add_to_group("BackgroundLayer")

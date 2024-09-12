@@ -72,7 +72,9 @@ func setTileInvalid(coord: Vector2i) -> void:
 
 # removes the coord from invalid coords
 func setTileValid(coord: Vector2i) -> void:
-	tilePlacementComponent.invalidCoords.remove_at(tilePlacementComponent.invalidCoords.find(coord))
+	var foundIdx: int = tilePlacementComponent.invalidCoords.find(coord)
+	if foundIdx != -1:
+		tilePlacementComponent.invalidCoords.remove_at(foundIdx)
 
 
 # returns true if the grid coordinate is a path tile or an invalid tile
@@ -81,6 +83,15 @@ func isCoordValid(coord: Vector2i) -> bool:
 	var isInvalidCoord: bool = coord not in tilePlacementComponent.invalidCoords
 	var isBackgroundTile: bool = backgroundLayer.get_cell_tile_data(coord) != null
 	return isNotPathTile and isInvalidCoord and isBackgroundTile
+
+
+# instantly places the tower onto this tile
+# also handles tile validity
+func placeAtTile(coord: Vector2i) -> void:
+	if isCoordValid(coord):
+		setTileValid(userInteractableTileMapLayer.local_to_map(userInteractableTileMapLayer.to_local(tower.global_position)))
+		tower.global_position = userInteractableTileMapLayer.to_global(userInteractableTileMapLayer.map_to_local(coord))
+		setTileInvalid(coord)
 
 
 func _process(delta: float) -> void:
