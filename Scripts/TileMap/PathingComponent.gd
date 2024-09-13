@@ -46,7 +46,13 @@ func setup(newStartCoord: Vector2i, newEndCoord: Vector2i) -> void:
 	startCoord = newStartCoord
 	endCoord = newEndCoord
 	
+	#Should start as false, idk where to change it.
+	aStarGrid.set_point_solid(startCoord, false)
+	aStarGrid.set_point_solid(endCoord, false)
+	
 	initAStarGrid()
+	
+	updatePath()
 
 
 # need to call everytime a new path is made
@@ -61,21 +67,20 @@ func initAStarGrid() -> void:
 	if aStarGrid.get_point_path(startCoord, endCoord) == null:
 		print("ERROR, impossible pathing between ", startCoord, " and ", endCoord)
 	
-	aStarGrid.fill_solid_region(aStarGrid.region)
 	
 	# set start and end tiles as not solid
-	aStarGrid.set_point_solid(startCoord, false)
-	aStarGrid.set_point_solid(endCoord, false)
+
 	
 	# disable diagonal movement
 	aStarGrid.diagonal_mode =AStarGrid2D.DIAGONAL_MODE_NEVER
 	#print(aStarGrid.region)
+	
 
 
 # sets coordinate as not solid
 # updates the path every time this is called
 func placePath(coord: Vector2i) -> void:
-	aStarGrid.set_point_solid(coord, false)
+	aStarGrid.set_point_solid(coord, true)
 	#print(coord, " is now not solid")
 	updatePath()
 
@@ -83,7 +88,7 @@ func placePath(coord: Vector2i) -> void:
 # sets coordinate as solid
 # updates the path every time this is called
 func removePath(coord: Vector2i) -> void:
-	aStarGrid.set_point_solid(coord, true)
+	aStarGrid.set_point_solid(coord, false)
 	updatePath()
 
 

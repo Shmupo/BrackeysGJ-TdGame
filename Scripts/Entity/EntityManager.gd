@@ -49,6 +49,9 @@ func spawnAndSendOutEntity() -> void:
 	testEntityInstance.setup(getPath())
 	testEntityInstance.startMoving()
 
+func giveNewPath(targetEntity):
+	print("1")
+
 
 ## Spawn entity by name
 func spawnEntity(name: String, config: Dictionary = {}) -> void:
