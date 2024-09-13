@@ -5,21 +5,30 @@ extends Node
 signal _on_wave_start
 signal _on_wave_end
 
-@export var num_entities: int = 10
+@export var num_entities: int: get = get_num_entities
 @export var spawn_timer_wait_time: float = 0.75
 @export var entity_name: String = "BaseEntity"
 
 @onready var EntityManager = %EntityManager
-@onready var spawn_timer: Timer = $SpawnTimer
+@onready var timer: Timer = $Timer
 
+
+func get_num_entities() -> int:
+	return num_entities
 
 func _ready() -> void:
-	spawn_timer.wait_time = spawn_timer_wait_time
+	if timer == null:
+		timer = Timer.new()
+		timer.name = "Timer"
+		add_child(timer)
+		
+	timer.wait_time = spawn_timer_wait_time
 
 func start_wave() -> void:
 	print("wave_start")
 	_on_wave_start.emit()
-	spawn_timer.start()
+	timer.connect("timeout", spawn_next)
+	timer.start()
 	
 	
 func spawn_next() -> void:
@@ -31,6 +40,6 @@ func spawn_next() -> void:
 
 func end_wave() -> void:
 	print("wave_end")
-	spawn_timer.stop()
+	timer.stop()
 	_on_wave_end.emit()
 	queue_free()

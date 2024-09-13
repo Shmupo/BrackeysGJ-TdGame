@@ -1,4 +1,8 @@
-extends Node2D
+extends Label
+
+
+@onready var wave_manager: Node2D = %WaveManager
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,4 +12,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	text = str(wave_manager.num_entities)

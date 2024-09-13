@@ -11,6 +11,8 @@ signal _on_end_waves
 @onready var active_waves: Node = $ActiveWaves
 @onready var wave_timer: Timer = $WaveTimer
 
+var num_entities: int: get = get_num_entities
+
 var currentWave: int = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -48,6 +50,12 @@ func on_wave_end() -> void:
 func end_waves() -> void:
 	print("end_waves")
 	_on_end_waves.emit()
+
+func get_num_entities() -> int:
+	var num = 0
+	for wave in $ActiveWaves.get_children():
+		num += wave.num_entities
+	return num
 
 
 func _on_start_wave_button_pressed() -> void:

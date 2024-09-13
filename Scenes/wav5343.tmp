@@ -34,11 +34,6 @@ visible = false
 
 [node name="WaveSet" type="Node" parent="WaveManager"]
 
-[node name="Wave" type="Node" parent="WaveManager/WaveSet"]
-script = ExtResource("7_1uvea")
-num_entities = 15
-spawn_timer_wait_time = 0.25
-
 [node name="DictWave2" parent="WaveManager/WaveSet" instance=ExtResource("5_30ktn")]
 script = ExtResource("6_1fsoh")
 
@@ -72,6 +67,9 @@ spawn_queue = Array[Dictionary]([{
 "spawn_delay": 0.5,
 "type": "OtherEntity"
 }])
+
+[node name="Wave" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("7_1uvea")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = 1.0

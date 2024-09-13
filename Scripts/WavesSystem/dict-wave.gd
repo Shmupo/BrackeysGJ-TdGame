@@ -1,8 +1,7 @@
 class_name DictWave
 extends Wave
 
-@onready var timer: Timer = $Timer
-
+#@onready var timer: Timer = $Timer
 
 @export var spawn_queue: Array[Dictionary] = [
 	{
@@ -22,8 +21,13 @@ extends Wave
 			"example_property": 15
 		}
 	}
-]
+] 
 
+func get_num_entities() -> int:
+	var answer = spawn_queue.size()
+	if timer != null && !timer.is_stopped():
+		answer += 1
+	return answer
 
 func _ready() -> void: 
 	#spawn_timer.wait_time = spawn_timer_wait_time
