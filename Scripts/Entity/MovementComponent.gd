@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 		entity.global_position = entity.global_position.move_toward(path[pathIdx], delta * moveSpeed)
 		# if reach coordinate in path
 		if entity.global_position == path[pathIdx]:
-			entityManager.giveNewPath(2)
+			#entityManager.giveNewPath(2)
 			pathIdx += 1 # increment coordinate idx
 			if pathIdx >= path.size(): # reached end of path
 				moving = false

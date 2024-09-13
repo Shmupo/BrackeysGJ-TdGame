@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b614n4fq4gxqq"]
+[gd_scene load_steps=6 format=3 uid="uid://de4c5sf3hciwv"]
 
 [ext_resource type="Texture2D" uid="uid://3yb2bxlvhskv" path="res://Assets/BoidArrow.png" id="1_0j26r"]
 [ext_resource type="Script" path="res://Scripts/Entity/EntityBaseClass.gd" id="1_h0iyo"]
