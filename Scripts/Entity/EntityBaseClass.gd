@@ -4,6 +4,8 @@ extends Node2D
 # get parent
 @onready var entity_manager: EntityManager = %EntityManager
 @onready var movementComponent: MovementComponent = $MovementComponent
+@onready var health_bar: HealthBar = $HealthBar
+
 
 # Dictionary is used for initial configuration
 # This allows the same interface for all subclasses, even with varying config
@@ -17,7 +19,8 @@ extends Node2D
 # passed the value to the movement component automatically
 @export var moveSpeed: float = 10: set = setMoveSpeed
 
-@export var health: float = 5
+@export var max_health: float = 5.0
+@onready var health = self.max_health
 
 
 func _ready() -> void:
@@ -49,6 +52,7 @@ func configure(new_config: Dictionary) -> void:
 		#setMoveSpeed(config["speed"])
 		
 	if config.has("health"):
+		max_health = config["health"]
 		health = config["health"]
 	
 	# TODO: update other internal variables
@@ -73,5 +77,6 @@ func die() -> void:
 
 func removeHealth(amount: float) -> void:	
 	health -= amount
+	health_bar.set_health_percent(health / max_health)
 	if health <= 0:
 		die()

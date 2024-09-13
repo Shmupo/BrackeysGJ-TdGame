@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://Scripts/ModItem/ItemSpawner.gd" id="13_a0fh0"]
 [ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
-[ext_resource type="PackedScene" uid="uid://vucdetswbjmi" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
