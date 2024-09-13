@@ -8,6 +8,7 @@
 radius = 20.0
 
 [node name="OtherEntity" type="Node2D"]
+z_index = 1
 script = ExtResource("1_ce5qb")
 
 [node name="EntitySprite2D" type="Sprite2D" parent="."]

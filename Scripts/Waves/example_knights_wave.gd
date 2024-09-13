@@ -9,5 +9,21 @@ func _ready() -> void:
 				"speed": 100,
 				"health": 20
 			}
+		},
+		{
+			"type": "KnightEntity",
+			"spawn_delay": 0.5,
+			"config": {
+				"speed": 100,
+				"health": 20
+			}
+		},
+		{
+			"type": "KnightEntity",
+			"spawn_delay": 0.5,
+			"config": {
+				"speed": 100,
+				"health": 20
+			}
 		}
 	]

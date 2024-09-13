@@ -8,6 +8,7 @@
 radius = 20.0
 
 [node name="BaseEntity" type="Node2D" groups=["EnemyGroup"]]
+z_index = 1
 script = ExtResource("1_0sfov")
 moveSpeed = 150.0
 health = 7.0

@@ -1,6 +1,8 @@
 class_name PathingComponent
 extends Node
 
+signal path_updated
+
 ## PathingComponent is used to generate a path from a spawn point to a goal
 ##
 ## Uses A* search algorithm to find the shortest valid path between the start coord and end coord

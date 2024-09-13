@@ -19,6 +19,13 @@ var moveSpeed: float = 250
 # get parent
 @onready var entity: Entity = $".."
 @onready var entity_manager: EntityManager = %EntityManager
+@onready var tile_map_layer: UserInteractableTilemapLayer = %UserInteractibleTileMapLayer
+var pathing_component: PathingComponent = null
+
+func _ready() -> void:
+	tile_map_layer = get_node("%UserInteractibleTileMapLayer")
+	pathing_component = tile_map_layer.pathingComponent
+	pathing_component.connect("path_updated", _on_path_updated)
 
 # call this before making the entity do anything
 func setup(newPath: Array[Vector2]) -> void:
@@ -43,9 +50,12 @@ func _process(delta: float) -> void:
 		# using distance_squared_to because it is faster than distance_to
 		if entity.global_position.distance_squared_to(path[pathIdx]) < 0.01: # if reached target coord
 		# if reach coordinate in path
-			if entity.global_position == path[pathIdx]:
-				#entity_manager.giveNewPath(2)
-				pathIdx += 1 # increment coordinate idx
-				if pathIdx >= path.size(): # reached end of path
-					moving = false
-					## DO SOMETHING AFTER REACHING END OF PATH
+			#entity_manager.giveNewPath(2)
+			pathIdx += 1 # increment coordinate idx
+			if pathIdx >= path.size(): # reached end of path
+				moving = false
+				## DO SOMETHING AFTER REACHING END OF PATH
+
+
+func _on_path_updated(path: PackedVector2Array) -> void:
+	self.path = path
