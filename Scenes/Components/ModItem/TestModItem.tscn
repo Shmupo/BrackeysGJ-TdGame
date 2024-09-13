@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://dk1dmpis207ce"]
+
+[ext_resource type="Script" path="res://Scripts/ModItem/ModItem.gd" id="1_qglq7"]
+[ext_resource type="Texture2D" uid="uid://bfh13yodu0ibs" path="res://Assets/Resources/TestTower1Turret.tres" id="2_uh37h"]
+[ext_resource type="Script" path="res://Scripts/ModItem/DragComponent.gd" id="3_minek"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ddnc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crm4q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hveww"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rq31a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rad5"]
+
+[node name="TestModItem" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_qglq7")
+projectileSpeedAdd = -200.0
+projectileCountAdd = 3
+projectileDamageAdd = 2.0
+targetRangeAdd = 100.0
+
+[node name="ItemSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uh37h")
+
+[node name="DragButton" type="Button" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ddnc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_crm4q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hveww")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rq31a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5rad5")
+
+[node name="DragComponent" type="Node2D" parent="."]
+script = ExtResource("3_minek")

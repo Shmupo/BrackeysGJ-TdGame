@@ -105,8 +105,9 @@ func updatePath() -> void:
 		if localPath.size() > 0:
 			for localCoord in localPath:
 				path.append(tileMapLayer.to_global(localCoord) + halfTileSize)
-				
-		print(path)
+		
+		if path.size() > 0:
+			print(path)
 	else:
 		print("Error, cannot generate path between ", startCoord, " and ", endCoord)
 

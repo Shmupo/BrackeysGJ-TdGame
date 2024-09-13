@@ -1,9 +1,22 @@
-[gd_scene load_steps=7 format=4 uid="uid://u0da0rqffi33"]
+[gd_scene load_steps=20 format=4 uid="uid://u0da0rqffi33"]
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Texture2D" uid="uid://8jl5xsmjy2y1" path="res://Assets/TilemapPrototype1Sheet.png" id="2_e1nrq"]
+[ext_resource type="Script" path="res://Scripts/TileMap/BackgroundLayer.gd" id="2_ou5mf"]
 [ext_resource type="Script" path="res://Scripts/Entity/EntityManager.gd" id="3_hw5di"]
 [ext_resource type="PackedScene" uid="uid://dhauw1e87j6c7" path="res://Scenes/Components/Tower/TestTower1.tscn" id="4_iym6a"]
+[ext_resource type="PackedScene" uid="uid://s08lq8bnqkx0" path="res://Scenes/Components/Tower/TowerMenu.tscn" id="4_koogo"]
+[ext_resource type="PackedScene" uid="uid://dyd4rvrn12tp" path="res://Scenes/Components/ModsInventoryMenu.tscn" id="6_qdaid"]
+[ext_resource type="PackedScene" uid="uid://dk1dmpis207ce" path="res://Scenes/Components/ModItem/TestModItem.tscn" id="7_ydf57"]
+[ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="8_sb82m"]
+[ext_resource type="PackedScene" uid="uid://hesw7o41aud4" path="res://Scenes/Components/TutorialUI.tscn" id="9_olebs"]
+[ext_resource type="Script" path="res://Scripts/Waves/example_wave_1.gd" id="11_ga331"]
+[ext_resource type="Script" path="res://Scripts/Waves/example_one_of_each.gd" id="11_uxd71"]
+[ext_resource type="Script" path="res://Scripts/Tower/TowerSpawner.gd" id="12_qrfwb"]
+[ext_resource type="Script" path="res://Scripts/ModItem/ItemSpawner.gd" id="13_a0fh0"]
+[ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
+[ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
+[ext_resource type="PackedScene" uid="uid://vucdetswbjmi" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
@@ -24,51 +37,104 @@ sources/0 = SubResource("TileSetAtlasSource_73egr")
 [node name="TestScene" type="Node2D"]
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="."]
-position = Vector2(580, 320)
+position = Vector2(580, 272)
 scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAAAAP//AAACAAAAAAD/////AAACAAAAAAD//wAAAAACAAAAAAAAAAAAAAACAAAAAAABAAAAAAACAAAAAAABAP//AAACAAAAAAABAP7/AAACAAAAAAAAAP7/AAACAAAAAAD///7/AAACAAAAAAD+//7/AAACAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD+/wEAAAACAAAAAAD//wEAAAACAAAAAAAAAAEAAAACAAAAAAABAAEAAAACAAAAAAACAAEAAAACAAAAAAACAAAAAAACAAAAAAACAP//AAACAAAAAAACAP7/AAACAAAAAAACAP3/AAACAAAAAAABAP3/AAACAAAAAAAAAP3/AAACAAAAAAD///3/AAACAAAAAAD+//3/AAACAAAAAAD9//3/AAACAAAAAAD9//7/AAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAD9/wEAAAACAAAAAAD9/wIAAAACAAAAAAD+/wIAAAACAAAAAAD//wIAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAACAAIAAAACAAAAAAADAAIAAAACAAAAAAADAAEAAAACAAAAAAADAAAAAAACAAAAAAADAP//AAACAAAAAAADAP7/AAACAAAAAAADAP3/AAACAAAAAAADAPz/AAACAAAAAAACAPz/AAACAAAAAAABAPz/AAACAAAAAAAAAPz/AAACAAAAAAD///z/AAACAAAAAAD+//z/AAACAAAAAAD9//z/AAACAAAAAAD8//z/AAACAAAAAAD8//3/AAACAAAAAAD8//7/AAACAAAAAAD8////AAACAAAAAAD8/wAAAAACAAAAAAD8/wEAAAACAAAAAAD8/wIAAAACAAAAAAD8/wMAAAACAAAAAAD9/wMAAAACAAAAAAD+/wMAAAACAAAAAAD//wMAAAACAAAAAAAAAAMAAAACAAAAAAABAAMAAAACAAAAAAACAAMAAAACAAAAAAADAAMAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_bmptf")
+script = ExtResource("2_ou5mf")
 
 [node name="UserInteractableTileMapLayer" parent="." instance=ExtResource("1_oi0qw")]
+position = Vector2(580, 272)
 scale = Vector2(3, 3)
 
 [node name="EntityManager" type="Node2D" parent="UserInteractableTileMapLayer"]
+unique_name_in_owner = true
 position = Vector2(-193.333, -106.667)
 scale = Vector2(0.333333, 0.333333)
 script = ExtResource("3_hw5di")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 963.0
-offset_top = 308.0
-offset_right = 1072.0
-offset_bottom = 339.0
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInteractableTileMapLayer"]
+offset_left = 72.0
+offset_top = -64.0
+offset_right = 181.0
+offset_bottom = 2.0
+
+[node name="SpawnEntityButton" type="Button" parent="UserInteractableTileMapLayer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Spawn Entity"
 
-[node name="TestTower1" parent="." instance=ExtResource("4_iym6a")]
-position = Vector2(557, 322)
+[node name="StartWaveButton" type="Button" parent="UserInteractableTileMapLayer/VBoxContainer"]
+layout_mode = 2
+text = "Begin Waves"
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="TestTower1" parent="Towers" instance=ExtResource("4_iym6a")]
+position = Vector2(508, 296)
 scale = Vector2(2, 2)
 
-[node name="ResetUpgradesButton" type="Button" parent="TestTower1"]
-offset_left = 207.5
-offset_top = 90.0
-offset_right = 255.5
-offset_bottom = 121.0
-text = "reset"
+[node name="TestTower2" parent="Towers" instance=ExtResource("4_iym6a")]
+position = Vector2(653, 296)
+scale = Vector2(2, 2)
 
-[node name="AddSpeed" type="Button" parent="TestTower1"]
-offset_left = 200.0
-offset_top = 53.5
-offset_right = 255.0
-offset_bottom = 84.5
-text = "speed"
+[node name="TowerMenu" parent="." instance=ExtResource("4_koogo")]
+visible = false
+position = Vector2(265, 309)
+scale = Vector2(0.999999, 0.999999)
 
-[node name="AddDamage" type="Button" parent="TestTower1"]
-offset_left = 186.5
-offset_top = 17.5
-offset_right = 256.5
-offset_bottom = 48.5
-text = "damage"
+[node name="ModsInventoryMenu" parent="." instance=ExtResource("6_qdaid")]
+offset_right = 1152.0
 
-[connection signal="pressed" from="TestTower1/ResetUpgradesButton" to="TestTower1" method="_on_reset_upgrades_button_pressed"]
-[connection signal="pressed" from="TestTower1/AddSpeed" to="TestTower1" method="_on_add_speed_pressed"]
-[connection signal="pressed" from="TestTower1/AddDamage" to="TestTower1" method="_on_add_damage_pressed"]
+[node name="TestModItem2" parent="ModsInventoryMenu" instance=ExtResource("7_ydf57")]
+position = Vector2(69, -171)
+
+[node name="TutorialUi" parent="." instance=ExtResource("9_olebs")]
+
+[node name="WaveManager" parent="." instance=ExtResource("8_sb82m")]
+unique_name_in_owner = true
+
+[node name="WaveSet" type="Node" parent="WaveManager"]
+
+[node name="One of Each" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("11_uxd71")
+
+[node name="Misc Enemies" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("11_ga331")
+
+[node name="TowerSpawner" type="Node2D" parent="."]
+script = ExtResource("12_qrfwb")
+
+[node name="ItemSpawner" type="Node2D" parent="."]
+script = ExtResource("13_a0fh0")
+
+[node name="AddTowerButton" type="Button" parent="."]
+offset_left = 802.0
+offset_top = 303.0
+offset_right = 893.0
+offset_bottom = 334.0
+text = "Add Tower"
+
+[node name="AddItemButton" type="Button" parent="."]
+offset_left = 803.0
+offset_top = 338.0
+offset_right = 878.0
+offset_bottom = 369.0
+text = "AddItem"
+
+[node name="PhaseBar" parent="." instance=ExtResource("14_v56gd")]
+position = Vector2(357, -25)
+
+[node name="StartWaveButton" type="Button" parent="."]
+offset_left = 1026.0
+offset_top = 524.0
+offset_right = 1133.0
+offset_bottom = 555.0
+text = "Start Wave"
+script = ExtResource("15_p0fe1")
+
+[node name="DisappearingBlackScreen" parent="." instance=ExtResource("16_exn7v")]
+
+[connection signal="pressed" from="UserInteractableTileMapLayer/VBoxContainer/StartWaveButton" to="WaveManager" method="begin_waves"]
+[connection signal="button_up" from="AddTowerButton" to="TowerSpawner" method="_on_add_tower_button_button_up"]
+[connection signal="button_up" from="AddItemButton" to="ItemSpawner" method="_on_add_item_button_button_up"]

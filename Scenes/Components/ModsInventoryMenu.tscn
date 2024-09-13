@@ -1,0 +1,205 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyd4rvrn12tp"]
+
+[ext_resource type="Script" path="res://Scripts/UIMenus/ModsInventoryMenu.gd" id="1_6jadv"]
+[ext_resource type="Texture2D" uid="uid://eeir17aat1a5" path="res://Assets/Resources/lightBoxRounded.tres" id="2_1gw81"]
+[ext_resource type="Script" path="res://Scripts/ModMenus/ModSlot.gd" id="3_3tsw1"]
+
+[node name="ModsInventoryMenu" type="MarginContainer"]
+offset_top = 507.0
+offset_right = 1151.0
+offset_bottom = 648.0
+script = ExtResource("1_6jadv")
+
+[node name="MenuBackgroundColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.574011, 0.792985, 0.419779, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ModsInventoryMenu" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LeftVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="MidVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ModsRichTextLabel" type="RichTextLabel" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Inventory"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.313726)
+
+[node name="ModsGridContainer" type="GridContainer" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer"]
+clip_contents = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 16
+
+[node name="ModSlot" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot"]
+position = Vector2(25, 25)
+
+[node name="ModSlot2" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot2"]
+position = Vector2(25, 25)
+
+[node name="ModSlot3" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot3"]
+position = Vector2(25, 25)
+
+[node name="ModSlot4" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot4"]
+position = Vector2(25, 25)
+
+[node name="ModSlot5" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot5"]
+position = Vector2(25, 25)
+
+[node name="ModSlot6" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot6"]
+position = Vector2(25, 25)
+
+[node name="ModSlot7" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot7"]
+position = Vector2(25, 25)
+
+[node name="ModSlot8" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot8"]
+position = Vector2(25, 25)
+
+[node name="ModSlot9" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot9"]
+position = Vector2(25, 25)
+
+[node name="ModSlot10" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot10"]
+position = Vector2(25, 25)
+
+[node name="ModSlot11" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot11"]
+position = Vector2(25, 25)
+
+[node name="ModSlot12" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot12"]
+position = Vector2(25, 25)
+
+[node name="ModSlot13" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot13"]
+position = Vector2(25, 25)
+
+[node name="ModSlot14" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot14"]
+position = Vector2(25, 25)
+
+[node name="RightVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2

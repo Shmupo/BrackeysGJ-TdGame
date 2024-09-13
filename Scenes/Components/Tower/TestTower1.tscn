@@ -1,31 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhauw1e87j6c7"]
+[gd_scene load_steps=16 format=3 uid="uid://dhauw1e87j6c7"]
 
 [ext_resource type="Texture2D" uid="uid://1dxs4cepqs1w" path="res://Assets/Resources/TestTower1Body.tres" id="1_udgcx"]
 [ext_resource type="Script" path="res://Scripts/Tower/Tower.gd" id="1_w7taf"]
 [ext_resource type="Texture2D" uid="uid://bfh13yodu0ibs" path="res://Assets/Resources/TestTower1Turret.tres" id="2_p2wjh"]
 [ext_resource type="Script" path="res://Scripts/Tower/TargetingComponent.gd" id="3_8ihh2"]
 [ext_resource type="Script" path="res://Scripts/Tower/ShootingComponent.gd" id="5_4dxmy"]
+[ext_resource type="Script" path="res://Scripts/Tower/ModsComponent.gd" id="6_xh02y"]
+[ext_resource type="Script" path="res://Scripts/Tower/TowerMenuButton.gd" id="7_lcyod"]
+[ext_resource type="Script" path="res://Scripts/Tower/TowerDragComponent.gd" id="8_644ur"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s7i8f"]
 radius = 50.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7c56d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6dc36"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rvaav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7usg3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6v8e0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djygg"]
 
 [node name="TestTower1" type="Node2D"]
 script = ExtResource("1_w7taf")
 
 [node name="TowerBodySprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
 texture = ExtResource("1_udgcx")
 
 [node name="TowerTurretSprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -18)
 texture = ExtResource("2_p2wjh")
+
+[node name="TowerDragComponent" type="Node2D" parent="."]
+position = Vector2(0, -10)
+script = ExtResource("8_644ur")
 
 [node name="TargetingComponent" type="Node" parent="."]
 script = ExtResource("3_8ihh2")
 
 [node name="ShootingComponent" type="Node2D" parent="."]
+position = Vector2(0, -10)
 script = ExtResource("5_4dxmy")
 
 [node name="TargetingArea2D" type="Area2D" parent="."]
+position = Vector2(0, -10)
 collision_layer = 0
 monitorable = false
 
@@ -33,3 +55,20 @@ monitorable = false
 shape = SubResource("CircleShape2D_s7i8f")
 
 [node name="FireTimer" type="Timer" parent="."]
+
+[node name="ModsComponent" type="Node" parent="."]
+script = ExtResource("6_xh02y")
+
+[node name="TowerMenuButton" type="Button" parent="."]
+offset_left = -14.0
+offset_top = -27.0
+offset_right = 42.0
+offset_bottom = 47.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7c56d")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6dc36")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rvaav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7usg3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6v8e0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_djygg")
+script = ExtResource("7_lcyod")

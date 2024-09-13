@@ -17,8 +17,8 @@ extends TileMapLayer
 @export var gridSizeY: int = 12
 
 # set position of start and end
-var startTile: Vector2i = Vector2i(3, 3) # placeholder
-var endTile: Vector2i = Vector2i(-3, -3) # placeholder
+@export var startTile: Vector2i = Vector2i(3, 3) # placeholder
+@export var endTile: Vector2i = Vector2i(-3, -3) # placeholder
 
 @onready var inputComponent: InputComponent = $InputComponent
 @onready var tilePlacementComponent: TilePlacementComponent = $TilePlacementComponent
@@ -35,6 +35,9 @@ func _ready() -> void:
 	# set initial values to proc generation
 	inputComponent.setup(gridSizeX, gridSizeY)
 	pathingComponent.setup(startTile, endTile)
+
+	add_to_group("UserInteractableTileMapLayer")
+	
 
 func setStartAndEndTiles() -> void:
 	var tileSource: int = 1
