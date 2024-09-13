@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://u0da0rqffi33"]
+[gd_scene load_steps=19 format=4 uid="uid://u0da0rqffi33"]
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Texture2D" uid="uid://8jl5xsmjy2y1" path="res://Assets/TilemapPrototype1Sheet.png" id="2_e1nrq"]
@@ -11,9 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="8_sb82m"]
 [ext_resource type="PackedScene" uid="uid://hesw7o41aud4" path="res://Scenes/Components/TutorialUI.tscn" id="9_olebs"]
 [ext_resource type="Script" path="res://Scripts/Waves/example_wave_1.gd" id="11_ga331"]
+[ext_resource type="Script" path="res://Scripts/Waves/example_one_of_each.gd" id="11_uxd71"]
 [ext_resource type="Script" path="res://Scripts/TowerSpawner.gd" id="12_qrfwb"]
 [ext_resource type="Script" path="res://Scripts/ItemSpawner.gd" id="13_a0fh0"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
+[ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
@@ -95,13 +96,10 @@ unique_name_in_owner = true
 
 [node name="WaveSet" type="Node" parent="WaveManager"]
 
-[node name="Wave" type="Node" parent="WaveManager/WaveSet"]
-script = ExtResource("11_ga331")
+[node name="One of Each" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("11_uxd71")
 
-[node name="Wave2" type="Node" parent="WaveManager/WaveSet"]
-script = ExtResource("11_ga331")
-
-[node name="Node" type="Node" parent="WaveManager/WaveSet"]
+[node name="Misc Enemies" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("11_ga331")
 
 [node name="TowerSpawner" type="Node2D" parent="."]

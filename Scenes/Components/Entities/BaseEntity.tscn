@@ -1,20 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://b614n4fq4gxqq"]
+[gd_scene load_steps=5 format=3 uid="uid://b6f65bj1v6f1p"]
 
-[ext_resource type="Script" path="res://Scripts/Entity/EntityBaseClass.gd" id="1_gfaoh"]
-[ext_resource type="Texture2D" uid="uid://3yb2bxlvhskv" path="res://Assets/BoidArrow.png" id="2_6dee6"]
-[ext_resource type="Script" path="res://Scripts/Entity/MovementComponent.gd" id="3_pxqcd"]
+[ext_resource type="Script" path="res://Scripts/Entity/EntityBaseClass.gd" id="1_0sfov"]
+[ext_resource type="Texture2D" uid="uid://3yb2bxlvhskv" path="res://Assets/BoidArrow.png" id="2_km5dj"]
+[ext_resource type="Script" path="res://Scripts/Entity/MovementComponent.gd" id="3_4k04q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5x4m"]
 radius = 20.0
 
-[node name="BaseEntity" type="Node2D"]
-script = ExtResource("1_gfaoh")
+[node name="BaseEntity" type="Node2D" groups=["EnemyGroup"]]
+script = ExtResource("1_0sfov")
+moveSpeed = 150.0
+health = 7.0
 
 [node name="EntitySprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6dee6")
+texture = ExtResource("2_km5dj")
 
 [node name="MovementComponent" type="Node" parent="."]
-script = ExtResource("3_pxqcd")
+script = ExtResource("3_4k04q")
 
 [node name="HitBoxArea2D" type="Area2D" parent="."]
 

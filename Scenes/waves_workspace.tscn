@@ -1,13 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://dv7eirq5roats"]
+[gd_scene load_steps=9 format=4 uid="uid://dv7eirq5roats"]
 
 [ext_resource type="Script" path="res://Scripts/WavesSystem/waves_workspace.gd" id="1_8ffdw"]
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_ktkp4"]
 [ext_resource type="Script" path="res://Scripts/Entity/EntityManager.gd" id="2_7t5ef"]
 [ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="3_qfab8"]
-[ext_resource type="PackedScene" uid="uid://ctpjyhxspm2ai" path="res://Scenes/Components/Waves/dict_wave.tscn" id="5_30ktn"]
-[ext_resource type="Script" path="res://Scripts/Waves/example_wave_1.gd" id="6_1fsoh"]
+[ext_resource type="Script" path="res://Scripts/Waves/example_one_of_each.gd" id="5_87sod"]
 [ext_resource type="Script" path="res://Scripts/WavesSystem/active_waves_label.gd" id="6_gf2wq"]
-[ext_resource type="Script" path="res://Scripts/WavesSystem/wave.gd" id="7_1uvea"]
 [ext_resource type="Script" path="res://Scripts/WavesSystem/num_entities_label.gd" id="8_7ypop"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_530y3"]
@@ -34,44 +32,8 @@ visible = false
 
 [node name="WaveSet" type="Node" parent="WaveManager"]
 
-[node name="Wave" type="Node" parent="WaveManager/WaveSet"]
-script = ExtResource("7_1uvea")
-num_entities = 15
-spawn_timer_wait_time = 0.25
-
-[node name="DictWave2" parent="WaveManager/WaveSet" instance=ExtResource("5_30ktn")]
-script = ExtResource("6_1fsoh")
-
-[node name="DictWave" parent="WaveManager/WaveSet" instance=ExtResource("5_30ktn")]
-spawn_queue = Array[Dictionary]([{
-"config": {
-"health": 20,
-"speed": 100
-},
-"spawn_delay": 0.1,
-"type": "BaseEntity"
-}, {
-"config": {
-"example_property": 15,
-"health": 20,
-"speed": 50
-},
-"spawn_delay": 0.5,
-"type": "OtherEntity"
-}, {
-"config": {
-"speed": 100
-},
-"spawn_delay": 1.0,
-"type": "BaseEntity"
-}, {
-"": "",
-"config": {
-"speed": 50
-},
-"spawn_delay": 0.5,
-"type": "OtherEntity"
-}])
+[node name="Node" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("5_87sod")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = 1.0
