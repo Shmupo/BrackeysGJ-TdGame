@@ -46,7 +46,9 @@ func spawn_next() -> void:
 	
 	var next = spawn_queue.pop_front()
 	# set up timer
-	timer.reparent($'.')
+	if timer == null:
+		timer = Timer.new()
+		add_child(timer)
 	timer.wait_time = next["spawn_delay"]
 	timer.connect("timeout", Callable(do_spawn).bind(next).call)
 	timer.one_shot = true
