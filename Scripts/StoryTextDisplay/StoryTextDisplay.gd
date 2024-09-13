@@ -59,6 +59,5 @@ func _process(delta: float) -> void:
 		var new_color = blackoutSquare.color
 		new_color.a = new_alpha
 		blackoutSquare.color = new_color
-		print(blackoutSquare.color.a)
 		if (blackoutSquare.color.a == 1.0): # trigger change to main scene when fully dark
 			goToMainSceneDelayed()

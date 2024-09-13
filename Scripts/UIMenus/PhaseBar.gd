@@ -29,6 +29,12 @@ func setDefendPhase() -> void:
 	configureDefendPhase()
 
 
+func setStormPhase() -> void:
+	position.y += hideYShift
+	label.text = "[center][color=purple]Storm Phase"
+	configureDefendPhase()
+
+
 func configureDefendPhase() -> void:
 	towerMenu.disableMove() # disables the move button for towers
 	userInteractableTileMapLayer.inputComponent.disableInput() # user cannot place tiles
