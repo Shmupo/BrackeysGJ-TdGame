@@ -1,3 +1,4 @@
+class_name WaveManager
 extends Node2D
 
 signal _on_wave_start
@@ -20,6 +21,23 @@ func _ready() -> void:
 	wave_timer.one_shot = true
 	
 
+
+func startNextWave() -> void:
+	wave_timer.stop()
+	
+	if wave_set.get_child_count() < 1:
+		end_waves()
+		return
+	
+	var next_wave = wave_set.get_child(0)
+	
+	next_wave.reparent(active_waves)
+	next_wave.connect("_on_wave_end", waveEnd)
+	next_wave.start_wave()
+	_on_wave_start.emit()
+	
+func waveEnd() -> void:
+	_on_wave_end.emit()
 
 func begin_waves() -> void:
 	print("start_waves")

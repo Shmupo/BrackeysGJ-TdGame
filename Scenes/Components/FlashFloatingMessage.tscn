@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8deo1xty2e7y"]
+
+[ext_resource type="Script" path="res://Scripts/UIMenus/FlashFloatingMessage.gd" id="1_yvwee"]
+
+[node name="FlashMessage" type="RichTextLabel"]
+offset_right = 150.0
+offset_bottom = 29.0
+bbcode_enabled = true
+text = "[center]Message"
+fit_content = true
+script = ExtResource("1_yvwee")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
