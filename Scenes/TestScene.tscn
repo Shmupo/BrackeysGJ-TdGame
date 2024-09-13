@@ -101,6 +101,9 @@ script = ExtResource("11_ga331")
 [node name="Wave2" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("11_ga331")
 
+[node name="Node" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("11_ga331")
+
 [node name="TowerSpawner" type="Node2D" parent="."]
 script = ExtResource("12_qrfwb")
 
