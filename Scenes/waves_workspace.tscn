@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=4 uid="uid://dv7eirq5roats"]
+
+[ext_resource type="Script" path="res://Scripts/WavesSystem/waves_workspace.gd" id="1_8ffdw"]
+[ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_ktkp4"]
+[ext_resource type="Script" path="res://Scripts/Entity/EntityManager.gd" id="2_7t5ef"]
+[ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="3_qfab8"]
+[ext_resource type="Script" path="res://Scripts/Waves/example_one_of_each.gd" id="5_87sod"]
+[ext_resource type="Script" path="res://Scripts/WavesSystem/active_waves_label.gd" id="6_gf2wq"]
+[ext_resource type="Script" path="res://Scripts/WavesSystem/num_entities_label.gd" id="8_7ypop"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_530y3"]
+font_size = 14
+
+[node name="WavesWorkspace" type="Node2D"]
+script = ExtResource("1_8ffdw")
+
+[node name="UserInteractableTileMapLayer" parent="." instance=ExtResource("1_ktkp4")]
+position = Vector2(986, 642)
+tile_map_data = PackedByteArray("AADl//D/AAAAAAAAAADm//D/AAAAAAAAAADn//D/AAAAAAAAAADo//D/AAAAAAAAAADp//D/AAAAAAAAAADq//D/AAAAAAAAAADr//D/AAAAAAAAAADs//D/AAAAAAAAAADt//D/AAAAAAAAAADu//D/AAAAAAAAAADv//D/AAAAAAAAAADw//D/AAAAAAAAAADx//D/AAAAAAAAAADy//D/AAAAAAAAAADz//D/AAAAAAAAAAD0//D/AAAAAAAAAAD1//D/AAAAAAAAAAD2//D/AAAAAAAAAAD3//D/AAAAAAAAAAD4//D/AAAAAAAAAAD5//D/AAAAAAAAAAD6//D/AAAAAAAAAAD7//D/AAAAAAAAAAD8//D/AAAAAAAAAAD9//D/AAAAAAAAAAD+//D/AAAAAAAAAAD///D/AAAAAAAAAAAAAPD/AAAAAAAAAAABAPD/AAAAAAAAAADl//H/AAAAAAAAAADl//L/AAAAAAAAAADl//P/AAAAAAAAAADl//T/AAAAAAAAAADl//X/AAAAAAAAAADl//b/AAAAAAAAAADl//f/AAAAAAAAAADm//f/AAAAAAAAAADn//f/AAAAAAAAAADo//f/AAAAAAAAAADp//f/AAAAAAAAAADq//f/AAAAAAAAAADr//f/AAAAAAAAAADs//f/AAAAAAAAAADt//f/AAAAAAAAAADu//f/AAAAAAAAAADv//f/AAAAAAAAAADw//f/AAAAAAAAAADx//f/AAAAAAAAAADy//f/AAAAAAAAAADz//f/AAAAAAAAAAD0//f/AAAAAAAAAAD1//f/AAAAAAAAAAD2//f/AAAAAAAAAAD3//f/AAAAAAAAAAD4//f/AAAAAAAAAAD5//f/AAAAAAAAAAD6//f/AAAAAAAAAAD7//f/AAAAAAAAAAD8//f/AAAAAAAAAAD9//f/AAAAAAAAAAD+//f/AAAAAAAAAAD///f/AAAAAAAAAAAAAPf/AAAAAAAAAAABAPf/AAAAAAAAAAABAPb/AAAAAAAAAAABAPX/AAAAAAAAAAABAPT/AAAAAAAAAAABAPP/AAAAAAAAAAABAPL/AAAAAAAAAAABAPH/AAAAAAAAAADo//X/AAAEAAAAAADp//X/AAAEAAAAAADq//X/AAAEAAAAAADq//T/AAAEAAAAAADq//P/AAAEAAAAAADq//L/AAAEAAAAAADr//L/AAAEAAAAAADs//L/AAAEAAAAAADs//P/AAAEAAAAAADs//T/AAAEAAAAAADs//X/AAAEAAAAAADt//X/AAAEAAAAAADu//X/AAAEAAAAAADu//T/AAAEAAAAAADu//P/AAAEAAAAAADu//L/AAAEAAAAAADv//L/AAAEAAAAAADw//L/AAAEAAAAAADw//P/AAAEAAAAAADw//T/AAAEAAAAAADw//X/AAAEAAAAAADx//X/AAAEAAAAAADy//X/AAAEAAAAAADy//T/AAAEAAAAAADy//P/AAAEAAAAAADy//L/AAAEAAAAAADz//L/AAAEAAAAAAD0//L/AAAEAAAAAAD0//P/AAAEAAAAAAD0//T/AAAEAAAAAAD0//X/AAAEAAAAAAD1//X/AAAEAAAAAAD2//X/AAAEAAAAAAD2//T/AAAEAAAAAAD2//P/AAAEAAAAAAD2//L/AAAEAAAAAAD3//L/AAAEAAAAAAD4//L/AAAEAAAAAAD4//P/AAAEAAAAAAD4//T/AAAEAAAAAAD4//X/AAAEAAAAAAD5//X/AAAEAAAAAAD6//X/AAAEAAAAAAD6//T/AAAEAAAAAAD6//P/AAAEAAAAAAD6//L/AAAEAAAAAAD7//L/AAAEAAAAAAD8//L/AAAEAAAAAAD8//P/AAAEAAAAAAD8//T/AAAEAAAAAAD8//X/AAAEAAAAAAD9//X/AAAEAAAAAAD+//X/AAAEAAAAAADn//X/AAABAAAAAAD///X/AAABAAAAAADm//H/AAABAAAAAADm//L/AAABAAAAAADm//P/AAABAAAAAADm//T/AAABAAAAAADm//X/AAABAAAAAADm//b/AAABAAAAAADn//b/AAABAAAAAADo//b/AAABAAAAAADp//b/AAABAAAAAADq//b/AAABAAAAAADr//b/AAABAAAAAADs//b/AAABAAAAAADt//b/AAABAAAAAADu//b/AAABAAAAAADv//b/AAABAAAAAADw//b/AAABAAAAAADx//b/AAABAAAAAADy//b/AAABAAAAAADz//b/AAABAAAAAAD0//b/AAABAAAAAAD1//b/AAABAAAAAAD2//b/AAABAAAAAAD3//b/AAABAAAAAAD4//b/AAABAAAAAAD5//b/AAABAAAAAAD6//b/AAABAAAAAAD7//b/AAABAAAAAAD8//b/AAABAAAAAAD9//b/AAABAAAAAAD+//b/AAABAAAAAAD///b/AAABAAAAAAAAAPb/AAABAAAAAADn//H/AAABAAAAAADo//H/AAABAAAAAADp//H/AAABAAAAAADq//H/AAABAAAAAADr//H/AAABAAAAAADs//H/AAABAAAAAADt//H/AAABAAAAAADu//H/AAABAAAAAADv//H/AAABAAAAAADw//H/AAABAAAAAADx//H/AAABAAAAAADy//H/AAABAAAAAADz//H/AAABAAAAAAD0//H/AAABAAAAAAD1//H/AAABAAAAAAD2//H/AAABAAAAAAD3//H/AAABAAAAAAD4//H/AAABAAAAAAD5//H/AAABAAAAAAD6//H/AAABAAAAAAD7//H/AAABAAAAAAD8//H/AAABAAAAAAD9//H/AAABAAAAAAD+//H/AAABAAAAAAD///H/AAABAAAAAAAAAPH/AAABAAAAAAAAAPL/AAABAAAAAAAAAPP/AAABAAAAAAAAAPT/AAABAAAAAAAAAPX/AAABAAAAAADn//L/AAADAAAAAADo//L/AAABAAAAAADp//L/AAABAAAAAADn//P/AAABAAAAAADo//P/AAABAAAAAADp//P/AAABAAAAAADn//T/AAABAAAAAADo//T/AAABAAAAAADp//T/AAABAAAAAADr//P/AAADAAAAAADr//T/AAADAAAAAADr//X/AAABAAAAAADt//L/AAABAAAAAADt//P/AAADAAAAAADt//T/AAADAAAAAADv//P/AAADAAAAAADv//T/AAADAAAAAADv//X/AAABAAAAAADx//L/AAABAAAAAADx//P/AAADAAAAAADx//T/AAADAAAAAADz//P/AAADAAAAAADz//T/AAADAAAAAADz//X/AAABAAAAAAD1//L/AAABAAAAAAD1//P/AAADAAAAAAD1//T/AAADAAAAAAD3//P/AAADAAAAAAD3//T/AAADAAAAAAD3//X/AAABAAAAAAD5//T/AAADAAAAAAD5//P/AAADAAAAAAD5//L/AAABAAAAAAD7//X/AAABAAAAAAD7//T/AAADAAAAAAD7//P/AAADAAAAAAD9//L/AAABAAAAAAD9//P/AAABAAAAAAD9//T/AAABAAAAAAD+//T/AAABAAAAAAD///T/AAABAAAAAAD///P/AAABAAAAAAD///L/AAADAAAAAAD+//L/AAABAAAAAAD+//P/AAABAAAAAAA=")
+gridSizeX = 100
+gridSizeY = 100
+startTile = Vector2i(-25, -11)
+endTile = Vector2i(-1, -11)
+
+[node name="EntityManager" type="Node2D" parent="UserInteractableTileMapLayer"]
+unique_name_in_owner = true
+script = ExtResource("2_7t5ef")
+
+[node name="WaveManager" parent="." instance=ExtResource("3_qfab8")]
+unique_name_in_owner = true
+visible = false
+
+[node name="WaveSet" type="Node" parent="WaveManager"]
+
+[node name="Node" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("5_87sod")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 1.0
+offset_top = 498.0
+offset_right = 1153.0
+offset_bottom = 647.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Active Waves"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="ActiveWavesLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "None"
+label_settings = SubResource("LabelSettings_530y3")
+script = ExtResource("6_gf2wq")
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Wave Info"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "num_entities"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="NumEntitiesLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("8_7ypop")
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SpawnEntityButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Spawn BaseEntity"
+
+[node name="SpawnEntityButton2" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Spawn OtherEntity"
+
+[node name="BeginWavesButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Begin Waves"
+
+[node name="NextWaveButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Next Wave"
+
+[connection signal="_on_end_waves" from="WaveManager" to="PanelContainer/HBoxContainer/VBoxContainer3/ActiveWavesLabel" method="_on_end_waves"]
+[connection signal="_on_start_waves" from="WaveManager" to="PanelContainer/HBoxContainer/VBoxContainer3/ActiveWavesLabel" method="_on_start_waves"]
+[connection signal="_on_wave_end" from="WaveManager" to="PanelContainer/HBoxContainer/VBoxContainer3/ActiveWavesLabel" method="_on_wave_end"]
+[connection signal="_on_wave_start" from="WaveManager" to="PanelContainer/HBoxContainer/VBoxContainer3/ActiveWavesLabel" method="_on_wave_start"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/SpawnEntityButton" to="." method="spawn_base_entity"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/SpawnEntityButton2" to="." method="spawn_other_entity"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/BeginWavesButton" to="WaveManager" method="begin_waves"]
