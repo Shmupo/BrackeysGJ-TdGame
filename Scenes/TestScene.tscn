@@ -10,12 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://dk1dmpis207ce" path="res://Scenes/Components/ModItem/TestModItem.tscn" id="7_ydf57"]
 [ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="8_sb82m"]
 [ext_resource type="PackedScene" uid="uid://hesw7o41aud4" path="res://Scenes/Components/TutorialUI.tscn" id="9_olebs"]
+
+[ext_resource type="PackedScene" uid="uid://baej7fheqkfj2" path="res://Scenes/Components/Waves/standard_wave.tscn" id="9_yhh74"]
+[ext_resource type="Script" path="res://Scripts/Tower/TowerSpawner.gd" id="12_qrfwb"]
+[ext_resource type="Script" path="res://Scripts/ModItem/ItemSpawner.gd" id="13_a0fh0"]
+
 [ext_resource type="Script" path="res://Scripts/Waves/example_wave_1.gd" id="11_ga331"]
 [ext_resource type="Script" path="res://Scripts/Waves/example_one_of_each.gd" id="11_uxd71"]
-[ext_resource type="Script" path="res://Scripts/TowerSpawner.gd" id="12_qrfwb"]
-[ext_resource type="Script" path="res://Scripts/ItemSpawner.gd" id="13_a0fh0"]
+
 [ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
+[ext_resource type="PackedScene" uid="uid://vucdetswbjmi" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
@@ -89,7 +94,6 @@ offset_right = 1152.0
 position = Vector2(69, -171)
 
 [node name="TutorialUi" parent="." instance=ExtResource("9_olebs")]
-visible = false
 
 [node name="WaveManager" parent="." instance=ExtResource("8_sb82m")]
 unique_name_in_owner = true
@@ -132,6 +136,8 @@ offset_right = 1133.0
 offset_bottom = 555.0
 text = "Start Wave"
 script = ExtResource("15_p0fe1")
+
+[node name="DisappearingBlackScreen" parent="." instance=ExtResource("16_exn7v")]
 
 [connection signal="pressed" from="UserInteractableTileMapLayer/VBoxContainer/StartWaveButton" to="WaveManager" method="begin_waves"]
 [connection signal="button_up" from="AddTowerButton" to="TowerSpawner" method="_on_add_tower_button_button_up"]

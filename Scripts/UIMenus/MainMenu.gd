@@ -8,10 +8,10 @@ func _ready() -> void:
 	blackoutSquare.color = Color.BLACK
 	
 func onStartPressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/TestScene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/StoryTextDisplay.tscn")
 	
 func _process(delta: float) -> void:
-	var new_alpha = clamp(blackoutSquare.color.a - 1 * delta, 0.0, 255.0) # alpha is between 0 and 1
+	var new_alpha = clamp(blackoutSquare.color.a - 1 * delta, 0.0, 255.0)
 	var new_color = blackoutSquare.color
 	new_color.a = new_alpha
 	blackoutSquare.color = new_color
