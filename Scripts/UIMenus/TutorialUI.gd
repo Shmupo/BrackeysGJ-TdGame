@@ -5,7 +5,7 @@ extends Node2D
 @onready var prevButton: Button = $PreviousButton
 @onready var pageLabel: RichTextLabel = $TabCount
 @onready var showTutorialButton: Button = $ShowButton
-@onready var bgRect: ColorRect = $ColorRect
+@onready var bgRect: Sprite2D = $BgSprite2D
 
 func _ready() -> void:
 	nextButton.button_up.connect(onPressNext)

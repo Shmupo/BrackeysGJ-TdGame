@@ -1,16 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://hesw7o41aud4"]
+[gd_scene load_steps=14 format=3 uid="uid://hesw7o41aud4"]
 
 [ext_resource type="Script" path="res://Scripts/UIMenus/TutorialUI.gd" id="1_1wodi"]
+
+[sub_resource type="Gradient" id="Gradient_erlnf"]
+offsets = PackedFloat32Array(0.181818, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kqsgx"]
+gradient = SubResource("Gradient_erlnf")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2cihf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxfms"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxlma"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j62bw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58njf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjoix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8wdq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0fm0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cldi6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmt4j"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="TutorialUi" type="Node2D"]
 script = ExtResource("1_1wodi")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 1.0
-offset_top = 40.0
-offset_right = 343.0
-offset_bottom = 649.0
-color = Color(0, 0, 0, 1)
+[node name="BgSprite2D" type="Sprite2D" parent="."]
+position = Vector2(171.25, 40)
+scale = Vector2(1.33398, 608)
+texture = SubResource("GradientTexture1D_kqsgx")
 
 [node name="ShowButton" type="Button" parent="."]
 offset_left = 2.0
@@ -25,6 +51,13 @@ offset_top = 40.0
 offset_right = 343.0
 offset_bottom = 649.0
 theme_override_constants/outline_size = 6
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_2cihf")
+theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_rxfms")
+theme_override_styles/tabbar_background = SubResource("StyleBoxEmpty_cxlma")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j62bw")
+theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_58njf")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_gjoix")
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_w8wdq")
 current_tab = 0
 tabs_visible = false
 
@@ -171,18 +204,24 @@ text = "You are currently in the build phase. When you are finished, press the \
 Make sure you have placed your towers and paths carefully - you cannot change these while the wave is active."
 fit_content = true
 
-[node name="PreviousButton" type="Button" parent="."]
-offset_left = 14.0
-offset_top = 589.0
-offset_right = 109.0
-offset_bottom = 634.0
-text = "Previous"
-
 [node name="NextButton" type="Button" parent="."]
 offset_left = 232.0
 offset_top = 589.0
 offset_right = 328.0
 offset_bottom = 633.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_c0fm0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cldi6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jmt4j")
 text = "Next"
 
 [node name="TabCount" type="RichTextLabel" parent="."]
@@ -192,3 +231,23 @@ offset_right = 213.0
 offset_bottom = 631.0
 bbcode_enabled = true
 text = "[center]1/4"
+
+[node name="PreviousButton" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 589.0
+offset_right = 114.0
+offset_bottom = 633.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_c0fm0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cldi6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jmt4j")
+text = "Previous"

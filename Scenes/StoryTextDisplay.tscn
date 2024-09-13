@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=3 uid="uid://dce5huy53ymcd"]
+
+[ext_resource type="Script" path="res://Scripts/StoryTextDisplay/StoryTextDisplay.gd" id="1_l21ns"]
+
+[sub_resource type="Gradient" id="Gradient_26du5"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d8g1s"]
+gradient = SubResource("Gradient_26du5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sye2d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qutgp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2w84t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g236h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jr26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yar5w"]
+
+[node name="StoryTextDisplay" type="Node2D"]
+script = ExtResource("1_l21ns")
+
+[node name="BgTop" type="Sprite2D" parent="."]
+position = Vector2(1154.24, 121.997)
+rotation = 1.5708
+scale = Vector2(0.960917, 1156.43)
+texture = SubResource("GradientTexture1D_d8g1s")
+
+[node name="BgTop2" type="Sprite2D" parent="."]
+position = Vector2(-2, 519.568)
+rotation = -1.5708
+scale = Vector2(0.988789, 1156.43)
+texture = SubResource("GradientTexture1D_d8g1s")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = -1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Whispers echo through tavern and forest alike...
+
+Rumors of dark and malevolent wizard who commands a horde of twisted beings.
+
+Their dark march has set your village on its path.
+
+
+
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]The people of the village have largely disregarded these rumors.
+
+The last wizard was said to have been slain hundreds of years ago."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Now, their ignorance is about to exact a heavy toll, for the dark forces are stirring, and your village will be the first to face it's wrath..."
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 514.0
+offset_right = 1153.0
+offset_bottom = 645.0
+
+[node name="ContinueButton" type="Button" parent="CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.180005, 0.180005, 0.180005, 1)
+theme_override_colors/font_hover_color = Color(0.281187, 0.281187, 0.281187, 1)
+theme_override_colors/font_pressed_color = Color(0.476841, 0.644696, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sye2d")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qutgp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2w84t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g236h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jr26")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yar5w")
+text = "Continue"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+top_level = true
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

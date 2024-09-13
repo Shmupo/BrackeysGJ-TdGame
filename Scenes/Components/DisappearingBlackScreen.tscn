@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://vucdetswbjmi"]
+
+[ext_resource type="Script" path="res://Scripts/UIMenus/DisappearingBlackScreen.gd" id="1_l3xds"]
+
+[node name="DisappearingBlackScreen" type="ColorRect"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_l3xds")
