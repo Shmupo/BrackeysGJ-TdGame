@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1u82a2vp6si1"]
+
+[ext_resource type="PackedScene" uid="uid://b614n4fq4gxqq" path="res://Scenes/Components/Entities/BaseEntity.tscn" id="1_bgt8w"]
+[ext_resource type="Script" path="res://Scripts/Entity/KnightClass.gd" id="2_20u48"]
+
+[node name="Knight" instance=ExtResource("1_bgt8w")]
+script = ExtResource("2_20u48")
+moveSpeed = null
+health = null
+
+[node name="EntitySprite2D" parent="." index="0"]
+modulate = Color(1, 0.0117647, 1, 1)
+self_modulate = Color(1, 0.407843, 1, 1)
