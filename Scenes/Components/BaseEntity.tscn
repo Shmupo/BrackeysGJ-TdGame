@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b614n4fq4gxqq"]
+[gd_scene load_steps=6 format=3 uid="uid://b614n4fq4gxqq"]
 
 [ext_resource type="Texture2D" uid="uid://3yb2bxlvhskv" path="res://Assets/BoidArrow.png" id="1_0j26r"]
 [ext_resource type="Script" path="res://Scripts/Entity/EntityBaseClass.gd" id="1_h0iyo"]
 [ext_resource type="Script" path="res://Scripts/Entity/MovementComponent.gd" id="3_vtlre"]
+[ext_resource type="Script" path="res://Scripts/Entity/EntityManager.gd" id="4_gep01"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5x4m"]
 radius = 20.0
@@ -15,6 +16,9 @@ texture = ExtResource("1_0j26r")
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("3_vtlre")
+
+[node name="EntityManager" type="Node" parent="."]
+script = ExtResource("4_gep01")
 
 [node name="HitBoxArea2D" type="Area2D" parent="."]
 

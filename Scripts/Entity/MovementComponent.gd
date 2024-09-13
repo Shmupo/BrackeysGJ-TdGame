@@ -1,6 +1,9 @@
 class_name MovementComponent
 extends Node
 
+
+@onready var entityManager: EntityManager = $"../EntityManager"
+
 ## Pathing Component moves the entity (parent node) along a PackedVector2Array
 ## 
 ## The PackedVector2Array consists of local grid positions to move along
@@ -42,6 +45,7 @@ func _process(delta: float) -> void:
 		entity.global_position = entity.global_position.move_toward(path[pathIdx], delta * moveSpeed)
 		# if reach coordinate in path
 		if entity.global_position == path[pathIdx]:
+			entityManager.giveNewPath(2)
 			pathIdx += 1 # increment coordinate idx
 			if pathIdx >= path.size(): # reached end of path
 				moving = false

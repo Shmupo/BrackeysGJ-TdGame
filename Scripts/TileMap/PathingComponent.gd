@@ -74,6 +74,7 @@ func initAStarGrid() -> void:
 	# disable diagonal movement
 	aStarGrid.diagonal_mode =AStarGrid2D.DIAGONAL_MODE_NEVER
 	#print(aStarGrid.region)
+	
 
 
 # sets coordinate as not solid
