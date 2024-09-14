@@ -17,6 +17,7 @@ signal allEnemiesDead
 	"BaseEntity": preload("res://Scenes/Components/Entities/BaseEntity.tscn"),
 	"OtherEntity": preload("res://Scenes/Components/Entities/OtherEntity.tscn"),
 	"KnightEntity": preload("../../Scenes/Components/Entities/KnightEntity.tscn"),
+	"WizardEntity": preload("res://Scenes/Components/Entities/WizardEntity.tscn"),
 }
 
 # set as parent
@@ -30,8 +31,16 @@ var more_entities_in_wave: bool = true
 func getPath() -> PackedVector2Array:
 	return userInteractableTileMapLayer.pathingComponent.getPath()
 
+func get_num_alive_entities() -> int:
+	var childs = get_children()
+	var num_alive = 0
+	for c in childs:
+		if c.is_in_group("EnemyGroup") && !c.is_dead:
+			num_alive += 1
+	return num_alive
+
 func onEntityDeath() -> void:
-	if !more_entities_in_wave:
+	if !more_entities_in_wave && get_num_alive_entities() == 0:
 		allEnemiesDead.emit()
 	#print("NumEntities: " + str(numEntities))
 

@@ -12,12 +12,23 @@ var num_entities_2: int = 10  # hacks.  ignore here.
 
 
 @export var entities_before_increase: int = 10
-var difficulty = 1
+var difficulty = 5
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_queue = []
+	
+	spawn_queue.append({
+		"type": "WizardEntity",
+		"spawn_delay": 0.1,
+		"config": {
+			"health": 75,
+			"speed": 120,
+			"strength": 35,
+			"points": 5000
+		}
+	})
 	
 	for i in range(entities_before_increase + 5):
 		spawn_queue.append(create_entity_dict())

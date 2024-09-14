@@ -25,6 +25,8 @@ var player: Player
 @export var strength: int = 10
 @onready var health = self.max_health
 
+var is_dead = false
+
 # Flashing variables
 var flashing_intensity: float = 0.0
 var max_flashing_intensity: float = 1.0
@@ -94,6 +96,7 @@ func get_player() -> Player:
 
 
 func die() -> void:
+	is_dead = true
 	player.add_points(points_value)
 	delete()
 

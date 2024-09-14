@@ -23,8 +23,6 @@ func _ready() -> void:
 		add_child(timer)
 		
 	timer.wait_time = spawn_timer_wait_time
-	if entity_manager.numEntities == 0:
-		entity_manager.numEntities = get_num_entities()
 
 func start_wave() -> void:
 	print("wave_start")
@@ -36,7 +34,7 @@ func start_wave() -> void:
 func spawn_next() -> void:
 	entity_manager.spawnEntity(entity_name)
 	num_entities -= 1
-	if (num_entities < 0):
+	if (num_entities <= 0):
 		end_wave()
 	
 
