@@ -44,4 +44,4 @@ func _process(delta: float) -> void:
 			pathIdx += 1 # increment coordinate idx
 			if pathIdx >= path.size(): # reached end of path
 				moving = false
-				## DO SOMETHING AFTER REACHING END OF PATH
+				entity.hit_base()

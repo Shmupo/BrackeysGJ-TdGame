@@ -29,7 +29,6 @@ func _ready() -> void:
 	wave_timer.one_shot = true
 	
 
-
 func startNextWave() -> void:
 	wave_timer.stop()
 	

@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://yanwd2glbpap"]
+[gd_scene load_steps=10 format=3 uid="uid://bisnqby1oj578"]
 
-[ext_resource type="Script" path="res://Scripts/ModItem/ModItem.gd" id="1_e8g2k"]
-[ext_resource type="PackedScene" uid="uid://derdgkk7c7ii1" path="res://Scenes/Components/Tower/Projectile/LaserBeam.tscn" id="2_4fmpr"]
-[ext_resource type="Texture2D" uid="uid://cel2lk5ohli17" path="res://Assets/Resources/LaserCrystal.tres" id="2_g3r3e"]
-[ext_resource type="Script" path="res://Scripts/ModItem/DragComponent.gd" id="3_krjw4"]
+[ext_resource type="Script" path="res://Scripts/ModItem/ModItem.gd" id="1_p2gqb"]
+[ext_resource type="PackedScene" uid="uid://gw18k300lkw3" path="res://Scenes/Components/Tower/Projectile/BigRock.tscn" id="2_ak1at"]
+[ext_resource type="Texture2D" uid="uid://cxtti7gb6jb5s" path="res://Assets/Resources/Coffee.tres" id="3_ajoae"]
+[ext_resource type="Script" path="res://Scripts/ModItem/DragComponent.gd" id="4_vb2fp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ddnc"]
 
@@ -15,18 +15,18 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rad5"]
 
-[node name="LaserCrystal" type="Node2D"]
+[node name="Coffee" type="Node2D"]
 scale = Vector2(2, 2)
-script = ExtResource("1_e8g2k")
-projectileSpeedAdd = -200.0
-fireRateAddTime = -0.25
-newProjectileScene = ExtResource("2_4fmpr")
-targetRangeAdd = 25.0
-itemName = "Laser Crystal"
-itemDescription = "Get beamed!"
+script = ExtResource("1_p2gqb")
+projectileSpeedAdd = 250.0
+fireRateAddTime = -0.33
+newProjectileScene = ExtResource("2_ak1at")
+targetRangeAdd = 10.0
+itemName = "Coffee"
+itemDescription = "Caffeine so fast, your thoughts need a seatbelt!"
 
 [node name="ItemSprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_g3r3e")
+texture = ExtResource("3_ajoae")
 
 [node name="DragButton" type="Button" parent="."]
 offset_left = -8.0
@@ -40,4 +40,4 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_rq31a")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5rad5")
 
 [node name="DragComponent" type="Node2D" parent="."]
-script = ExtResource("3_krjw4")
+script = ExtResource("4_vb2fp")

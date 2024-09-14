@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://yanwd2glbpap"]
+[gd_scene load_steps=10 format=3 uid="uid://dfaela51ruc00"]
 
-[ext_resource type="Script" path="res://Scripts/ModItem/ModItem.gd" id="1_e8g2k"]
-[ext_resource type="PackedScene" uid="uid://derdgkk7c7ii1" path="res://Scenes/Components/Tower/Projectile/LaserBeam.tscn" id="2_4fmpr"]
-[ext_resource type="Texture2D" uid="uid://cel2lk5ohli17" path="res://Assets/Resources/LaserCrystal.tres" id="2_g3r3e"]
-[ext_resource type="Script" path="res://Scripts/ModItem/DragComponent.gd" id="3_krjw4"]
+[ext_resource type="Script" path="res://Scripts/ModItem/ModItem.gd" id="1_wsr64"]
+[ext_resource type="PackedScene" uid="uid://derdgkk7c7ii1" path="res://Scenes/Components/Tower/Projectile/LaserBeam.tscn" id="2_yp1v1"]
+[ext_resource type="Texture2D" uid="uid://dbjpcenn0bcxd" path="res://Assets/Resources/Feather.tres" id="3_r0m6k"]
+[ext_resource type="Script" path="res://Scripts/ModItem/DragComponent.gd" id="4_opqwm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ddnc"]
 
@@ -15,18 +15,17 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rad5"]
 
-[node name="LaserCrystal" type="Node2D"]
+[node name="Feather" type="Node2D"]
 scale = Vector2(2, 2)
-script = ExtResource("1_e8g2k")
-projectileSpeedAdd = -200.0
-fireRateAddTime = -0.25
-newProjectileScene = ExtResource("2_4fmpr")
-targetRangeAdd = 25.0
-itemName = "Laser Crystal"
-itemDescription = "Get beamed!"
+script = ExtResource("1_wsr64")
+projectileSpeedAdd = 150.0
+newProjectileScene = ExtResource("2_yp1v1")
+targetRangeAdd = 15.0
+itemName = "Feather"
+itemDescription = "So that's why feathers on on arrows!"
 
 [node name="ItemSprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_g3r3e")
+texture = ExtResource("3_r0m6k")
 
 [node name="DragButton" type="Button" parent="."]
 offset_left = -8.0
@@ -40,4 +39,4 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_rq31a")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5rad5")
 
 [node name="DragComponent" type="Node2D" parent="."]
-script = ExtResource("3_krjw4")
+script = ExtResource("4_opqwm")

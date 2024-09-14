@@ -4,7 +4,9 @@ var itemScenes: Dictionary = {
 	"Telescope" : "res://Scenes/Components/ModItem/Telescope.tscn",
 	"Big Rock" : "res://Scenes/Components/ModItem/BigRock.tscn",
 	"Laser Crystal" : "res://Scenes/Components/ModItem/LaserCrystal.tscn",
-	"Rope" : "res://Scenes/Components/ModItem/Rope.tscn"
+	"Rope" : "res://Scenes/Components/ModItem/Rope.tscn",
+	"Coffee" : "res://Scenes/Components/ModItem/Coffee.tscn",
+	"Feather" : "res://Scenes/Components/ModItem/Feather.tscn",
 }
 
 var rewardCount: int = 2

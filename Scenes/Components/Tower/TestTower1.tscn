@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://dhauw1e87j6c7"]
 
-[ext_resource type="Texture2D" uid="uid://1dxs4cepqs1w" path="res://Assets/Resources/TestTower1Body.tres" id="1_udgcx"]
 [ext_resource type="Script" path="res://Scripts/Tower/Tower.gd" id="1_w7taf"]
-[ext_resource type="Texture2D" uid="uid://bfh13yodu0ibs" path="res://Assets/Resources/TestTower1Turret.tres" id="2_p2wjh"]
+[ext_resource type="Texture2D" uid="uid://bb1dtbk13d2m7" path="res://Assets/Resources/TowerBody1.tres" id="2_48slj"]
 [ext_resource type="Script" path="res://Scripts/Tower/TargetingComponent.gd" id="3_8ihh2"]
+[ext_resource type="Texture2D" uid="uid://c8qft2b37jc2b" path="res://Assets/Resources/TowerTurret1.tres" id="3_qcfky"]
 [ext_resource type="Script" path="res://Scripts/Tower/ShootingComponent.gd" id="5_4dxmy"]
 [ext_resource type="Script" path="res://Scripts/Tower/ModsComponent.gd" id="6_xh02y"]
 [ext_resource type="Script" path="res://Scripts/Tower/TowerMenuButton.gd" id="7_lcyod"]
@@ -28,12 +28,13 @@ radius = 50.0
 script = ExtResource("1_w7taf")
 
 [node name="TowerBodySprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -10)
-texture = ExtResource("1_udgcx")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_48slj")
 
 [node name="TowerTurretSprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -18)
-texture = ExtResource("2_p2wjh")
+position = Vector2(4, -14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qcfky")
 
 [node name="TowerDragComponent" type="Node2D" parent="."]
 position = Vector2(0, -10)

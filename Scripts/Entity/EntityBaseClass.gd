@@ -1,12 +1,11 @@
 class_name Entity
 extends Node2D
 
-# get parent
+signal died
 
 @onready var entityManager: EntityManager = $".."
-
 @onready var movementComponent: MovementComponent = $MovementComponent
-@onready var health_bar: HealthBar = $HealthBar
+@onready var sprite: Sprite2D = $EntitySprite2D
 
 var player: Player
 
@@ -20,19 +19,34 @@ var player: Player
 	"damage": 10
 } : set = configure
 
-# exposed here so you don't have to access the movementComponent
-# passed the value to the movement component automatically
 @export var moveSpeed: float = 10: set = setMoveSpeed
 @export var points_value: int = 100
 @export var max_health: float = 5.0
 @export var strength: int = 10
 @onready var health = self.max_health
 
-
+# Flashing variables
+var flashing_intensity: float = 0.0
+var max_flashing_intensity: float = 1.0
+var flashing_decay_rate: float = 2.0  # How quickly the flashing fades (in seconds)
 
 func _ready() -> void:
-	configure(config)  # Apply the default config
+	configure(config)
 	player = get_player()
+
+
+func _process(delta: float) -> void:
+	# If the entity is flashing, reduce the intensity over time
+	if flashing_intensity > 0:
+		flashing_intensity -= flashing_decay_rate * delta
+		flashing_intensity = max(flashing_intensity, 0)  # Ensure it doesn't go below 0
+		
+		# Modulate the sprite based on the flashing intensity (red tint)
+		sprite.modulate = Color(1, 1 - flashing_intensity, 1 - flashing_intensity)  # Flash red
+
+	# Reset sprite modulate back to white when flashing stops
+	if flashing_intensity <= 0:
+		sprite.modulate = Color(1, 1, 1)
 
 
 # sets the path for the entity to follow
@@ -47,17 +61,12 @@ func setup(path: PackedVector2Array) -> void:
 		queue_free()
 
 
-## Allow for easy configuration of the entity
-##
-## Accepts a dictionary with key value pairs to configure the entity.
-## Use this method to apply the configuration the entity will have on spawn.
 func configure(new_config: Dictionary) -> void:
 	if config != new_config:
 		config = new_config
 		
 	if config.has("speed"):
 		moveSpeed = config["speed"]
-		#setMoveSpeed(config["speed"])
 		
 	if config.has("health"):
 		max_health = config["health"]
@@ -68,11 +77,8 @@ func configure(new_config: Dictionary) -> void:
 		
 	if config.has("strength"):
 		strength = config["strength"]
-	
-	# TODO: update other internal variables
 
 
-# pass into movement component
 func setMoveSpeed(value: float) -> void:
 	if movementComponent == null:
 		return
@@ -86,22 +92,30 @@ func startMoving() -> void:
 func get_player() -> Player:
 	return get_tree().get_first_node_in_group("Player")
 
-# perhaps particles, death sound, score, whatever
-# always good to have as seperate function
+
 func die() -> void:
 	player.add_points(points_value)
 	delete()
+
 
 func hit_base() -> void:
 	player.take_damage(strength)
 	delete()
 
+
 func delete() -> void:
+	died.emit()
 	movementComponent.queue_free()
 	queue_free()
 
+
+# Decrease health and flash red
 func removeHealth(amount: float) -> void:	
 	health -= amount
-	health_bar.set_health_percent(health / max_health)
+
+
+	# Trigger the flash effect by setting the flashing intensity to max
+	flashing_intensity = max_flashing_intensity
+	
 	if health <= 0:
 		die()

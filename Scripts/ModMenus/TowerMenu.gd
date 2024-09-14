@@ -36,8 +36,8 @@ var displayOffset: Vector2 = Vector2(-150, 0)
 func _ready() -> void:
 	add_to_group("TowerMenu")
 	
-	moveButton.button_up.connect(onMovePressed)
-	closeButton.button_up.connect(closeMenu)
+	moveButton.pressed.connect(onMovePressed)
+	closeButton.pressed.connect(closeMenu)
 	
 	for slot: ModSlot in modSlots:
 		slot.slotAdd.connect(addTowerMod)
@@ -56,7 +56,7 @@ func openMenu(newTower: Tower) -> void:
 # when deselecting a tower
 func closeMenu() -> void:
 	clearTowerModsDisplayed()
-	clear()
+	removeTower()
 	hide()
 
 
@@ -70,6 +70,7 @@ func clearTowerModsDisplayed() -> void:
 	if tower != null:
 		for mod: ModItem in tower.getMods():
 			mod.hide()
+			
 	for slot: ModSlot in modSlots:
 		slot.removeModItemNoSignal() # use this over removeModItem to prevent mod from also being removed from the tower
 
@@ -79,25 +80,29 @@ func loadTowerMods() -> void:
 	if tower != null:
 		var towerMods: Array = tower.getMods()
 		
-	# NOTE: bugs ill happen if there are more mods than mod slots, this currently helps prevent it from crashing if that happens
-	# Prevents bugs when there are more mod slots than tower mods
+		for slot in modSlots:
+			slot.empty()
+
 		for x in range(modSlots.size()):
 			if x < towerMods.size():  # Ensure 'x' is within bounds of towerMods
-				modSlots[x].placeModItemInSlotNoSignal(towerMods[x])  # Prevents duplication bug
-				modSlotRow[x].onSlotAdd(towerMods[x]) # sets slot row name
+				modSlots[x].placeModItemInSlotNoSignal(towerMods[x])
+				modSlotRow[x].onSlotAdd(towerMods[x])
 				towerMods[x].show()
 			else:
-				modSlotRow[x].clearSlotName()  # rest slots that are empty to show "Empty Slot"
+				modSlotRow[x].clearSlotName()  # Reset slots that are empty to show "Empty Slot"
+				modSlots[x].removeModItemNoSignal()  # Ensure mod slots without mods are cleared
 
 
 # when a mod is placed in a slot, add it to the tower
 func addTowerMod(modItem: ModItem) -> void:
 	if tower != null:
 		tower.addMod(modItem)
-	
+
+
 func removeTowerMod(modItem: ModItem) -> void:
 	if tower != null:
 		tower.removeMod(modItem)
+
 
 # allows user to move the tower
 func onMovePressed() -> void:
@@ -105,12 +110,15 @@ func onMovePressed() -> void:
 		tower.towerDragComponent.setDrag()
 		closeMenu()
 
+
 # remove the selected tower
-func clear() -> void:
+func removeTower() -> void:
 	tower = null
+
 
 func disableMove() -> void:
 	moveButton.disabled = true
+	
 	
 func enableMove() -> void:
 	moveButton.disabled = false

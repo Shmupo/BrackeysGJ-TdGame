@@ -27,6 +27,7 @@ func fireProjectile(targets: Array) -> void:
 	for num in numProjectiles:
 		var newProjectile: Node2D = projectileInstance.instantiate()
 		add_child(newProjectile)
+		newProjectile.position.y -= 10
 		newProjectile.global_position = global_position
 		newProjectile.setTarget(targets[targetIdx])
 		projectiles.append(newProjectile)

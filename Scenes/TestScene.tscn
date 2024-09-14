@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://Scripts/Entity/EntityManager.gd" id="3_hw5di"]
 [ext_resource type="PackedScene" uid="uid://dhauw1e87j6c7" path="res://Scenes/Components/Tower/TestTower1.tscn" id="4_iym6a"]
 [ext_resource type="PackedScene" uid="uid://s08lq8bnqkx0" path="res://Scenes/Components/Tower/TowerMenu.tscn" id="4_koogo"]
-[ext_resource type="PackedScene" uid="uid://ca0gca4clme8n" path="res://Scenes/Components/defend_location.tscn" id="6_ohprv"]
 [ext_resource type="PackedScene" uid="uid://dyd4rvrn12tp" path="res://Scenes/Components/ModsInventoryMenu.tscn" id="6_qdaid"]
+[ext_resource type="Script" path="res://Scripts/Tower/Towers.gd" id="7_pdsio"]
 [ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="8_sb82m"]
 [ext_resource type="PackedScene" uid="uid://hesw7o41aud4" path="res://Scenes/Components/TutorialUI.tscn" id="9_olebs"]
 [ext_resource type="Script" path="res://Scripts/Waves/uniform_wave.gd" id="12_8enhc"]
@@ -90,16 +90,15 @@ position = Vector2(-193.333, -106.667)
 scale = Vector2(0.333333, 0.333333)
 script = ExtResource("3_hw5di")
 
-[node name="DefendLocation" parent="UserInteractableTileMapLayer" instance=ExtResource("6_ohprv")]
-
 [node name="Towers" type="Node2D" parent="."]
+script = ExtResource("7_pdsio")
 
 [node name="TestTower1" parent="Towers" instance=ExtResource("4_iym6a")]
-position = Vector2(510, 299)
+position = Vector2(507, 296)
 scale = Vector2(2, 2)
 
 [node name="TestTower2" parent="Towers" instance=ExtResource("4_iym6a")]
-position = Vector2(608, 297)
+position = Vector2(651, 199)
 scale = Vector2(2, 2)
 
 [node name="ModsInventoryMenu" parent="." instance=ExtResource("6_qdaid")]
@@ -160,6 +159,7 @@ script = ExtResource("12_qrfwb")
 script = ExtResource("13_a0fh0")
 
 [node name="PhaseBar" parent="." instance=ExtResource("14_v56gd")]
+top_level = true
 position = Vector2(357, -25)
 
 [node name="StartWaveButton" type="Button" parent="."]

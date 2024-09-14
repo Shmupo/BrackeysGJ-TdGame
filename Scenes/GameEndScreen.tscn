@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://303cfa6y5hhq"]
+
+[ext_resource type="Script" path="res://Scripts/UIMenus/AppearingBlackScreen.gd" id="1_fo13h"]
+[ext_resource type="Script" path="res://Scripts/UIMenus/DelayedFadeIntoView.gd" id="2_sr130"]
+
+[node name="GameEndScreen" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1151.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_fo13h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1153.0
+offset_bottom = 650.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+script = ExtResource("2_sr130")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TopText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center][color=red]The defeat of your village was inevitable..."
+fit_content = true
+
+[node name="MidText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center][color=purple]Who knew wizards still existed?"
+fit_content = true
+
+[node name="LowerText2" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "
+[center]You have reached the end of the game.
+(Don't feel bad, you were supposed to lose)
+
+Thank you for playing!
+
+The game was created for Brackeys Game Jam 2024.2, with a theme of \"The Calm Before the Storm\"
+
+This game was made by:
+
+MeHupo			Bacta_Tanks			Enpeace			Eik		Jackson"
+fit_content = true
