@@ -20,8 +20,7 @@ func _ready() -> void:
 			if result.x == 4 and result.y == 0:
 				pathing_component.aStarGrid.set_point_solid(cell, false)
 	pathing_component.updatePath()
-	
-	
+
 
 func spawn_base_entity() -> void:
 	entity_manager.spawnEntity("BaseEntity")

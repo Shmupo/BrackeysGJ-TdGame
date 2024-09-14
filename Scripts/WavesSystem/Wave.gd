@@ -23,6 +23,8 @@ func _ready() -> void:
 		add_child(timer)
 		
 	timer.wait_time = spawn_timer_wait_time
+	if entity_manager.numEntities == 0:
+		entity_manager.numEntities = get_num_entities()
 
 func start_wave() -> void:
 	print("wave_start")
