@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://yanwd2glbpap"]
+
+[ext_resource type="Script" path="res://Scripts/ModItem/ModItem.gd" id="1_e8g2k"]
+[ext_resource type="Texture2D" uid="uid://cel2lk5ohli17" path="res://Assets/Resources/LaserCrystal.tres" id="2_g3r3e"]
+[ext_resource type="Script" path="res://Scripts/ModItem/DragComponent.gd" id="3_krjw4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ddnc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crm4q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hveww"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rq31a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rad5"]
+
+[node name="LaserCrystal" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_e8g2k")
+projectileSpeedAdd = 500.0
+targetRangeAdd = 100.0
+itemName = "Laser Crystal"
+itemDescription = "Get beamed!"
+
+[node name="ItemSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_g3r3e")
+
+[node name="DragButton" type="Button" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ddnc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_crm4q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hveww")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rq31a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5rad5")
+
+[node name="DragComponent" type="Node2D" parent="."]
+script = ExtResource("3_krjw4")

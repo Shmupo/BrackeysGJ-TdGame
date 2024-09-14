@@ -77,6 +77,7 @@ func end_waves() -> void:
 	print("end_waves")
 	_on_end_waves.emit()
 
+
 func get_num_entities() -> int:
 	var num = 0
 	for wave in $ActiveWaves.get_children():

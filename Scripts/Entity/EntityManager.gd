@@ -22,26 +22,13 @@ extends Node2D
 # set as parent
 @onready var userInteractableTileMapLayer: UserInteractableTilemapLayer = $".."
 
-# TESTING
-@onready var spawnEntityButton: Button = %SpawnEntityButton
-
 var startCoord: Vector2
-
-# keep count of alive entities
-# increment when spawn entity
-# decrement when deleting entity
-var entitiesCount: int = 0
-
-func _ready() -> void:
-	if spawnEntityButton != null:
-		spawnEntityButton.button_up.connect(spawnAndSendOutEntity)
 
 # make sure the the path is valid and generated before calling this
 func getPath() -> PackedVector2Array:
 	return userInteractableTileMapLayer.pathingComponent.getPath()
 
 func spawnAndSendOutEntity() -> void:
-	entitiesCount += 1
 	var testEntityInstance: Entity = enemy_type["BaseEntity"].instantiate()
 	testEntityInstance.configure({"speed": 50})
 	# NOTE - need to add to scene first to allow certain variables to initialize
@@ -52,7 +39,6 @@ func spawnAndSendOutEntity() -> void:
 
 ## Spawn entity by name
 func spawnEntity(name: String, config: Dictionary = {}) -> void:
-	entitiesCount += 1
 	var etype = enemy_type[name]
 	if etype == null:
 		print("".join(["Unknown enemy type: ", name]))

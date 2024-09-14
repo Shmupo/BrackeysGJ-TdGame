@@ -13,7 +13,7 @@ script = ExtResource("1_6jadv")
 [node name="MenuBackgroundColorRect" type="ColorRect" parent="."]
 layout_mode = 2
 mouse_filter = 2
-color = Color(0.574011, 0.792985, 0.419779, 1)
+color = Color(0, 0, 0, 0.470588)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

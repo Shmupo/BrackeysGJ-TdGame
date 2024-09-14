@@ -1,5 +1,8 @@
 extends Button
 
+## Acting as the wave controller
+
+
 @onready var waveManager: WaveManager = %WaveManager
 @onready var phaseBar: PhaseBar = $"../PhaseBar"
 # for checking if path is valid
@@ -15,9 +18,15 @@ func _ready() -> void:
 
 func onPressStart() -> void:
 	if isPathValid():
-		phaseBar.setDefendPhase()
-		waveManager.startNextWave()
-		disabled = true
+		if waveManager.currentWave < 5:
+			phaseBar.setDefendPhase()
+			waveManager.startNextWave()
+			disabled = true
+		else:
+			# DO STORM PHASE at wave 6
+			phaseBar.setStormPhase()
+			waveManager.startNextWave()
+			disabled = true
 	else:
 		var floatingMessage: RichTextLabel = load("res://Scenes/Components/FlashFloatingMessage.tscn").instantiate()
 		add_child(floatingMessage)

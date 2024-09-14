@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://1cqcmo7d3xi8"]
+
+[ext_resource type="Script" path="res://Scripts/ModItem/ModItem.gd" id="1_a07u4"]
+[ext_resource type="Texture2D" uid="uid://b2wywfncl1qhl" path="res://Assets/Resources/Telescope.tres" id="2_d8rua"]
+[ext_resource type="Script" path="res://Scripts/ModItem/DragComponent.gd" id="3_n57b3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ddnc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crm4q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hveww"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rq31a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rad5"]
+
+[node name="Telescope" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_a07u4")
+targetRangeAdd = 100.0
+itemName = "Telescope"
+itemDescription = "See farther, shoot farther."
+
+[node name="ItemSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_d8rua")
+
+[node name="DragButton" type="Button" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ddnc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_crm4q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hveww")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rq31a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5rad5")
+
+[node name="DragComponent" type="Node2D" parent="."]
+script = ExtResource("3_n57b3")
