@@ -33,12 +33,13 @@ func getPath() -> PackedVector2Array:
 func onEntityDeath() -> void:
 	if !more_entities_in_wave:
 		allEnemiesDead.emit()
+	#print("NumEntities: " + str(numEntities))
 
 ## Spawn entity by name
 func spawnEntity(name: String, config: Dictionary = {}) -> void:
 	var etype = enemy_type[name]
 	if etype == null:
-		print("".join(["Unknown enemy type: ", name]))
+		print("".join(["Unknown eenemy type: ", name]))
 		return
 	var instance: Entity = etype.instantiate()
 	add_child(instance)

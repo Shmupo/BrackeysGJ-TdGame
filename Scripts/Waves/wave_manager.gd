@@ -44,6 +44,7 @@ func begin_next_wave() -> void:
 	_on_wave_start.emit()
 	
 	
+	
 func on_wave_end() -> void:
 	_on_wave_end.emit()
 	wave_timer.start()

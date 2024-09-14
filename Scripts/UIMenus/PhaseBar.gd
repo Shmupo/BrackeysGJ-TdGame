@@ -13,7 +13,7 @@ extends Node2D
 
 # Doing zero for now, will implement progress bar if I have more time
 var hideYShift: int = 0
-var buildPhase: bool = true : set = setPhase
+var buildPhase: bool = true
 @onready var label: RichTextLabel = $CenterContainer/VBoxContainer/RichTextLabel
 @onready var towerMenu: TowerMenu = $"../TowerMenu"
 @onready var userInteractableTileMapLayer: UserInteractableTilemapLayer = $"../UserInteractableTileMapLayer"
@@ -52,11 +52,3 @@ func configureDefendPhase() -> void:
 func configureBuildPhase() -> void:
 	towerMenu.enableMove() # enables move button for towers
 	userInteractableTileMapLayer.inputComponent.enableInput() # user can place tiles
-
-
-func setPhase(value: bool) -> void:
-	buildPhase = value
-	if buildPhase == false:
-		setBuildPhase()
-	else:
-		setDefendPhase()

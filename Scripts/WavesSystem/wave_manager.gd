@@ -7,7 +7,7 @@ signal _on_start_waves
 signal _on_end_waves
 
 
-@onready var EntityManager = %EntityManager
+@onready var entityManager: EntityManager = %EntityManager
 @onready var wave_set: Node = $WaveSet
 @onready var active_waves: Node = $ActiveWaves
 @onready var wave_timer: Timer = $WaveTimer

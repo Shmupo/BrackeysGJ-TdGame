@@ -15,7 +15,8 @@ func _ready() -> void:
 	
 	pathingComponent = get_tree().get_first_node_in_group("UserInteractableTileMapLayer").pathingComponent
 
-	entityManager.allEnemiesDead.connect(onWaveDone) # wait for all enemies to die
+	#entityManager.allEnemiesDead.connect(onWaveDone) # wait for all enemies to die
+	waveManager._on_wave_end.connect(delayedWaveDone)
 
 func onPressStart() -> void:
 	if isPathValid():
@@ -37,6 +38,11 @@ func onPressStart() -> void:
 
 
 func onWaveDone() -> void:
+	disabled = false
+	phaseBar.setBuildPhase()
+
+func delayedWaveDone() -> void:
+	await get_tree().create_timer(3).timeout
 	disabled = false
 	phaseBar.setBuildPhase()
 
