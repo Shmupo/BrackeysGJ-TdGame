@@ -24,7 +24,7 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
-text = "[center]Title"
+text = "[center]The Last Wizard"
 
 [node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
