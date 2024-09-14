@@ -17,6 +17,7 @@ signal allEnemiesDead
 	"BaseEntity": preload("res://Scenes/Components/Entities/BaseEntity.tscn"),
 	"OtherEntity": preload("res://Scenes/Components/Entities/OtherEntity.tscn"),
 	"KnightEntity": preload("../../Scenes/Components/Entities/KnightEntity.tscn"),
+	"WizardEntity": preload("res://Scenes/Components/Entities/WizardEntity.tscn"),
 }
 
 # set as parent

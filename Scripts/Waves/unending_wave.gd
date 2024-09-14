@@ -19,6 +19,17 @@ var difficulty = 1
 func _ready() -> void:
 	spawn_queue = []
 	
+	spawn_queue.append({
+		"type": "WizardEntity",
+		"spawn_delay": 0.1,
+		"config": {
+			"health": 75,
+			"speed": 120,
+			"strength": 35,
+			"points": 5000
+		}
+	})
+	
 	for i in range(entities_before_increase + 5):
 		spawn_queue.append(create_entity_dict())
 		

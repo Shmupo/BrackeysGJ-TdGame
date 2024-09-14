@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4qlg6s3xv8mk"]
+
+[ext_resource type="Script" path="res://Scripts/Entity/EntityBaseClass.gd" id="1_n5och"]
+[ext_resource type="Texture2D" uid="uid://bjyok2mksjcvj" path="res://Assets/Resources/Enemies/Wizard.tres" id="2_ufhwh"]
+[ext_resource type="Script" path="res://Scripts/Entity/MovementComponent.gd" id="3_qqm2x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k5x4m"]
+radius = 18.0278
+
+[node name="BaseEntity" type="Node2D" groups=["EnemyGroup"]]
+script = ExtResource("1_n5och")
+moveSpeed = 150.0
+
+[node name="EntitySprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ufhwh")
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("3_qqm2x")
+
+[node name="HitBoxArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+shape = SubResource("CircleShape2D_k5x4m")
