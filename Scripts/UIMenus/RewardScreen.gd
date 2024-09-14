@@ -35,7 +35,6 @@ func generateRandomRewards() -> void:
 func addItemsToInv(itemArr: Array) -> void:
 	var itemSpawner: ItemSpawner = get_tree().get_first_node_in_group("ItemSpawner")
 	for item: ModItem in itemArr:
-		item.reparent(null)
 		itemSpawner.addItemToInventory(item)
 
 # self delete

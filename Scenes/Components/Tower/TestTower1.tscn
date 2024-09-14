@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/Tower/TowerMenuButton.gd" id="7_lcyod"]
 [ext_resource type="Script" path="res://Scripts/Tower/TowerDragComponent.gd" id="8_644ur"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s7i8f"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ayhm"]
 radius = 50.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7c56d"]
@@ -52,7 +52,7 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetingArea2D"]
-shape = SubResource("CircleShape2D_s7i8f")
+shape = SubResource("CircleShape2D_2ayhm")
 
 [node name="FireTimer" type="Timer" parent="."]
 

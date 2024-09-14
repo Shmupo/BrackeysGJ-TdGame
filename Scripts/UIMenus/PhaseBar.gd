@@ -11,7 +11,8 @@ extends Node2D
 ##
 ## Defend phase is opposite of build phase
 
-var hideYShift: int = 24
+# Doing zero for now, will implement progress bar if I have more time
+var hideYShift: int = 0
 var buildPhase: bool = true : set = setPhase
 @onready var label: RichTextLabel = $CenterContainer/VBoxContainer/RichTextLabel
 @onready var towerMenu: TowerMenu = $"../TowerMenu"

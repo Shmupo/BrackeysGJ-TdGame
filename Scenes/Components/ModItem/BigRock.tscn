@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://w8it5uhotax2"]
+[gd_scene load_steps=10 format=3 uid="uid://w8it5uhotax2"]
 
 [ext_resource type="Script" path="res://Scripts/ModItem/ModItem.gd" id="1_kskfj"]
+[ext_resource type="PackedScene" uid="uid://gw18k300lkw3" path="res://Scenes/Components/Tower/Projectile/BigRock.tscn" id="2_n63ai"]
 [ext_resource type="Texture2D" uid="uid://b5n0lon4b6g3a" path="res://Assets/Resources/BigRock.tres" id="2_yiorf"]
 [ext_resource type="Script" path="res://Scripts/ModItem/DragComponent.gd" id="3_otefh"]
 
@@ -18,8 +19,10 @@
 scale = Vector2(2, 2)
 script = ExtResource("1_kskfj")
 projectileSpeedAdd = -150.0
-projectileDamageAdd = 8.0
-targetRangeAdd = -25.0
+projectileDamageAdd = 4.0
+fireRateAddTime = 1.0
+newProjectileScene = ExtResource("2_n63ai")
+targetRangeAdd = -5.0
 itemName = "Big Rock"
 itemDescription = "Give this to the men in the tower, they know what to do with it."
 

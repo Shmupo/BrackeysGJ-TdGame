@@ -14,7 +14,8 @@ func setTarget(newTarget: Node2D) -> void:
 func _process(delta: float) -> void:
 	if moving:
 		if target == null or !is_instance_valid(target):
-			return  #TODO probably need something more fancy here
+			queue_free() # delete if target disappears
+			return
 		global_position = global_position.move_toward(target.global_position, delta * projectileSpeed)
 		if global_position == target.global_position:
 			

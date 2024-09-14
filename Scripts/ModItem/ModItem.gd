@@ -5,6 +5,7 @@ extends Node2D
 @export var projectileSpeedAdd: float = 0
 @export var projectileCountAdd: int = 0
 @export var projectileDamageAdd: float = 0
+@export var fireRateAddTime: float = 0
 @export var newProjectileScene: PackedScene = null
 @export var targetRangeAdd: float = 0
 
@@ -17,16 +18,22 @@ extends Node2D
 func applyTowerUpgrades(tower: Tower) -> void:
 	addProjectileCount(tower)
 	changeProjectile(tower)
+	addTargetingRange(tower)
+	addFireRate(tower)
 
 
 # shoot more projectiles
-func addProjectileCount(tower: Tower, reverse: bool = false) -> void:
+func addProjectileCount(tower: Tower) -> void:
 	tower.shootingComponent.numProjectiles += projectileCountAdd
 
 
 # increase targeting circle
-func addTargetingRange(tower: Tower, reverse: bool = false) -> void:
+func addTargetingRange(tower: Tower) -> void:
 	tower.targetingComponent.targetingRadius += targetRangeAdd
+
+
+func addFireRate(tower: Tower) -> void:
+	tower.fireDelaySeconds  += fireRateAddTime
 
 
 # changes the projectile to something else completely

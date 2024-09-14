@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://derdgkk7c7ii1"]
+
+[ext_resource type="Texture2D" uid="uid://b1lsix3atkrcd" path="res://Assets/Resources/CannonBall.tres" id="1_lg5e8"]
+[ext_resource type="Script" path="res://Scripts/Tower/Projectile/SimpleTowerProjectile.gd" id="2_5qb7g"]
+
+[node name="LaserBeam" type="Sprite2D"]
+self_modulate = Color(0.975664, 4.57242e-06, 1.54018e-06, 1)
+texture = ExtResource("1_lg5e8")
+script = ExtResource("2_5qb7g")
