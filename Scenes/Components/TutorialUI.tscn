@@ -58,10 +58,11 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_j62bw")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_58njf")
 theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_gjoix")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_w8wdq")
-current_tab = 0
+current_tab = 2
 tabs_visible = false
 
 [node name="HowToPlay - Placing Path" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -80,7 +81,7 @@ fit_content = true
 
 [node name="Message" type="RichTextLabel" parent="TabContainer/HowToPlay - Placing Path/VBoxContainer"]
 layout_mode = 2
-text = "Please read through this tutorial - this is not exactly your traditional TD game!
+text = "This is not exactly your traditional TD game!
 
 You will need to defend your village from waves of enemies, however...
 
@@ -88,7 +89,7 @@ It is up to you to place the path the enemies will follow.
 
 Click on the map to place path tiles.
 
-You only have a limited number of paths, so plan carefully, as you cannot change the path while a wave of enemies has begun.
+You only have a limited number of paths, which you can see in the bottom right.
 
 The path MUST have a connection between the village and the forest.
 
@@ -126,8 +127,7 @@ Move the tower with your mouse and click again to drop it into place.
 Note that you cannot move towers while the wave has started."
 fit_content = true
 
-[node name="YourFirstWave" type="MarginContainer" parent="TabContainer"]
-visible = false
+[node name="UpgradingTowers" type="MarginContainer" parent="TabContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -135,22 +135,22 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 metadata/_tab_index = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/YourFirstWave"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/UpgradingTowers"]
 layout_mode = 2
 
-[node name="Title" type="RichTextLabel" parent="TabContainer/YourFirstWave/VBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="TabContainer/UpgradingTowers/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 24
 text = "Upgrading Towers"
 fit_content = true
 
-[node name="Message" type="RichTextLabel" parent="TabContainer/YourFirstWave/VBoxContainer"]
+[node name="Message" type="RichTextLabel" parent="TabContainer/UpgradingTowers/VBoxContainer"]
 layout_mode = 2
 text = "When you click on a tower, you will open the Tower Menu.
 
 Each tower has slots where you can drag and drop items into, which will modify that one tower in some way.
 
-You will recieve more items as the waves progress."
+Your items are shown on the bottom of the screen, where your inventory is, and this is where more items will appear after each wave."
 fit_content = true
 
 [node name="Getting Towers" type="MarginContainer" parent="TabContainer"]
@@ -173,13 +173,12 @@ fit_content = true
 
 [node name="Message" type="RichTextLabel" parent="TabContainer/Getting Towers/VBoxContainer"]
 layout_mode = 2
-text = "After some waves, the villagers will build a tower for you.
-
+text = "After a wave, there is a chance the villagers will be grateful enough to build you some more towers.
 
 Simply keep progressing through the waves, and eventually, you will see that a new tower will have been placed on the map."
 fit_content = true
 
-[node name="UpgradingTowers" type="MarginContainer" parent="TabContainer"]
+[node name="Ready" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
@@ -188,18 +187,18 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 metadata/_tab_index = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/UpgradingTowers"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Ready"]
 layout_mode = 2
 
-[node name="Title" type="RichTextLabel" parent="TabContainer/UpgradingTowers/VBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="TabContainer/Ready/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 24
 text = "Ready?"
 fit_content = true
 
-[node name="Message" type="RichTextLabel" parent="TabContainer/UpgradingTowers/VBoxContainer"]
+[node name="Message" type="RichTextLabel" parent="TabContainer/Ready/VBoxContainer"]
 layout_mode = 2
-text = "You are currently in the build phase. When you are finished, press the \"Start Wave\" button on the bottom right.
+text = "If you are in the build phase (check the text on the top of the screen), and are ready to start defending, press the \"Start Wave\" button on the bottom right.
 
 Make sure you have placed your towers and paths carefully - you cannot change these while the wave is active."
 fit_content = true
