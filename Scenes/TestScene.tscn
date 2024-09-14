@@ -118,6 +118,9 @@ time_between_waves = 10.0
 
 [node name="WaveSet" type="Node" parent="WaveManager"]
 
+[node name="Unending Wave" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("14_1fwqc")
+
 [node name="Wave 1" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("12_8enhc")
 num_entities = 10
@@ -148,9 +151,6 @@ entity_1_type = "KnightEntity"
 entity_1_spawn_delay = 0
 entity_2_speed = 65
 entity_2_type = "OtherEntity"
-
-[node name="Unending Wave" type="Node" parent="WaveManager/WaveSet"]
-script = ExtResource("14_1fwqc")
 
 [node name="TowerSpawner" type="Node2D" parent="."]
 script = ExtResource("12_qrfwb")
