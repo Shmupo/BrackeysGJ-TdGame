@@ -13,7 +13,7 @@ func _ready() -> void:
 	modSlot.slotRemove.connect(onSlotRemove)
 	
 func onSlotAdd(modItem: ModItem) -> void:
-	modLabel.text = modItem.name
+	modLabel.text = modItem.itemName
 
 # wrapper to discard arg
 func onSlotRemove(_modItem: ModItem) -> void:

@@ -113,6 +113,7 @@ func delete() -> void:
 func removeHealth(amount: float) -> void:	
 	health -= amount
 
+	print(health)
 
 	# Trigger the flash effect by setting the flashing intensity to max
 	flashing_intensity = max_flashing_intensity

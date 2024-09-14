@@ -43,7 +43,7 @@ offset_left = 2.0
 offset_top = 1.0
 offset_right = 148.0
 offset_bottom = 40.0
-text = "Show Tutorial"
+text = "Hide Tutorial"
 
 [node name="TabContainer" type="TabContainer" parent="."]
 self_modulate = Color(0, 0, 0, 1)
@@ -58,11 +58,10 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_j62bw")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_58njf")
 theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_gjoix")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_w8wdq")
-current_tab = 2
+current_tab = 0
 tabs_visible = false
 
 [node name="HowToPlay - Placing Path" type="MarginContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -128,6 +127,7 @@ Note that you cannot move towers while the wave has started."
 fit_content = true
 
 [node name="UpgradingTowers" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10

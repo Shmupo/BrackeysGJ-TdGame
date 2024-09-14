@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=30 format=4 uid="uid://u0da0rqffi33"]
+
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_q7fmf"]
@@ -18,8 +20,9 @@
 [ext_resource type="Script" path="res://Scripts/Waves/unending_wave.gd" id="14_1fwqc"]
 [ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
-[ext_resource type="PackedScene" uid="uid://ctk8d4npivb8d" path="res://Scenes/Components/ModItem/Rope.tscn" id="19_dx3ia"]
+
+[ext_resource type="PackedScene" uid="uid://vucdetswbjmi" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
+
 [ext_resource type="Script" path="res://Scripts/UIMenus/points_label.gd" id="19_hwffj"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/player_health_label.gd" id="20_8oe7i"]
 [ext_resource type="PackedScene" uid="uid://bua8l8nqnsowv" path="res://Scenes/Components/defeat_screen.tscn" id="22_y3p4m"]
@@ -109,6 +112,7 @@ position = Vector2(265, 309)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="TutorialUi" parent="." instance=ExtResource("9_olebs")]
+visible = false
 top_level = true
 
 [node name="WaveManager" parent="." instance=ExtResource("8_sb82m")]
@@ -169,9 +173,6 @@ offset_bottom = 555.0
 text = "Start Wave"
 script = ExtResource("15_p0fe1")
 
-[node name="Rope" parent="." instance=ExtResource("19_dx3ia")]
-position = Vector2(217, 593)
-
 [node name="PathCounter" type="RichTextLabel" parent="."]
 offset_left = 1019.0
 offset_top = 569.0
@@ -183,10 +184,10 @@ script = ExtResource("24_gkyiu")
 [node name="PlayerStats" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayerStats"]
-offset_left = 944.0
-offset_top = 437.0
-offset_right = 1150.0
-offset_bottom = 507.0
+offset_left = 1011.0
+offset_top = 429.0
+offset_right = 1135.0
+offset_bottom = 499.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10

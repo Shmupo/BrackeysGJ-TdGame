@@ -56,7 +56,7 @@ func configureBuildPhase() -> void:
 
 func setPhase(value: bool) -> void:
 	buildPhase = value
-	if buildPhase:
+	if buildPhase == false:
 		setBuildPhase()
 	else:
 		setDefendPhase()
