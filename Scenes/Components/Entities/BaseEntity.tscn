@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6f65bj1v6f1p"]
 
 [ext_resource type="Script" path="res://Scripts/Entity/EntityBaseClass.gd" id="1_0sfov"]
-[ext_resource type="Texture2D" uid="uid://3yb2bxlvhskv" path="res://Assets/BoidArrow.png" id="2_km5dj"]
+[ext_resource type="Texture2D" uid="uid://ddnwvtjbok56l" path="res://Assets/Resources/Enemies/Goblin.tres" id="2_jh230"]
 [ext_resource type="Script" path="res://Scripts/Entity/MovementComponent.gd" id="3_4k04q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5x4m"]
@@ -12,7 +12,7 @@ script = ExtResource("1_0sfov")
 moveSpeed = 150.0
 
 [node name="EntitySprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_km5dj")
+texture = ExtResource("2_jh230")
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("3_4k04q")

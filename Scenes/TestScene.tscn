@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=30 format=4 uid="uid://u0da0rqffi33"]
-
+[gd_scene load_steps=29 format=4 uid="uid://u0da0rqffi33"]
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_q7fmf"]
@@ -20,9 +18,7 @@
 [ext_resource type="Script" path="res://Scripts/Waves/unending_wave.gd" id="14_1fwqc"]
 [ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
-
 [ext_resource type="PackedScene" uid="uid://vucdetswbjmi" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
-
 [ext_resource type="Script" path="res://Scripts/UIMenus/points_label.gd" id="19_hwffj"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/player_health_label.gd" id="20_8oe7i"]
 [ext_resource type="PackedScene" uid="uid://bua8l8nqnsowv" path="res://Scenes/Components/defeat_screen.tscn" id="22_y3p4m"]
@@ -123,37 +119,44 @@ time_between_waves = 10.0
 
 [node name="Wave 1" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("12_8enhc")
+entity_health = 8
 num_entities = 10
 
 [node name="Wave 2" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("12_8enhc")
+entity_health = 10
 entity_type = "OtherEntity"
 
 [node name="Wave 3" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("12_8enhc")
 num_entities_2 = 25
 entity_speed = 75
-entity_health = 8
+entity_health = 16
 entity_points = 50
 entity_type = "KnightEntity"
 
 [node name="Wave 4" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("13_vb3iq")
 num_entities_2 = 20
+entity_1_health = 10
 entity_1_spawn_delay = 0
 entity_2_speed = 65
+entity_2_health = 10
 entity_2_type = "OtherEntity"
 
 [node name="Wave 5" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("13_vb3iq")
 num_entities_2 = 20
+entity_1_health = 12
 entity_1_type = "KnightEntity"
 entity_1_spawn_delay = 0
 entity_2_speed = 65
+entity_2_health = 12
 entity_2_type = "OtherEntity"
 
 [node name="Unending Wave" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("14_1fwqc")
+entity_health = 18
 
 [node name="TowerSpawner" type="Node2D" parent="."]
 script = ExtResource("12_qrfwb")
