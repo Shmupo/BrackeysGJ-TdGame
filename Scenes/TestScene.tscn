@@ -18,9 +18,7 @@
 [ext_resource type="Script" path="res://Scripts/Waves/unending_wave.gd" id="14_1fwqc"]
 [ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
-
 [ext_resource type="PackedScene" uid="uid://vucdetswbjmi" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
-
 [ext_resource type="Script" path="res://Scripts/UIMenus/points_label.gd" id="19_hwffj"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/player_health_label.gd" id="20_8oe7i"]
 [ext_resource type="PackedScene" uid="uid://bua8l8nqnsowv" path="res://Scenes/Components/defeat_screen.tscn" id="22_y3p4m"]
