@@ -1,7 +1,9 @@
+
 [gd_scene load_steps=10 format=3 uid="uid://yanwd2glbpap"]
 
 [ext_resource type="Script" path="res://Scripts/ModItem/ModItem.gd" id="1_e8g2k"]
 [ext_resource type="PackedScene" uid="uid://derdgkk7c7ii1" path="res://Scenes/Components/Tower/Projectile/LaserBeam.tscn" id="2_4fmpr"]
+
 [ext_resource type="Texture2D" uid="uid://cel2lk5ohli17" path="res://Assets/Resources/LaserCrystal.tres" id="2_g3r3e"]
 [ext_resource type="Script" path="res://Scripts/ModItem/DragComponent.gd" id="3_krjw4"]
 
@@ -18,9 +20,11 @@
 [node name="LaserCrystal" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_e8g2k")
+
 projectileSpeedAdd = -200.0
 newProjectileScene = ExtResource("2_4fmpr")
 targetRangeAdd = 25.0
+
 itemName = "Laser Crystal"
 itemDescription = "Get beamed!"
 
