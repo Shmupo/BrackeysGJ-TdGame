@@ -14,9 +14,9 @@ extends Node2D
 
 # pre-load scenes for enemy types
 @onready var enemy_type: Dictionary = {
-	"BaseEntity": load("res://Scenes/Components/Entities/BaseEntity.tscn"),
-	"OtherEntity": load("res://Scenes/Components/Entities/OtherEntity.tscn"),
-	"KnightEntity": load("../../Scenes/Components/Entities/KnightEntity.tscn"),
+	"BaseEntity": preload("res://Scenes/Components/Entities/BaseEntity.tscn"),
+	"OtherEntity": preload("res://Scenes/Components/Entities/OtherEntity.tscn"),
+	"KnightEntity": preload("../../Scenes/Components/Entities/KnightEntity.tscn"),
 }
 
 # set as parent
@@ -43,9 +43,9 @@ func getPath() -> PackedVector2Array:
 func spawnAndSendOutEntity() -> void:
 	entitiesCount += 1
 	var testEntityInstance: Entity = enemy_type["BaseEntity"].instantiate()
+	add_child(testEntityInstance)
 	testEntityInstance.configure({"speed": 50})
 	# NOTE - need to add to scene first to allow certain variables to initialize
-	add_child(testEntityInstance)
 	testEntityInstance.setup(getPath())
 	testEntityInstance.startMoving()
 
