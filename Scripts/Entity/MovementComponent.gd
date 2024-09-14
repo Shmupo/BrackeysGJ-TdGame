@@ -18,7 +18,6 @@ var moveSpeed: float = 250
 
 # get parent
 @onready var entity: Entity = $".."
-@onready var entity_manager: EntityManager = %EntityManager
 
 # call this before making the entity do anything
 func setup(newPath: Array[Vector2]) -> void:
@@ -26,7 +25,7 @@ func setup(newPath: Array[Vector2]) -> void:
 
 # call this to make this entity start moving along the path
 func startMoving() -> void:
-	if path == null || path.is_empty():
+	if path.is_empty():
 		print("ERROR: called startMoving on " + name + ", but no path is set to move along.")
 	else:
 		moving = true
@@ -42,10 +41,7 @@ func _process(delta: float) -> void:
 		# cannot do entity.global_position == path[pathIdx] due to floating point comparison not working
 		# using distance_squared_to because it is faster than distance_to
 		if entity.global_position.distance_squared_to(path[pathIdx]) < 0.01: # if reached target coord
-		# if reach coordinate in path
-			if entity.global_position == path[pathIdx]:
-				#entity_manager.giveNewPath(2)
-				pathIdx += 1 # increment coordinate idx
-				if pathIdx >= path.size(): # reached end of path
-					moving = false
-					## DO SOMETHING AFTER REACHING END OF PATH
+			pathIdx += 1 # increment coordinate idx
+			if pathIdx >= path.size(): # reached end of path
+				moving = false
+				## DO SOMETHING AFTER REACHING END OF PATH

@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://da8k1tgotcfia"]
+
+[ext_resource type="Texture2D" path="res://Assets/bactatanks/healthbar.png" id="1_xvdjb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dko2n"]
+atlas = ExtResource("1_xvdjb")
+region = Rect2(0, 27, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckvdd"]
+atlas = ExtResource("1_xvdjb")
+region = Rect2(64, 27, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyv2k"]
+atlas = ExtResource("1_xvdjb")
+region = Rect2(128, 27, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72kcs"]
+atlas = ExtResource("1_xvdjb")
+region = Rect2(192, 27, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgmw1"]
+atlas = ExtResource("1_xvdjb")
+region = Rect2(256, 27, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dd0y"]
+atlas = ExtResource("1_xvdjb")
+region = Rect2(320, 27, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xlib"]
+atlas = ExtResource("1_xvdjb")
+region = Rect2(384, 27, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpeny"]
+atlas = ExtResource("1_xvdjb")
+region = Rect2(448, 27, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pwa7"]
+atlas = ExtResource("1_xvdjb")
+region = Rect2(512, 27, 64, 9)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dko2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckvdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyv2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72kcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgmw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dd0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xlib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpeny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pwa7")
+}],
+"loop": true,
+"name": &"Health",
+"speed": 5.0
+}]

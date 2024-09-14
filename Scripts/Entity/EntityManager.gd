@@ -14,48 +14,31 @@ extends Node2D
 
 # pre-load scenes for enemy types
 @onready var enemy_type: Dictionary = {
-	"BaseEntity": load("res://Scenes/Components/Entities/BaseEntity.tscn"),
-	"OtherEntity": load("res://Scenes/Components/Entities/OtherEntity.tscn"),
-	"KnightEntity": load("../../Scenes/Components/Entities/KnightEntity.tscn"),
+	"BaseEntity": preload("res://Scenes/Components/Entities/BaseEntity.tscn"),
+	"OtherEntity": preload("res://Scenes/Components/Entities/OtherEntity.tscn"),
+	"KnightEntity": preload("../../Scenes/Components/Entities/KnightEntity.tscn"),
 }
 
 # set as parent
 @onready var userInteractableTileMapLayer: UserInteractableTilemapLayer = $".."
 
-# TESTING
-@onready var spawnEntityButton: Button = %SpawnEntityButton
-
 var startCoord: Vector2
-
-# keep count of alive entities
-# increment when spawn entity
-# decrement when deleting entity
-var entitiesCount: int = 0
-
-func _ready() -> void:
-	if spawnEntityButton != null:
-		spawnEntityButton.button_up.connect(spawnAndSendOutEntity)
 
 # make sure the the path is valid and generated before calling this
 func getPath() -> PackedVector2Array:
 	return userInteractableTileMapLayer.pathingComponent.getPath()
 
 func spawnAndSendOutEntity() -> void:
-	entitiesCount += 1
 	var testEntityInstance: Entity = enemy_type["BaseEntity"].instantiate()
+	add_child(testEntityInstance)
 	testEntityInstance.configure({"speed": 50})
 	# NOTE - need to add to scene first to allow certain variables to initialize
-	add_child(testEntityInstance)
 	testEntityInstance.setup(getPath())
 	testEntityInstance.startMoving()
-
-func giveNewPath(targetEntity):
-	print("1")
 
 
 ## Spawn entity by name
 func spawnEntity(name: String, config: Dictionary = {}) -> void:
-	entitiesCount += 1
 	var etype = enemy_type[name]
 	if etype == null:
 		print("".join(["Unknown enemy type: ", name]))
