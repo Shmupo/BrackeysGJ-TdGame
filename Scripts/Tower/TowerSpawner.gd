@@ -32,6 +32,8 @@ func _ready() -> void:
 	backgroundLayer = get_tree().get_first_node_in_group("BackgroundLayer")
 	userInteractableTileMapLayer = get_tree().get_first_node_in_group("UserInteractableTileMapLayer")
 	tilePlacementComponent = get_tree().get_first_node_in_group("TilePlacementComponent")
+	
+	add_to_group("TowerSpawner")
 
 # call this to spawn one tower randomly on the map
 func spawnTower() -> void:

@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://h1l4sn7uqs14"]
+
+[ext_resource type="Texture2D" uid="uid://bb1dtbk13d2m7" path="res://Assets/Resources/TowerBody1.tres" id="2_24p5c"]
+
+[node name="TowerSquare" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 100)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TowerImage" type="TextureRect" parent="MarginContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_24p5c")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "Tower"
+fit_content = true
+
+[node name="ItemDescription" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 10
+text = "The villagers have built you a new tower. It has appeared on the map."
+fit_content = true

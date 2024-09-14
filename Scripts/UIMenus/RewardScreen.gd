@@ -30,12 +30,19 @@ func generateRandomRewards() -> void:
 		itemArr.append(randomItem)
 		
 	addItemsToInv(itemArr)
+	
+	if randi_range(0, 1) == 0: # 50% change to give the player a new tower
+		addTowerToGame()
 
 # adds items instantly to inventory
 func addItemsToInv(itemArr: Array) -> void:
 	var itemSpawner: ItemSpawner = get_tree().get_first_node_in_group("ItemSpawner")
 	for item: ModItem in itemArr:
 		itemSpawner.addItemToInventory(item)
+
+func addTowerToGame() -> void:
+	get_tree().get_first_node_in_group("TowerSpawner").spawnTower()
+	itemRow.add_child(load("res://Scenes/Components/TowerSquare.tscn").instantiate())
 
 # self delete
 func onPressContinue() -> void:
