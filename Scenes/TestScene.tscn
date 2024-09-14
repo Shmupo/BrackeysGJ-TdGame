@@ -108,7 +108,6 @@ position = Vector2(265, 309)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="TutorialUi" parent="." instance=ExtResource("9_olebs")]
-visible = false
 top_level = true
 
 [node name="WaveManager" parent="." instance=ExtResource("8_sb82m")]
