@@ -4,7 +4,8 @@ extends Node
 @onready var nameLabel: RichTextLabel = $MarginContainer/HBoxContainer/VBoxContainer/ItemName
 @onready var descriptionLabel: RichTextLabel = $MarginContainer/HBoxContainer/VBoxContainer/ItemDescription
 
-func setup(image: Texture2D, name: String, description: String) -> void:
+func setup(image: Texture2D, itemName: String, description: String) -> void:
 	itemImage.texture = image
-	nameLabel.text = name
+	nameLabel.text = itemName
+
 	descriptionLabel.text = description

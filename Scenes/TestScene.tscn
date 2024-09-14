@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=28 format=4 uid="uid://u0da0rqffi33"]
+
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_q7fmf"]
@@ -12,17 +14,26 @@
 [ext_resource type="PackedScene" uid="uid://dk1dmpis207ce" path="res://Scenes/Components/ModItem/TestModItem.tscn" id="7_ydf57"]
 [ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="8_sb82m"]
 [ext_resource type="PackedScene" uid="uid://hesw7o41aud4" path="res://Scenes/Components/TutorialUI.tscn" id="9_olebs"]
+
 [ext_resource type="Script" path="res://Scripts/Waves/example_one_of_each.gd" id="11_uxd71"]
 [ext_resource type="Script" path="res://Scripts/Waves/example_weak_enemies.gd" id="12_oqhdu"]
+
 [ext_resource type="Script" path="res://Scripts/Tower/TowerSpawner.gd" id="12_qrfwb"]
 [ext_resource type="Script" path="res://Scripts/ModItem/ItemSpawner.gd" id="13_a0fh0"]
 [ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
+
+[ext_resource type="PackedScene" uid="uid://vucdetswbjmi" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
+[ext_resource type="PackedScene" uid="uid://w8it5uhotax2" path="res://Scenes/Components/ModItem/BigRock.tscn" id="18_mm7iy"]
+[ext_resource type="PackedScene" uid="uid://ctk8d4npivb8d" path="res://Scenes/Components/ModItem/Rope.tscn" id="19_dx3ia"]
+[ext_resource type="PackedScene" uid="uid://yanwd2glbpap" path="res://Scenes/Components/ModItem/LaserCrystal.tscn" id="20_ejwee"]
+[ext_resource type="PackedScene" uid="uid://1cqcmo7d3xi8" path="res://Scenes/Components/ModItem/Telescope.tscn" id="21_48g0b"]
+
 [ext_resource type="Script" path="res://Scripts/UIMenus/points_label.gd" id="19_hwffj"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/player_health_label.gd" id="20_8oe7i"]
 [ext_resource type="PackedScene" uid="uid://bua8l8nqnsowv" path="res://Scenes/Components/defeat_screen.tscn" id="22_y3p4m"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="23_xbbr2"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
@@ -86,6 +97,7 @@ position = Vector2(-193.333, -106.667)
 scale = Vector2(0.333333, 0.333333)
 script = ExtResource("3_hw5di")
 
+
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInteractableTileMapLayer"]
 offset_left = 72.0
 offset_top = -64.0
@@ -103,6 +115,7 @@ text = "Begin Waves"
 
 [node name="DefendLocation" parent="UserInteractableTileMapLayer" instance=ExtResource("6_ohprv")]
 
+
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="TestTower1" parent="Towers" instance=ExtResource("4_iym6a")]
@@ -113,19 +126,20 @@ scale = Vector2(2, 2)
 position = Vector2(608, 297)
 scale = Vector2(2, 2)
 
-[node name="TowerMenu" parent="." instance=ExtResource("4_koogo")]
-visible = false
-position = Vector2(265, 309)
-scale = Vector2(0.999999, 0.999999)
-
 [node name="ModsInventoryMenu" parent="." instance=ExtResource("6_qdaid")]
 offset_right = 1152.0
 
 [node name="TestModItem2" parent="ModsInventoryMenu" instance=ExtResource("7_ydf57")]
 position = Vector2(69, -171)
 
-[node name="TutorialUi" parent="." instance=ExtResource("9_olebs")]
+[node name="TowerMenu" parent="." instance=ExtResource("4_koogo")]
 visible = false
+position = Vector2(265, 309)
+scale = Vector2(0.999999, 0.999999)
+
+[node name="TutorialUi" parent="." instance=ExtResource("9_olebs")]
+top_level = true
+
 
 [node name="WaveManager" parent="." instance=ExtResource("8_sb82m")]
 unique_name_in_owner = true
@@ -172,6 +186,18 @@ script = ExtResource("15_p0fe1")
 
 [node name="DisappearingBlackScreen" parent="." instance=ExtResource("16_exn7v")]
 visible = false
+
+[node name="BigRock" parent="." instance=ExtResource("18_mm7iy")]
+position = Vector2(874, 87)
+
+[node name="Rope" parent="." instance=ExtResource("19_dx3ia")]
+position = Vector2(951, 91)
+
+[node name="LaserCrystal" parent="." instance=ExtResource("20_ejwee")]
+position = Vector2(956, 170)
+
+[node name="Telescope" parent="." instance=ExtResource("21_48g0b")]
+position = Vector2(869, 170)
 
 [node name="PlayerStats" type="CanvasLayer" parent="."]
 

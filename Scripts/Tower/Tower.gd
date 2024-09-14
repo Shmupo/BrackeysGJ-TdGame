@@ -18,7 +18,7 @@ extends Node2D
 @onready var fireTimer: Timer = $FireTimer
 
 # fires after this amount of time has passed
-@export var fireDelaySeconds: float = 0.5
+@export var fireDelaySeconds: float = 0.5 : set = setFireDelay
 var firing: bool = false
 
 var towerName: String = "TestTower1"
@@ -31,6 +31,9 @@ func _ready() -> void:
 	targetingComponent.areaEntered.connect(onTargetAreaEntered)
 	fireTimer.wait_time = fireDelaySeconds
 	fireTimer.timeout.connect(onFireTimerTimeout)
+	var newShape: CircleShape2D = CircleShape2D.new()
+	newShape.radius = 50
+	$TargetingArea2D/CollisionShape2D.shape = newShape
 
 
 func fire() -> void:
@@ -79,3 +82,7 @@ func _on_add_speed_pressed():
 
 func _on_add_damage_pressed():
 	upgrades.append(DamageStrategy.new())
+
+func setFireDelay(value: float) -> void:
+	fireDelaySeconds = value
+	fireTimer.wait_time = fireDelaySeconds

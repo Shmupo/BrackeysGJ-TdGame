@@ -17,7 +17,7 @@
 [node name="Rope" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_onoiv")
-projectileSpeedAdd = -50.0
+
 projectileCountAdd = 1
 itemName = "Rope"
 itemDescription = "Tie two arrows together, and voila!"
