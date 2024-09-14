@@ -35,7 +35,7 @@ func prepare_entity_1() -> Dictionary:
 		"spawn_delay": entity_1_spawn_delay,
 		"config": {
 			"speed": entity_1_speed,
-			"health": entity_1_speed,
+			"health": entity_1_health,
 			"points": entity_1_points,
 			"strength": entity_1_strength
 		}
@@ -47,7 +47,7 @@ func prepare_entity_2() -> Dictionary:
 		"spawn_delay": entity_2_spawn_delay,
 		"config": {
 			"speed": entity_2_speed,
-			"health": entity_2_speed,
+			"health": entity_2_health,
 			"points": entity_2_points,
 			"strength": entity_2_strength
 		}
