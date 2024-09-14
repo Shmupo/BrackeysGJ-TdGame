@@ -34,18 +34,18 @@ func onEntityDeath() -> void:
 	numEntities -= 1
 	if numEntities == 0:
 		allEnemiesDead.emit()
+	#print("NumEntities: " + str(numEntities))
 
 ## Spawn entity by name
 func spawnEntity(name: String, config: Dictionary = {}) -> void:
 	var etype = enemy_type[name]
 	if etype == null:
-		print("".join(["Unknown enemy type: ", name]))
+		print("".join(["Unknown eenemy type: ", name]))
 		return
 	var instance: Entity = etype.instantiate()
 	add_child(instance)
 	instance.setup(getPath())
 	instance.configure(config)
 	instance.startMoving()
-	numEntities += 1
 	
 	instance.died.connect(onEntityDeath)

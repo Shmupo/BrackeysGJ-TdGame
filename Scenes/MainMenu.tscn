@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c32ph5jqg2mre"]
+[gd_scene load_steps=3 format=3 uid="uid://c32ph5jqg2mre"]
 
 [ext_resource type="Script" path="res://Scripts/UIMenus/MainMenu.gd" id="1_2f053"]
+[ext_resource type="Texture2D" uid="uid://de7rblfx5755k" path="res://Assets/SplashScreen.png" id="2_nku12"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_2f053")
+
+[node name="SplashScreen" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_nku12")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 top_level = true
@@ -22,6 +27,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
 text = "[center]The Last Wizard"
