@@ -5,7 +5,7 @@ extends Node2D
 
 var dragging: bool = false
 var offset: Vector2 = Vector2(0, 0)
-var snapDistance: float = 60
+var snapDistance: float = 50
 var modSlot: ModSlot = null
 
 

@@ -13,6 +13,8 @@ extends Node2D
 @export var itemName: String = "Test"
 @export var itemDescription: String = "TestDescription"
 
+@onready var dragComponent: Node2D = $DragComponent
+
 # DIRECT TOWER UPGRADES
 # 1-Time change to a tower
 func applyTowerUpgrades(tower: Tower) -> void:

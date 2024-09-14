@@ -19,7 +19,8 @@ func placeModItemInSlot(newModItem: ModItem) -> void:
 		modItem = newModItem
 		newModItem.global_position = modSlotCenterNode.global_position
 		slotAdd.emit(modItem)
-
+		# just in case
+		modItem.dragComponent.modSlot = self
 
 # adds item to a slot without any signaling
 # used by TowerMenu to load a ModItem without triggering the signal to add the mod to the tower again, causing a dupwication gwitch
