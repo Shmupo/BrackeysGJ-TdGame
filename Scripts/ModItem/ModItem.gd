@@ -1,8 +1,6 @@
 class_name ModItem
 extends Node2D
 
-var itemName: String = "TEST"
-
 @export_group("Stat Modifiers")
 @export var projectileSpeedAdd: float = 0
 @export var projectileCountAdd: int = 0
@@ -10,6 +8,9 @@ var itemName: String = "TEST"
 @export var newProjectileScene: PackedScene = null
 @export var targetRangeAdd: float = 0
 
+@export_group("Names")
+@export var itemName: String = "Test"
+@export var itemDescription: String = "TestDescription"
 
 # DIRECT TOWER UPGRADES
 # 1-Time change to a tower
@@ -48,3 +49,6 @@ func addProjectileSpeed(projectile: SimpleTowerProjectile) -> void:
 
 func addProjectileDamage(projectile: SimpleTowerProjectile) -> void:
 	projectile.projectileDamage += projectileDamageAdd
+
+func getTexture() -> Texture:
+	return $ItemSprite2D.texture

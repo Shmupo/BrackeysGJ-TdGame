@@ -9,7 +9,7 @@ script = ExtResource("1_ac7ys")
 [node name="BGColorRect" type="ColorRect" parent="."]
 offset_right = 444.0
 offset_bottom = 49.0
-color = Color(0.148698, 0.428647, 0.589431, 0.627451)
+color = Color(0, 0, 0, 0.294118)
 
 [node name="CenterContainer" type="MarginContainer" parent="."]
 offset_right = 444.0

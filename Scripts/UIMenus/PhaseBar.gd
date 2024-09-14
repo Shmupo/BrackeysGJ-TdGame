@@ -18,14 +18,26 @@ var buildPhase: bool = true : set = setPhase
 @onready var userInteractableTileMapLayer: UserInteractableTilemapLayer = $"../UserInteractableTileMapLayer"
 
 func setBuildPhase() -> void:
+	doRewards()
+	
 	position.y -= hideYShift
 	label.text = "[center][color=green]Build Phase"
 	configureBuildPhase()
 
 
+func doRewards() -> void:
+	get_parent().add_child(load("res://Scenes/Components/RewardsScreen.tscn").instantiate())
+
+
 func setDefendPhase() -> void:
 	position.y += hideYShift
 	label.text = "[center][color=red]Defend Phase"
+	configureDefendPhase()
+
+
+func setStormPhase() -> void:
+	position.y += hideYShift
+	label.text = "[center][color=purple]Storm Phase"
 	configureDefendPhase()
 
 
