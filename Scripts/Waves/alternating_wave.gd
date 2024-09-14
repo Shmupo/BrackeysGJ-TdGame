@@ -27,6 +27,8 @@ func _ready() -> void:
 			spawn_queue.append(prepare_entity_1())
 		else:
 			spawn_queue.append(prepare_entity_2())
+			
+	num_entities = get_num_entities()
 
 
 func prepare_entity_1() -> Dictionary:
