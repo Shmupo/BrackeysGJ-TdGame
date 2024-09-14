@@ -8,15 +8,13 @@ extends Node2D
 @onready var movementComponent: MovementComponent = $MovementComponent
 @onready var health_bar: HealthBar = $HealthBar
 
-@onready var player: Player = %Player
-
-
+var player: Player
 
 # Dictionary is used for initial configuration
 # This allows the same interface for all subclasses, even with varying config
 @export var config: Dictionary = {
 	"speed": 10,
-	"health": 10,
+	"health": 1,
 	"armor": 0,
 	"points": 100,
 	"damage": 10
@@ -86,10 +84,7 @@ func startMoving() -> void:
 	movementComponent.startMoving()
 
 func get_player() -> Player:
-	if player == null:
-		player = get_parent().get_node("%Player")  # No clue why parent is needed here
-	
-	return player
+	return get_tree().get_first_node_in_group("Player")
 
 # perhaps particles, death sound, score, whatever
 # always good to have as seperate function

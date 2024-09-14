@@ -12,6 +12,8 @@ signal on_defeat
 func _ready() -> void:
 	update_points(player_points)
 	take_damage(0)
+	
+	add_to_group("Player")
 
 func add_points(num_points: int) -> void:
 	update_points(player_points + num_points)
