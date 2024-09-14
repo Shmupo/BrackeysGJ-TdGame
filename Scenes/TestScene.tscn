@@ -117,7 +117,6 @@ unique_name_in_owner = true
 
 [node name="Weak Enemies" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("12_oqhdu")
-enemy_health = 100
 
 [node name="One of Each" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("11_uxd71")

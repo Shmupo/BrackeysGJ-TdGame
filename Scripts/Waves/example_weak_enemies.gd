@@ -1,6 +1,6 @@
 extends DictWave
 
-@export var enemy_health = 1
+@export var enemy_health = 3
 
 func _ready() -> void:
 	spawn_queue = [

@@ -56,9 +56,9 @@ layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/h_separation = 5
-theme_override_constants/v_separation = 5
-columns = 16
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 20
 
 [node name="ModSlot" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
 custom_minimum_size = Vector2(50, 50)
@@ -198,6 +198,26 @@ stretch_mode = 5
 script = ExtResource("3_3tsw1")
 
 [node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot14"]
+position = Vector2(25, 25)
+
+[node name="ModSlot15" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot15"]
+position = Vector2(25, 25)
+
+[node name="ModSlot16" type="TextureRect" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_1gw81")
+stretch_mode = 5
+script = ExtResource("3_3tsw1")
+
+[node name="ModSlotCenter" type="Node2D" parent="MarginContainer/ModsInventoryMenu/MidVBoxContainer/MarginContainer/ModsGridContainer/ModSlot16"]
 position = Vector2(25, 25)
 
 [node name="RightVBoxContainer" type="VBoxContainer" parent="MarginContainer/ModsInventoryMenu"]

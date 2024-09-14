@@ -10,7 +10,7 @@ signal _on_wave_end
 @export var entity_name: String = "BaseEntity"
 
 @onready var entity_manager = %EntityManager
-@onready var timer: Timer = $Timer
+var timer: Timer
 
 
 func get_num_entities() -> int:
