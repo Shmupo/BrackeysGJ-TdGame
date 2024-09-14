@@ -8,7 +8,7 @@ extends DictWave
 @export var entity_1_points = 30
 @export var entity_1_strength = 5
 @export var entity_1_type = "BaseEntity"
-@export var entity_1_spawn_delay = 2
+@export var entity_1_spawn_delay:float = 2
 
 
 @export var entity_2_speed: int = 50
@@ -16,7 +16,7 @@ extends DictWave
 @export var entity_2_points = 30
 @export var entity_2_strength = 5
 @export var entity_2_type = "BaseEntity"
-@export var entity_2_spawn_delay = 2
+@export var entity_2_spawn_delay:float = 2
 
 
 func _ready() -> void:

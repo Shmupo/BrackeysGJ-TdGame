@@ -30,8 +30,16 @@ var more_entities_in_wave: bool = true
 func getPath() -> PackedVector2Array:
 	return userInteractableTileMapLayer.pathingComponent.getPath()
 
+func get_num_alive_entities() -> int:
+	var childs = get_children()
+	var num_alive = 0
+	for c in childs:
+		if c.is_in_group("EnemyGroup") && !c.is_dead:
+			num_alive += 1
+	return num_alive
+
 func onEntityDeath() -> void:
-	if !more_entities_in_wave:
+	if !more_entities_in_wave && get_num_alive_entities() == 0:
 		allEnemiesDead.emit()
 
 ## Spawn entity by name

@@ -6,7 +6,7 @@ extends DictWave
 @export var entity_points = 30
 @export var entity_strength = 5
 @export var entity_type = "BaseEntity"
-@export var spawn_delay = 2
+@export var spawn_delay:float = 2
 
 
 # Called when the node enters the scene tree for the first time.
