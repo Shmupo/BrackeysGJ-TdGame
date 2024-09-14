@@ -1,26 +1,39 @@
-[gd_scene load_steps=24 format=4 uid="uid://u0da0rqffi33"]
+
+[gd_scene load_steps=28 format=4 uid="uid://u0da0rqffi33"]
+
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_q7fmf"]
 [ext_resource type="Texture2D" uid="uid://8jl5xsmjy2y1" path="res://Assets/TilemapPrototype1Sheet.png" id="2_e1nrq"]
 [ext_resource type="Script" path="res://Scripts/TileMap/BackgroundLayer.gd" id="2_ou5mf"]
 [ext_resource type="Script" path="res://Scripts/Entity/EntityManager.gd" id="3_hw5di"]
 [ext_resource type="PackedScene" uid="uid://dhauw1e87j6c7" path="res://Scenes/Components/Tower/TestTower1.tscn" id="4_iym6a"]
 [ext_resource type="PackedScene" uid="uid://s08lq8bnqkx0" path="res://Scenes/Components/Tower/TowerMenu.tscn" id="4_koogo"]
+[ext_resource type="PackedScene" uid="uid://ca0gca4clme8n" path="res://Scenes/Components/defend_location.tscn" id="6_ohprv"]
 [ext_resource type="PackedScene" uid="uid://dyd4rvrn12tp" path="res://Scenes/Components/ModsInventoryMenu.tscn" id="6_qdaid"]
 [ext_resource type="PackedScene" uid="uid://dk1dmpis207ce" path="res://Scenes/Components/ModItem/TestModItem.tscn" id="7_ydf57"]
 [ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="8_sb82m"]
 [ext_resource type="PackedScene" uid="uid://hesw7o41aud4" path="res://Scenes/Components/TutorialUI.tscn" id="9_olebs"]
-[ext_resource type="Script" path="res://Scripts/Waves/example_wave_1.gd" id="11_ga331"]
+
 [ext_resource type="Script" path="res://Scripts/Waves/example_one_of_each.gd" id="11_uxd71"]
+[ext_resource type="Script" path="res://Scripts/Waves/example_weak_enemies.gd" id="12_oqhdu"]
+
 [ext_resource type="Script" path="res://Scripts/Tower/TowerSpawner.gd" id="12_qrfwb"]
 [ext_resource type="Script" path="res://Scripts/ModItem/ItemSpawner.gd" id="13_a0fh0"]
 [ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
+
 [ext_resource type="PackedScene" uid="uid://vucdetswbjmi" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
 [ext_resource type="PackedScene" uid="uid://w8it5uhotax2" path="res://Scenes/Components/ModItem/BigRock.tscn" id="18_mm7iy"]
 [ext_resource type="PackedScene" uid="uid://ctk8d4npivb8d" path="res://Scenes/Components/ModItem/Rope.tscn" id="19_dx3ia"]
 [ext_resource type="PackedScene" uid="uid://yanwd2glbpap" path="res://Scenes/Components/ModItem/LaserCrystal.tscn" id="20_ejwee"]
 [ext_resource type="PackedScene" uid="uid://1cqcmo7d3xi8" path="res://Scenes/Components/ModItem/Telescope.tscn" id="21_48g0b"]
+
+[ext_resource type="Script" path="res://Scripts/UIMenus/points_label.gd" id="19_hwffj"]
+[ext_resource type="Script" path="res://Scripts/UIMenus/player_health_label.gd" id="20_8oe7i"]
+[ext_resource type="PackedScene" uid="uid://bua8l8nqnsowv" path="res://Scenes/Components/defeat_screen.tscn" id="22_y3p4m"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="23_xbbr2"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73egr"]
 texture = ExtResource("2_e1nrq")
@@ -38,7 +51,34 @@ texture = ExtResource("2_e1nrq")
 [sub_resource type="TileSet" id="TileSet_bmptf"]
 sources/0 = SubResource("TileSetAtlasSource_73egr")
 
+[sub_resource type="Animation" id="Animation_ieqdj"]
+resource_name = "TestDefeat"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.03333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"defeat"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l0tqi"]
+_data = {
+"TestDefeat": SubResource("Animation_ieqdj")
+}
+
 [node name="TestScene" type="Node2D"]
+
+[node name="Player" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_q7fmf")
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="."]
 position = Vector2(580, 272)
@@ -57,14 +97,33 @@ position = Vector2(-193.333, -106.667)
 scale = Vector2(0.333333, 0.333333)
 script = ExtResource("3_hw5di")
 
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInteractableTileMapLayer"]
+offset_left = 72.0
+offset_top = -64.0
+offset_right = 181.0
+offset_bottom = 2.0
+
+[node name="SpawnEntityButton" type="Button" parent="UserInteractableTileMapLayer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Spawn Entity"
+
+[node name="StartWaveButton" type="Button" parent="UserInteractableTileMapLayer/VBoxContainer"]
+layout_mode = 2
+text = "Begin Waves"
+
+[node name="DefendLocation" parent="UserInteractableTileMapLayer" instance=ExtResource("6_ohprv")]
+
+
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="TestTower1" parent="Towers" instance=ExtResource("4_iym6a")]
-position = Vector2(508, 296)
+position = Vector2(510, 299)
 scale = Vector2(2, 2)
 
 [node name="TestTower2" parent="Towers" instance=ExtResource("4_iym6a")]
-position = Vector2(653, 296)
+position = Vector2(608, 297)
 scale = Vector2(2, 2)
 
 [node name="ModsInventoryMenu" parent="." instance=ExtResource("6_qdaid")]
@@ -81,16 +140,18 @@ scale = Vector2(0.999999, 0.999999)
 [node name="TutorialUi" parent="." instance=ExtResource("9_olebs")]
 top_level = true
 
+
 [node name="WaveManager" parent="." instance=ExtResource("8_sb82m")]
 unique_name_in_owner = true
 
 [node name="WaveSet" type="Node" parent="WaveManager"]
 
+[node name="Weak Enemies" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("12_oqhdu")
+enemy_health = 100
+
 [node name="One of Each" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("11_uxd71")
-
-[node name="Misc Enemies" type="Node" parent="WaveManager/WaveSet"]
-script = ExtResource("11_ga331")
 
 [node name="TowerSpawner" type="Node2D" parent="."]
 script = ExtResource("12_qrfwb")
@@ -138,5 +199,55 @@ position = Vector2(956, 170)
 [node name="Telescope" parent="." instance=ExtResource("21_48g0b")]
 position = Vector2(869, 170)
 
+[node name="PlayerStats" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerStats"]
+offset_right = 206.0
+offset_bottom = 70.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerStats/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerStats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerStats/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Points: "
+
+[node name="PointsLabel" type="Label" parent="PlayerStats/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("19_hwffj")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PlayerStats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerStats/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Health: "
+
+[node name="PlayerHealthLabel" type="Label" parent="PlayerStats/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+script = ExtResource("20_8oe7i")
+
+[node name="DefeatScreen" parent="." instance=ExtResource("22_y3p4m")]
+unique_name_in_owner = true
+visible = false
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("23_xbbr2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameManager"]
+libraries = {
+"": SubResource("AnimationLibrary_l0tqi")
+}
+
+[connection signal="on_defeat" from="Player" to="GameManager" method="defeat"]
+[connection signal="pressed" from="UserInteractableTileMapLayer/VBoxContainer/StartWaveButton" to="WaveManager" method="begin_waves"]
 [connection signal="button_up" from="AddTowerButton" to="TowerSpawner" method="_on_add_tower_button_button_up"]
 [connection signal="button_up" from="AddItemButton" to="ItemSpawner" method="_on_add_item_button_button_up"]

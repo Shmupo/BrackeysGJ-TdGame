@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://rtxly054llgj"]
+[gd_scene load_steps=6 format=3 uid="uid://rtxly054llgj"]
 
 [ext_resource type="Script" path="res://Scripts/Entity/EntityBaseClass.gd" id="1_ce5qb"]
 [ext_resource type="Texture2D" uid="uid://fp6c0gypmh5s" path="res://Assets/Angry Face.png" id="2_nq0rw"]
 [ext_resource type="Script" path="res://Scripts/Entity/MovementComponent.gd" id="3_lej0d"]
+[ext_resource type="PackedScene" uid="uid://bwt2761lrxho2" path="res://Scenes/Components/Entities/health_bar.tscn" id="4_mri7a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5x4m"]
-radius = 20.0
+radius = 15.0
 
-[node name="OtherEntity" type="Node2D"]
+[node name="OtherEntity" type="Node2D" groups=["EnemyGroup"]]
 script = ExtResource("1_ce5qb")
 
 [node name="EntitySprite2D" type="Sprite2D" parent="."]
@@ -20,3 +21,6 @@ script = ExtResource("3_lej0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
 shape = SubResource("CircleShape2D_k5x4m")
+
+[node name="HealthBar" parent="." instance=ExtResource("4_mri7a")]
+position = Vector2(-1, -34)

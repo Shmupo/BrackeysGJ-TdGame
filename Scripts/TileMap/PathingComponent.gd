@@ -73,7 +73,7 @@ func initAStarGrid() -> void:
 
 
 # sets coordinate as not solid
-# updates the path every time this is called
+# updates the path every time this is calledf
 func placePath(coord: Vector2i) -> void:
 	aStarGrid.set_point_solid(coord, false)
 	#print(coord, " is now not solid")

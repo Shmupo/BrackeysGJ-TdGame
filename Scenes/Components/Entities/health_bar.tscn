@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwt2761lrxho2"]
+
+[ext_resource type="SpriteFrames" uid="uid://d0rw8ughstux3" path="res://Assets/bactatanks/health_bar_animation_frames.tres" id="1_4todd"]
+[ext_resource type="Script" path="res://Scripts/Entity/health_bar.gd" id="2_e5n1e"]
+
+[node name="HealthBar" type="AnimatedSprite2D"]
+position = Vector2(81, 36)
+sprite_frames = ExtResource("1_4todd")
+animation = &"Health"
+script = ExtResource("2_e5n1e")

@@ -56,7 +56,7 @@ func spawn_next() -> void:
 	
 	
 func do_spawn(spawn_dict: Dictionary) -> void:
-	var entity: Entity = EntityManager.spawnEntity(
+	var entity: Entity = entity_manager.spawnEntity(
 		spawn_dict["type"], 
 		spawn_dict["config"])
 		

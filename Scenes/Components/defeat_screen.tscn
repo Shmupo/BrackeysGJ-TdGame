@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bua8l8nqnsowv"]
+
+[ext_resource type="SpriteFrames" uid="uid://dudmlrslnrfx6" path="res://Assets/bactatanks/defeat_sprite_frames.tres" id="1_5k570"]
+[ext_resource type="Script" path="res://Scripts/UIMenus/defeat_sprite.gd" id="2_psoyf"]
+
+[node name="DefeatScreen" type="CanvasLayer"]
+
+[node name="DefeatSprite" type="AnimatedSprite2D" parent="."]
+z_index = 25
+position = Vector2(561, 304)
+sprite_frames = ExtResource("1_5k570")
+autoplay = "default"
+frame_progress = 0.513614
+script = ExtResource("2_psoyf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 24
+offset_left = -69.0
+offset_top = -49.0
+offset_right = 1226.0
+offset_bottom = 724.0
+color = Color(0, 0, 0, 0.776471)
+
+[node name="Button" type="Button" parent="."]
+z_index = 25
+offset_left = 354.0
+offset_top = 467.0
+offset_right = 768.0
+offset_bottom = 498.0
+text = "Restart (this button doesn't work)"
+
+[connection signal="frame_changed" from="DefeatSprite" to="DefeatSprite" method="_on_frame_changed"]
