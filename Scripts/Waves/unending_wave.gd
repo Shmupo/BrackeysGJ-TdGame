@@ -12,7 +12,7 @@ var num_entities_2: int = 10  # hacks.  ignore here.
 
 
 @export var entities_before_increase: int = 10
-var difficulty = 1
+var difficulty = 5
 
 
 # Called when the node enters the scene tree for the first time.
