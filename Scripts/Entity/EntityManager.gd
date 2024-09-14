@@ -24,15 +24,14 @@ signal allEnemiesDead
 
 var startCoord: Vector2
 
-var numEntities: int
+var more_entities_in_wave: bool = true
 
 # make sure the the path is valid and generated before calling this
 func getPath() -> PackedVector2Array:
 	return userInteractableTileMapLayer.pathingComponent.getPath()
 
 func onEntityDeath() -> void:
-	numEntities -= 1
-	if numEntities == 0:
+	if !more_entities_in_wave:
 		allEnemiesDead.emit()
 
 ## Spawn entity by name
@@ -46,6 +45,13 @@ func spawnEntity(name: String, config: Dictionary = {}) -> void:
 	instance.setup(getPath())
 	instance.configure(config)
 	instance.startMoving()
-	numEntities += 1
 	
 	instance.died.connect(onEntityDeath)
+
+
+func _on_wave_manager__on_wave_end() -> void:
+	more_entities_in_wave = false
+
+
+func _on_wave_manager__on_wave_start() -> void:
+	more_entities_in_wave = true

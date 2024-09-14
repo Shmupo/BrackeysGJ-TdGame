@@ -21,6 +21,8 @@ func _ready() -> void:
 	
 	for i in range(entities_before_increase + 5):
 		spawn_queue.append(create_entity_dict())
+		
+	num_entities = get_num_entities()
 
 
 func _process(delta: float) -> void:
