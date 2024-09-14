@@ -23,5 +23,5 @@ func addItemToInventory(item: ModItem) -> void:
 func spawnStarterItem() -> void:
 	var item: ModItem = load("res://Scenes/Components/ModItem/Rope.tscn").instantiate()
 	add_child(item)
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.5).timeout
 	addItemToInventory(item)
