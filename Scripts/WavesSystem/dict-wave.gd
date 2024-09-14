@@ -34,6 +34,10 @@ func _ready() -> void:
 	pass
 
 func start_wave() -> void:
+	if timer == null:
+		timer = Timer.new()
+		add_child(timer)
+	
 	print("wave_start")
 	_on_wave_start.emit()
 	spawn_next()
@@ -46,9 +50,7 @@ func spawn_next() -> void:
 	
 	var next = spawn_queue.pop_front()
 	# set up timer
-	if timer == null:
-		timer = Timer.new()
-		add_child(timer)
+	
 	timer.wait_time = next["spawn_delay"]
 	timer.connect("timeout", Callable(do_spawn).bind(next).call)
 	timer.one_shot = true

@@ -28,7 +28,7 @@ var upgrades: Array[BaseProjectileStrategy] = []
 
 
 func _ready() -> void:
-	targetingComponent.areaEntered.connect(onTargetAreaEntered)
+	targetingComponent.areaEntered.connect(onTargetAreaEntered) 
 	fireTimer.wait_time = fireDelaySeconds
 	fireTimer.timeout.connect(onFireTimerTimeout)
 	var newShape: CircleShape2D = CircleShape2D.new()

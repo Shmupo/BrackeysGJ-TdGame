@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/defend_location.gd" id="1_a87rd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8kvqf"]
-radius = 6.36832
+radius = 2.6667
 
 [node name="DefendLocation" type="Area2D"]
 script = ExtResource("1_a87rd")

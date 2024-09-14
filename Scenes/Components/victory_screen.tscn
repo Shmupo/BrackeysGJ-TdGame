@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv06ei5a16k6n"]
+
+[ext_resource type="SpriteFrames" uid="uid://cu1iirf45f114" path="res://Assets/bactatanks/victory_sprite_frames.tres" id="1_6i7jk"]
+[ext_resource type="Script" path="res://Scripts/UIMenus/defeat_sprite.gd" id="2_q52qa"]
+[ext_resource type="Script" path="res://Scripts/UIMenus/victory_screen_button.gd" id="3_nyfog"]
+
+[node name="VictoryScreen" type="CanvasLayer"]
+
+[node name="DefeatSprite" type="AnimatedSprite2D" parent="."]
+z_index = 25
+position = Vector2(561, 304)
+sprite_frames = ExtResource("1_6i7jk")
+autoplay = "default"
+script = ExtResource("2_q52qa")
+last_frame = 15
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 24
+offset_left = -69.0
+offset_top = -49.0
+offset_right = 1226.0
+offset_bottom = 724.0
+color = Color(0, 0, 0, 0.776471)
+
+[node name="Button" type="Button" parent="."]
+z_index = 25
+offset_left = 354.0
+offset_top = 467.0
+offset_right = 768.0
+offset_bottom = 498.0
+text = "Continue (this button doesn't work)"
+script = ExtResource("3_nyfog")
+
+[connection signal="frame_changed" from="DefeatSprite" to="DefeatSprite" method="_on_frame_changed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

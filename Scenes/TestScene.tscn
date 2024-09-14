@@ -1,4 +1,6 @@
-[gd_scene load_steps=29 format=4 uid="uid://u0da0rqffi33"]
+
+[gd_scene load_steps=32 format=4 uid="uid://u0da0rqffi33"]
+
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_q7fmf"]
@@ -11,13 +13,17 @@
 [ext_resource type="Script" path="res://Scripts/Tower/Towers.gd" id="7_pdsio"]
 [ext_resource type="PackedScene" uid="uid://dxoe2uolv22kf" path="res://Scenes/Components/Waves/wave_manager.tscn" id="8_sb82m"]
 [ext_resource type="PackedScene" uid="uid://hesw7o41aud4" path="res://Scenes/Components/TutorialUI.tscn" id="9_olebs"]
-[ext_resource type="Script" path="res://Scripts/Waves/example_one_of_each.gd" id="11_uxd71"]
-[ext_resource type="Script" path="res://Scripts/Waves/example_weak_enemies.gd" id="12_oqhdu"]
+[ext_resource type="Script" path="res://Scripts/Waves/uniform_wave.gd" id="12_8enhc"]
 [ext_resource type="Script" path="res://Scripts/Tower/TowerSpawner.gd" id="12_qrfwb"]
 [ext_resource type="Script" path="res://Scripts/ModItem/ItemSpawner.gd" id="13_a0fh0"]
+[ext_resource type="Script" path="res://Scripts/Waves/alternating_wave.gd" id="13_vb3iq"]
+[ext_resource type="Script" path="res://Scripts/Waves/unending_wave.gd" id="14_1fwqc"]
 [ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
+
 [ext_resource type="PackedScene" uid="uid://vucdetswbjmi" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
+[ext_resource type="PackedScene" uid="uid://w8it5uhotax2" path="res://Scenes/Components/ModItem/BigRock.tscn" id="18_mm7iy"]
+
 [ext_resource type="PackedScene" uid="uid://ctk8d4npivb8d" path="res://Scenes/Components/ModItem/Rope.tscn" id="19_dx3ia"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/points_label.gd" id="19_hwffj"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/player_health_label.gd" id="20_8oe7i"]
@@ -112,15 +118,43 @@ top_level = true
 
 [node name="WaveManager" parent="." instance=ExtResource("8_sb82m")]
 unique_name_in_owner = true
+time_between_waves = 10.0
 
 [node name="WaveSet" type="Node" parent="WaveManager"]
 
-[node name="Weak Enemies" type="Node" parent="WaveManager/WaveSet"]
-script = ExtResource("12_oqhdu")
-enemy_health = 100
+[node name="Wave 1" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("12_8enhc")
+num_entities = 10
 
-[node name="One of Each" type="Node" parent="WaveManager/WaveSet"]
-script = ExtResource("11_uxd71")
+[node name="Wave 2" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("12_8enhc")
+entity_type = "OtherEntity"
+
+[node name="Wave 3" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("12_8enhc")
+num_entities_2 = 25
+entity_speed = 75
+entity_health = 8
+entity_points = 50
+entity_type = "KnightEntity"
+
+[node name="Wave 4" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("13_vb3iq")
+num_entities_2 = 20
+entity_1_spawn_delay = 0
+entity_2_speed = 65
+entity_2_type = "OtherEntity"
+
+[node name="Wave 5" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("13_vb3iq")
+num_entities_2 = 20
+entity_1_type = "KnightEntity"
+entity_1_spawn_delay = 0
+entity_2_speed = 65
+entity_2_type = "OtherEntity"
+
+[node name="Unending Wave" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("14_1fwqc")
 
 [node name="TowerSpawner" type="Node2D" parent="."]
 script = ExtResource("12_qrfwb")
@@ -152,11 +186,12 @@ text = "Paths Left : "
 script = ExtResource("24_gkyiu")
 
 [node name="PlayerStats" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayerStats"]
-offset_right = 206.0
-offset_bottom = 70.0
+offset_left = 944.0
+offset_top = 437.0
+offset_right = 1150.0
+offset_bottom = 507.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
