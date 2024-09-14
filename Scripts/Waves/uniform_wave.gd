@@ -15,6 +15,8 @@ func _ready() -> void:
 	
 	for i in range(num_entities_2):
 		spawn_queue.append(create_entity_dict())
+		
+	num_entities = get_num_entities()
 
 
 func create_entity_dict() -> Dictionary:
