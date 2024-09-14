@@ -28,7 +28,7 @@ offset_left = 354.0
 offset_top = 467.0
 offset_right = 768.0
 offset_bottom = 498.0
-text = "Restart (this button doesn't work)"
+text = "Restart"
 script = ExtResource("3_iy1vu")
 
 [connection signal="frame_changed" from="DefeatSprite" to="DefeatSprite" method="_on_frame_changed"]

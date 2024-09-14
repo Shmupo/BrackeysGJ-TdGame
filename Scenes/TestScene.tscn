@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=32 format=4 uid="uid://u0da0rqffi33"]
-
+[gd_scene load_steps=30 format=4 uid="uid://u0da0rqffi33"]
 
 [ext_resource type="PackedScene" uid="uid://7xucjjga5p5t" path="res://Scenes/Components/UserInteractableTileMap.tscn" id="1_oi0qw"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_q7fmf"]
@@ -20,10 +18,7 @@
 [ext_resource type="Script" path="res://Scripts/Waves/unending_wave.gd" id="14_1fwqc"]
 [ext_resource type="PackedScene" uid="uid://cdjrx5xcw1h82" path="res://Scenes/Components/PhaseBarUI.tscn" id="14_v56gd"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/StartWaveButton.gd" id="15_p0fe1"]
-
-[ext_resource type="PackedScene" uid="uid://vucdetswbjmi" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
-[ext_resource type="PackedScene" uid="uid://w8it5uhotax2" path="res://Scenes/Components/ModItem/BigRock.tscn" id="18_mm7iy"]
-
+[ext_resource type="PackedScene" path="res://Scenes/Components/DisappearingBlackScreen.tscn" id="16_exn7v"]
 [ext_resource type="PackedScene" uid="uid://ctk8d4npivb8d" path="res://Scenes/Components/ModItem/Rope.tscn" id="19_dx3ia"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/points_label.gd" id="19_hwffj"]
 [ext_resource type="Script" path="res://Scripts/UIMenus/player_health_label.gd" id="20_8oe7i"]
@@ -122,9 +117,6 @@ time_between_waves = 10.0
 
 [node name="WaveSet" type="Node" parent="WaveManager"]
 
-[node name="Unending Wave" type="Node" parent="WaveManager/WaveSet"]
-script = ExtResource("14_1fwqc")
-
 [node name="Wave 1" type="Node" parent="WaveManager/WaveSet"]
 script = ExtResource("12_8enhc")
 num_entities = 10
@@ -155,6 +147,9 @@ entity_1_type = "KnightEntity"
 entity_1_spawn_delay = 0
 entity_2_speed = 65
 entity_2_type = "OtherEntity"
+
+[node name="Unending Wave" type="Node" parent="WaveManager/WaveSet"]
+script = ExtResource("14_1fwqc")
 
 [node name="TowerSpawner" type="Node2D" parent="."]
 script = ExtResource("12_qrfwb")
