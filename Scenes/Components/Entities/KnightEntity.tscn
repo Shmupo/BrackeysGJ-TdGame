@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dr3sbkxcrlrga"]
 
 [ext_resource type="Script" path="res://Scripts/Entity/EntityBaseClass.gd" id="1_mbnc0"]
-[ext_resource type="Texture2D" uid="uid://3yb2bxlvhskv" path="res://Assets/BoidArrow.png" id="2_fuirh"]
+[ext_resource type="Texture2D" uid="uid://0wka37lbw1rs" path="res://Assets/Resources/Enemies/OrcBoy.tres" id="2_cg6kd"]
 [ext_resource type="Script" path="res://Scripts/Entity/MovementComponent.gd" id="3_totxs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5x4m"]
@@ -13,9 +13,7 @@ moveSpeed = 150.0
 max_health = 2.0
 
 [node name="EntitySprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.184314, 1, 1)
-self_modulate = Color(0.407843, 0.733333, 1, 1)
-texture = ExtResource("2_fuirh")
+texture = ExtResource("2_cg6kd")
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("3_totxs")
