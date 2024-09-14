@@ -5,17 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ffa71b9-d910-4ce5-91ea-74ab5b77bbb1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Scenes/Components/Entities/KniE9E5.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenes/Components/Entities/KnightEntity.tscn" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Entity/KnightClass.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Components/Entities/BaseEntity.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Components/Entities/BaseEntity.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/bactatanks/Defeat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/bactatanks/Defeat.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/bactatanks/defeat_sprite_frames.tres" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenes/Components/defeat_screen.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenes/Components/defend_location.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/UIMenus/defeat_sprite.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/defend_location.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/game_manager.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/TestScene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/TestScene.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/waves_workspace.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/waves_workspace.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/game_manager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/player.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Entity/EntityBaseClass.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Entity/EntityBaseClass.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Entity/EntityManager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Entity/EntityManager.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Tower/Projectile/SimpleTowerProjectile.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Tower/Projectile/SimpleTowerProjectile.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Waves/example_weak_enemies.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Waves/example_weak_enemies.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

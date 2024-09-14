@@ -25,12 +25,14 @@ extends Node2D
 @export var moveSpeed: float = 10: set = setMoveSpeed
 @export var points_value: int = 100
 @export var max_health: float = 5.0
+@export var strength: int = 10
 @onready var health = self.max_health
 
 
 
 func _ready() -> void:
 	configure(config)  # Apply the default config
+	player = get_player()
 
 
 # sets the path for the entity to follow
@@ -63,6 +65,9 @@ func configure(new_config: Dictionary) -> void:
 	
 	if config.has("points"):
 		points_value = config["points"]
+		
+	if config.has("strength"):
+		strength = config["strength"]
 	
 	# TODO: update other internal variables
 
@@ -78,18 +83,25 @@ func setMoveSpeed(value: float) -> void:
 func startMoving() -> void:
 	movementComponent.startMoving()
 
+func get_player() -> Player:
+	if player == null:
+		player = get_parent().get_node("%Player")  # No clue why parent is needed here
+	
+	return player
 
 # perhaps particles, death sound, score, whatever
 # always good to have as seperate function
 func die() -> void:
-	if player == null:
-		player = get_parent().get_node("%Player")  # No clue why parent is needed here
-	if player != null:
-		player.add_points(points_value)
-		
+	player.add_points(points_value)
+	delete()
+
+func hit_base() -> void:
+	player.take_damage(strength)
+	delete()
+
+func delete() -> void:
 	movementComponent.queue_free()
 	queue_free()
-
 
 func removeHealth(amount: float) -> void:	
 	health -= amount

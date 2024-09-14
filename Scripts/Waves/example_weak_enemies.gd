@@ -1,5 +1,7 @@
 extends DictWave
 
+@export var enemy_health = 1
+
 func _ready() -> void:
 	spawn_queue = [
 		{
@@ -7,7 +9,7 @@ func _ready() -> void:
 			"spawn_delay": 0.1,
 			"config": {
 				"speed": 100,
-				"health": 1
+				"health": enemy_health
 			}
 		},
 		{
@@ -15,7 +17,7 @@ func _ready() -> void:
 			"spawn_delay": 0.5,
 			"config": {
 				"speed": 50,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -23,7 +25,7 @@ func _ready() -> void:
 			"spawn_delay": 0.5,
 			"config": {
 				"speed": 100,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -31,7 +33,7 @@ func _ready() -> void:
 			"spawn_delay": 0.5,
 			"config": {
 				"speed": 50,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -39,7 +41,7 @@ func _ready() -> void:
 			"spawn_delay": 0.5,
 			"config": {
 				"speed": 100,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		#6
@@ -48,7 +50,7 @@ func _ready() -> void:
 			"spawn_delay": 0.5,
 			"config": {
 				"speed": 50,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -56,7 +58,7 @@ func _ready() -> void:
 			"spawn_delay": 0.5,
 			"config": {
 				"speed": 100,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -64,7 +66,7 @@ func _ready() -> void:
 			"spawn_delay": 0.5,
 			"config": {
 				"speed": 50,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -72,7 +74,7 @@ func _ready() -> void:
 			"spawn_delay": 0.5,
 			"config": {
 				"speed": 50,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -80,7 +82,7 @@ func _ready() -> void:
 			"spawn_delay": 0.5,
 			"config": {
 				"speed": 50,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		#11
@@ -89,7 +91,7 @@ func _ready() -> void:
 			"spawn_delay": 0.5,
 			"config": {
 				"speed": 100,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -97,7 +99,7 @@ func _ready() -> void:
 			"spawn_delay": 0.1,
 			"config": {
 				"speed": 100,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -105,7 +107,7 @@ func _ready() -> void:
 			"spawn_delay": 0.1,
 			"config": {
 				"speed": 50,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -113,7 +115,7 @@ func _ready() -> void:
 			"spawn_delay": 0.1,
 			"config": {
 				"speed": 50,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 		{
@@ -121,7 +123,7 @@ func _ready() -> void:
 			"spawn_delay": 0.1,
 			"config": {
 				"speed": 50,
-				"health": 1,
+				"health": enemy_health,
 			}
 		},
 	]

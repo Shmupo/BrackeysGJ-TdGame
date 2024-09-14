@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dudmlrslnrfx6"]
+
+[ext_resource type="Texture2D" uid="uid://80ix0aohtgkx" path="res://Assets/bactatanks/Defeat.png" id="1_r2wfm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7trb2"]
+atlas = ExtResource("1_r2wfm")
+region = Rect2(0, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gbto"]
+atlas = ExtResource("1_r2wfm")
+region = Rect2(512, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai5w0"]
+atlas = ExtResource("1_r2wfm")
+region = Rect2(1024, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wff6a"]
+atlas = ExtResource("1_r2wfm")
+region = Rect2(1536, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fymem"]
+atlas = ExtResource("1_r2wfm")
+region = Rect2(2048, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq6ej"]
+atlas = ExtResource("1_r2wfm")
+region = Rect2(2560, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x01e3"]
+atlas = ExtResource("1_r2wfm")
+region = Rect2(3072, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2dfw"]
+atlas = ExtResource("1_r2wfm")
+region = Rect2(3584, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny256"]
+atlas = ExtResource("1_r2wfm")
+region = Rect2(4096, 0, 512, 256)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7trb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gbto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai5w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wff6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fymem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq6ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x01e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2dfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny256")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
