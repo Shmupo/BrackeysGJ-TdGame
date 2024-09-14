@@ -4,6 +4,7 @@ extends Node
 
 @onready var defeat_screen: CanvasLayer = %DefeatScreen
 @onready var player: Player = %Player
+@onready var waveManager: WaveManager = %WaveManager
 
 var already_defeated: bool = false
 
@@ -15,8 +16,11 @@ func _ready() -> void:
 func defeat() -> void:
 	if already_defeated:
 		return
-		
-	already_defeated = true
-	defeat_screen.visible = true
-	var ds: DefeatSprite = defeat_screen.get_node("DefeatSprite")
-	ds.start_animation()
+	
+	if waveManager.currentWave < 6:
+		already_defeated = true
+		defeat_screen.visible = true
+		var ds: DefeatSprite = defeat_screen.get_node("DefeatSprite")
+		ds.start_animation()
+	else: # player is on the storm phase, display the end of the game spash screen
+		get_tree().change_scene_to_file("res://Scenes/GameEndScreen.tscn")

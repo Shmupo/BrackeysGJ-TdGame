@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddkbhlx06q3s5"]
+
+[ext_resource type="Texture2D" uid="uid://pb13r75n27lj" path="res://Assets/Resources/Cloud1.tres" id="1_542gn"]
+[ext_resource type="Script" path="res://Scripts/StormWave/StormWaveClouds.gd" id="1_xs5nn"]
+[ext_resource type="Texture2D" uid="uid://dqbuisxqs4nec" path="res://Assets/Resources/Cloud2.tres" id="2_kjm15"]
+[ext_resource type="Texture2D" uid="uid://bjkup3w0lnu43" path="res://Assets/Resources/Cloud3.tres" id="3_a634w"]
+[ext_resource type="Texture2D" uid="uid://gboikjnoaqe3" path="res://Assets/Resources/Cloud5.tres" id="4_6u68b"]
+[ext_resource type="Texture2D" uid="uid://dk35btyvwmasa" path="res://Assets/Resources/Cloud4.tres" id="5_qbkk4"]
+
+[node name="StormWaveClouds" type="Node2D"]
+position = Vector2(16, -126)
+script = ExtResource("1_xs5nn")
+
+[node name="Cloud1" type="Sprite2D" parent="."]
+position = Vector2(262, 44)
+scale = Vector2(4, 4)
+texture = ExtResource("1_542gn")
+
+[node name="Cloud2" type="Sprite2D" parent="."]
+position = Vector2(983, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("1_542gn")
+flip_h = true
+
+[node name="Cloud3" type="Sprite2D" parent="."]
+position = Vector2(33, 74)
+scale = Vector2(4, 4)
+texture = ExtResource("2_kjm15")
+
+[node name="Cloud5" type="Sprite2D" parent="."]
+position = Vector2(360, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("3_a634w")
+flip_h = true
+
+[node name="Cloud6" type="Sprite2D" parent="."]
+position = Vector2(496, 69)
+scale = Vector2(4, 4)
+texture = ExtResource("2_kjm15")
+flip_h = true
+
+[node name="Cloud7" type="Sprite2D" parent="."]
+position = Vector2(623, 105)
+scale = Vector2(4, 4)
+texture = ExtResource("3_a634w")
+
+[node name="Cloud8" type="Sprite2D" parent="."]
+position = Vector2(819, 41)
+scale = Vector2(4, 4)
+texture = ExtResource("3_a634w")
+
+[node name="Cloud9" type="Sprite2D" parent="."]
+position = Vector2(1082, 88)
+scale = Vector2(4, 4)
+texture = ExtResource("4_6u68b")
+
+[node name="Cloud10" type="Sprite2D" parent="."]
+position = Vector2(486, -6)
+scale = Vector2(4, 4)
+texture = ExtResource("4_6u68b")
+
+[node name="Cloud11" type="Sprite2D" parent="."]
+position = Vector2(88, -5)
+scale = Vector2(4, 4)
+texture = ExtResource("5_qbkk4")
+flip_h = true
+
+[node name="Cloud12" type="Sprite2D" parent="."]
+position = Vector2(777, 84)
+scale = Vector2(4, 4)
+texture = ExtResource("5_qbkk4")
+
+[node name="Cloud13" type="Sprite2D" parent="."]
+position = Vector2(648, -4)
+scale = Vector2(4, 4)
+texture = ExtResource("1_542gn")
+
+[node name="LightningTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true

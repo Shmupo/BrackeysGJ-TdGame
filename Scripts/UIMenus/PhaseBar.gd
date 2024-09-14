@@ -38,8 +38,10 @@ func setDefendPhase() -> void:
 
 func setStormPhase() -> void:
 	position.y += hideYShift
-	label.text = "[center][color=purple]Storm Phase"
+	label.text = "[center][color=purple]Storm Phase - THE END IS HERE!"
 	configureDefendPhase()
+	
+	get_parent().add_child(load("res://Scenes/Components/StormWaveClouds.tscn").instantiate())
 
 
 func configureDefendPhase() -> void:
@@ -51,12 +53,10 @@ func configureBuildPhase() -> void:
 	towerMenu.enableMove() # enables move button for towers
 	userInteractableTileMapLayer.inputComponent.enableInput() # user can place tiles
 
+
 func setPhase(value: bool) -> void:
 	buildPhase = value
 	if buildPhase:
 		setBuildPhase()
 	else:
 		setDefendPhase()
-
-func _on_togle_phase_button_button_up() -> void:
-	buildPhase = !buildPhase

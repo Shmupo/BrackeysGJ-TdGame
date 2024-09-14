@@ -5,8 +5,7 @@ extends Node2D
 
 var dragging: bool = false
 var offset: Vector2 = Vector2(0, 0)
-# how far you can drop this from a mod slot to snap it in
-var snapDistance: float = 50
+var snapDistance: float = 60
 var modSlot: ModSlot = null
 
 
@@ -18,11 +17,13 @@ func _ready() -> void:
 func onDrag() -> void:
 	dragging = true
 	offset = get_global_mouse_position() - modItem.global_position
+	if modSlot != null:
+		modSlot.removeModItemFromSlot()
 
 
 # try to snap to a modSlot if close enough
 func onReleaseFromDrag() -> void:
-	if modSlot:
+	if modSlot != null:
 		modSlot.removeModItemFromSlot()
 	dragging = false
 	snapToSlotInRange()
@@ -34,9 +35,10 @@ func snapToSlotInRange() -> void:
 	
 	for slot: ModSlot in modSlots:
 		if modItem.global_position.distance_to(slot.global_position) < snapDistance:
-			slot.placeModItemInSlot(modItem)
-			modSlot = slot
-			break
+			if slot.modItem == null:
+				slot.placeModItemInSlot(modItem)
+				modSlot = slot
+				break
 
 
 func _process(delta: float) -> void:

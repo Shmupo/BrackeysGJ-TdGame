@@ -40,3 +40,7 @@ func removeModItemFromSlot() -> void:
 func removeModItemNoSignal() -> void:
 	if modItem != null:
 		modItem = null
+
+
+func empty() -> void:
+	modItem = null
